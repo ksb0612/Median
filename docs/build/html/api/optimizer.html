@@ -1,0 +1,812 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Budget Optimizer &mdash; Ridge MMM v0.1.0</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=03e43079" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=19f00094" />
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../_static/documentation_options.js?v=01f34227"></script>
+        <script src="../_static/doctools.js?v=9a2dae69"></script>
+        <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+        <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+        <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Visualizations" href="visualizations.html" />
+    <link rel="prev" title="Hierarchical MMM" href="hierarchical_mmm.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            Ridge MMM
+          </a>
+              <div class="version">
+                0.1.0
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">User Documentation</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../user_guide.html">Ridge MMM User Guide</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../user_guide.html#table-of-contents">Table of Contents</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../user_guide.html#introduction">Introduction</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../user_guide.html#what-is-marketing-mix-modeling-mmm">What is Marketing Mix Modeling (MMM)?</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../user_guide.html#when-to-use-this-tool">When to Use This Tool</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../user_guide.html#quick-start">Quick Start</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../user_guide.html#step-1-prepare-your-data">Step 1: Prepare Your Data</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../user_guide.html#step-2-upload-data">Step 2: Upload Data</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../user_guide.html#step-3-configure-model">Step 3: Configure Model</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../user_guide.html#step-4-analyze-results">Step 4: Analyze Results</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../user_guide.html#step-5-optimize-budget">Step 5: Optimize Budget</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../user_guide.html#data-preparation">Data Preparation</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../user_guide.html#data-format-requirements">Data Format Requirements</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../user_guide.html#column-naming">Column Naming</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../user_guide.html#multi-market-data-format">Multi-Market Data Format</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../user_guide.html#data-quality-checks">Data Quality Checks</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../user_guide.html#model-configuration">Model Configuration</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../user_guide.html#understanding-adstock-carryover-effect">Understanding Adstock (Carryover Effect)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../user_guide.html#understanding-hill-saturation">Understanding Hill Saturation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../user_guide.html#model-settings">Model Settings</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../user_guide.html#understanding-results">Understanding Results</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../user_guide.html#channel-contributions-tab">Channel Contributions Tab</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../user_guide.html#response-curves-tab">Response Curves Tab</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../user_guide.html#model-diagnostics-tab">Model Diagnostics Tab</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../user_guide.html#budget-optimization">Budget Optimization</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../user_guide.html#using-the-optimizer">Using the Optimizer</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../user_guide.html#scenario-builder">Scenario Builder</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../user_guide.html#interpreting-recommendations">Interpreting Recommendations</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../user_guide.html#multi-market-analysis">Multi-Market Analysis</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../user_guide.html#setting-up-multi-market-models">Setting Up Multi-Market Models</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../user_guide.html#comparing-markets">Comparing Markets</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../user_guide.html#cross-market-insights">Cross-Market Insights</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../user_guide.html#best-practices">Best Practices</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../user_guide.html#data-collection">Data Collection</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../user_guide.html#model-development">Model Development</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../user_guide.html#using-results">Using Results</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../user_guide.html#troubleshooting">Troubleshooting</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../user_guide.html#model-has-poor-fit-r2-0-5">“Model has poor fit (R² &lt; 0.5)”</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../user_guide.html#optimization-suggests-extreme-allocations">“Optimization suggests extreme allocations”</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../user_guide.html#results-dont-match-my-intuition">“Results don’t match my intuition”</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../user_guide.html#different-from-last-click-attribution">“Different from last-click attribution”</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../user_guide.html#glossary">Glossary</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../user_guide.html#support-resources">Support &amp; Resources</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../quick_reference.html">Quick Reference Card</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../quick_reference.html#essential-formulas">Essential Formulas</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../quick_reference.html#roas-calculation">ROAS Calculation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../quick_reference.html#adstock-transformation">Adstock Transformation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../quick_reference.html#hill-saturation">Hill Saturation</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../quick_reference.html#parameter-quick-guide">Parameter Quick Guide</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../quick_reference.html#interpretation-guide">Interpretation Guide</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../quick_reference.html#roas-benchmarks">ROAS Benchmarks</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../quick_reference.html#model-fit-r2">Model Fit (R²)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../quick_reference.html#mape-prediction-error">MAPE (Prediction Error)</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../quick_reference.html#common-workflows">Common Workflows</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../quick_reference.html#weekly-refresh">Weekly Refresh</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../quick_reference.html#monthly-budget-planning">Monthly Budget Planning</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../quick_reference.html#quarterly-strategy-review">Quarterly Strategy Review</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../quick_reference.html#keyboard-shortcuts-streamlit">Keyboard Shortcuts (Streamlit)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../quick_reference.html#file-locations">File Locations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../quick_reference.html#error-messages">Error Messages</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../quick_reference.html#pro-tips">Pro Tips</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials.html">Tutorials</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../tutorials.html#coming-soon">Coming Soon</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../faq.html">Frequently Asked Questions</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../faq.html#general-questions">General Questions</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../faq.html#what-is-marketing-mix-modeling-mmm">What is Marketing Mix Modeling (MMM)?</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../faq.html#how-is-this-different-from-attribution-models">How is this different from attribution models?</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../faq.html#how-much-data-do-i-need">How much data do I need?</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../faq.html#model-questions">Model Questions</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../faq.html#what-does-the-alpha-parameter-do">What does the alpha parameter do?</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../faq.html#how-do-i-choose-adstock-parameters">How do I choose adstock parameters?</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../faq.html#what-if-my-r2-is-low">What if my R² is low?</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../faq.html#optimization-questions">Optimization Questions</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../faq.html#why-does-the-optimizer-suggest-extreme-allocations">Why does the optimizer suggest extreme allocations?</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../faq.html#can-i-optimize-for-multiple-objectives">Can I optimize for multiple objectives?</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../faq.html#technical-questions">Technical Questions</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../faq.html#can-i-use-daily-data-instead-of-weekly">Can I use daily data instead of weekly?</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../faq.html#does-this-support-bayesian-mmm">Does this support Bayesian MMM?</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../faq.html#can-i-add-custom-transformations">Can I add custom transformations?</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../faq.html#still-have-questions">Still Have Questions?</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">API Reference</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="data_processor.html">Data Processor</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="data_processor.html#src.data_processor.DataProcessor"><code class="docutils literal notranslate"><span class="pre">DataProcessor</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="data_processor.html#src.data_processor.DataProcessor.__init__"><code class="docutils literal notranslate"><span class="pre">DataProcessor.__init__()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="data_processor.html#src.data_processor.DataProcessor.load_csv"><code class="docutils literal notranslate"><span class="pre">DataProcessor.load_csv()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="data_processor.html#src.data_processor.DataProcessor.validate_data"><code class="docutils literal notranslate"><span class="pre">DataProcessor.validate_data()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="data_processor.html#src.data_processor.DataProcessor.check_missing_values"><code class="docutils literal notranslate"><span class="pre">DataProcessor.check_missing_values()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="data_processor.html#src.data_processor.DataProcessor.detect_outliers"><code class="docutils literal notranslate"><span class="pre">DataProcessor.detect_outliers()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="data_processor.html#src.data_processor.DataProcessor.get_summary_stats"><code class="docutils literal notranslate"><span class="pre">DataProcessor.get_summary_stats()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="data_processor.html#src.data_processor.DataProcessor.convert_date_column"><code class="docutils literal notranslate"><span class="pre">DataProcessor.convert_date_column()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="data_processor.html#src.data_processor.DataProcessor.get_date_range"><code class="docutils literal notranslate"><span class="pre">DataProcessor.get_date_range()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="data_processor.html#src.data_processor.DataProcessor.detect_data_format"><code class="docutils literal notranslate"><span class="pre">DataProcessor.detect_data_format()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="data_processor.html#src.data_processor.DataProcessor.validate_multi_market_data"><code class="docutils literal notranslate"><span class="pre">DataProcessor.validate_multi_market_data()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="data_processor.html#src.data_processor.DataProcessor.aggregate_data"><code class="docutils literal notranslate"><span class="pre">DataProcessor.aggregate_data()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="data_processor.html#src.data_processor.DataProcessor.get_market_segments"><code class="docutils literal notranslate"><span class="pre">DataProcessor.get_market_segments()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="data_processor.html#src.data_processor.DataProcessor.get_market_hierarchy"><code class="docutils literal notranslate"><span class="pre">DataProcessor.get_market_hierarchy()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="data_processor.html#dataprocessor-class">DataProcessor Class</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="data_processor.html#id0"><code class="docutils literal notranslate"><span class="pre">DataProcessor</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="data_processor.html#id1"><code class="docutils literal notranslate"><span class="pre">DataProcessor.__init__()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="data_processor.html#id2"><code class="docutils literal notranslate"><span class="pre">DataProcessor.load_csv()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="data_processor.html#id3"><code class="docutils literal notranslate"><span class="pre">DataProcessor.validate_data()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="data_processor.html#id4"><code class="docutils literal notranslate"><span class="pre">DataProcessor.check_missing_values()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="data_processor.html#id5"><code class="docutils literal notranslate"><span class="pre">DataProcessor.detect_outliers()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="data_processor.html#id6"><code class="docutils literal notranslate"><span class="pre">DataProcessor.get_summary_stats()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="data_processor.html#id7"><code class="docutils literal notranslate"><span class="pre">DataProcessor.convert_date_column()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="data_processor.html#id8"><code class="docutils literal notranslate"><span class="pre">DataProcessor.get_date_range()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="data_processor.html#id9"><code class="docutils literal notranslate"><span class="pre">DataProcessor.detect_data_format()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="data_processor.html#id10"><code class="docutils literal notranslate"><span class="pre">DataProcessor.validate_multi_market_data()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="data_processor.html#id11"><code class="docutils literal notranslate"><span class="pre">DataProcessor.aggregate_data()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="data_processor.html#id12"><code class="docutils literal notranslate"><span class="pre">DataProcessor.get_market_segments()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="data_processor.html#id13"><code class="docutils literal notranslate"><span class="pre">DataProcessor.get_market_hierarchy()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="data_processor.html#usage-example">Usage Example</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="transformations.html">Transformations</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="transformations.html#src.transformations.AdstockTransformer"><code class="docutils literal notranslate"><span class="pre">AdstockTransformer</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="transformations.html#src.transformations.AdstockTransformer.decay_rate"><code class="docutils literal notranslate"><span class="pre">AdstockTransformer.decay_rate</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="transformations.html#src.transformations.AdstockTransformer.__init__"><code class="docutils literal notranslate"><span class="pre">AdstockTransformer.__init__()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="transformations.html#src.transformations.AdstockTransformer.transform"><code class="docutils literal notranslate"><span class="pre">AdstockTransformer.transform()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="transformations.html#src.transformations.AdstockTransformer.get_decay_curve"><code class="docutils literal notranslate"><span class="pre">AdstockTransformer.get_decay_curve()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="transformations.html#src.transformations.HillTransformer"><code class="docutils literal notranslate"><span class="pre">HillTransformer</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="transformations.html#src.transformations.HillTransformer.K"><code class="docutils literal notranslate"><span class="pre">HillTransformer.K</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="transformations.html#src.transformations.HillTransformer.S"><code class="docutils literal notranslate"><span class="pre">HillTransformer.S</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="transformations.html#src.transformations.HillTransformer.__init__"><code class="docutils literal notranslate"><span class="pre">HillTransformer.__init__()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="transformations.html#src.transformations.HillTransformer.transform"><code class="docutils literal notranslate"><span class="pre">HillTransformer.transform()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="transformations.html#src.transformations.HillTransformer.get_response_curve"><code class="docutils literal notranslate"><span class="pre">HillTransformer.get_response_curve()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="transformations.html#src.transformations.TransformationPipeline"><code class="docutils literal notranslate"><span class="pre">TransformationPipeline</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="transformations.html#src.transformations.TransformationPipeline.channel_configs"><code class="docutils literal notranslate"><span class="pre">TransformationPipeline.channel_configs</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="transformations.html#src.transformations.TransformationPipeline.__init__"><code class="docutils literal notranslate"><span class="pre">TransformationPipeline.__init__()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="transformations.html#src.transformations.TransformationPipeline.fit_transform"><code class="docutils literal notranslate"><span class="pre">TransformationPipeline.fit_transform()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="transformations.html#src.transformations.TransformationPipeline.transform"><code class="docutils literal notranslate"><span class="pre">TransformationPipeline.transform()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="transformations.html#src.transformations.TransformationPipeline.get_transformation_summary"><code class="docutils literal notranslate"><span class="pre">TransformationPipeline.get_transformation_summary()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="transformations.html#src.transformations.TransformationPipeline.transform_single_channel"><code class="docutils literal notranslate"><span class="pre">TransformationPipeline.transform_single_channel()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="transformations.html#adstock-transformer">Adstock Transformer</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="transformations.html#id0"><code class="docutils literal notranslate"><span class="pre">AdstockTransformer</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="transformations.html#id1"><code class="docutils literal notranslate"><span class="pre">AdstockTransformer.decay_rate</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="transformations.html#id2"><code class="docutils literal notranslate"><span class="pre">AdstockTransformer.__init__()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="transformations.html#id3"><code class="docutils literal notranslate"><span class="pre">AdstockTransformer.transform()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="transformations.html#id4"><code class="docutils literal notranslate"><span class="pre">AdstockTransformer.get_decay_curve()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="transformations.html#hill-transformer">Hill Transformer</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="transformations.html#id5"><code class="docutils literal notranslate"><span class="pre">HillTransformer</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="transformations.html#id6"><code class="docutils literal notranslate"><span class="pre">HillTransformer.K</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="transformations.html#id7"><code class="docutils literal notranslate"><span class="pre">HillTransformer.S</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="transformations.html#id8"><code class="docutils literal notranslate"><span class="pre">HillTransformer.__init__()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="transformations.html#id9"><code class="docutils literal notranslate"><span class="pre">HillTransformer.transform()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="transformations.html#id10"><code class="docutils literal notranslate"><span class="pre">HillTransformer.get_response_curve()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="transformations.html#transformation-pipeline">Transformation Pipeline</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="transformations.html#id11"><code class="docutils literal notranslate"><span class="pre">TransformationPipeline</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="transformations.html#id12"><code class="docutils literal notranslate"><span class="pre">TransformationPipeline.channel_configs</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="transformations.html#id13"><code class="docutils literal notranslate"><span class="pre">TransformationPipeline.__init__()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="transformations.html#id14"><code class="docutils literal notranslate"><span class="pre">TransformationPipeline.fit_transform()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="transformations.html#id15"><code class="docutils literal notranslate"><span class="pre">TransformationPipeline.transform()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="transformations.html#id16"><code class="docutils literal notranslate"><span class="pre">TransformationPipeline.get_transformation_summary()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="transformations.html#id17"><code class="docutils literal notranslate"><span class="pre">TransformationPipeline.transform_single_channel()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="transformations.html#usage-examples">Usage Examples</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="transformations.html#adstock-example">Adstock Example</a></li>
+<li class="toctree-l3"><a class="reference internal" href="transformations.html#hill-saturation-example">Hill Saturation Example</a></li>
+<li class="toctree-l3"><a class="reference internal" href="transformations.html#pipeline-example">Pipeline Example</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="ridge_mmm.html">Ridge MMM</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="ridge_mmm.html#ridgemmm-class">RidgeMMM Class</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ridge_mmm.html#model-architecture">Model Architecture</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ridge_mmm.html#usage-example">Usage Example</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="ridge_mmm.html#basic-usage">Basic Usage</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ridge_mmm.html#getting-contributions">Getting Contributions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ridge_mmm.html#calculating-roas">Calculating ROAS</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ridge_mmm.html#response-curves">Response Curves</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ridge_mmm.html#model-diagnostics">Model Diagnostics</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="ridge_mmm.html#mathematical-formulation">Mathematical Formulation</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="hierarchical_mmm.html">Hierarchical MMM</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="hierarchical_mmm.html#hierarchicalmmm-class">HierarchicalMMM Class</a></li>
+<li class="toctree-l2"><a class="reference internal" href="hierarchical_mmm.html#overview">Overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="hierarchical_mmm.html#use-cases">Use Cases</a></li>
+<li class="toctree-l2"><a class="reference internal" href="hierarchical_mmm.html#usage-example">Usage Example</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="hierarchical_mmm.html#basic-segmentation">Basic Segmentation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="hierarchical_mmm.html#segment-specific-roas">Segment-Specific ROAS</a></li>
+<li class="toctree-l3"><a class="reference internal" href="hierarchical_mmm.html#compare-segments">Compare Segments</a></li>
+<li class="toctree-l3"><a class="reference internal" href="hierarchical_mmm.html#segment-performance">Segment Performance</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="hierarchical_mmm.html#pooling-strategies">Pooling Strategies</a></li>
+<li class="toctree-l2"><a class="reference internal" href="hierarchical_mmm.html#best-practices">Best Practices</a></li>
+<li class="toctree-l2"><a class="reference internal" href="hierarchical_mmm.html#example-global-campaign-analysis">Example: Global Campaign Analysis</a></li>
+</ul>
+</li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Budget Optimizer</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#budgetoptimizer-class">BudgetOptimizer Class</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#optimizationerror">OptimizationError</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#optimization-problem">Optimization Problem</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#usage-example">Usage Example</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#basic-optimization">Basic Optimization</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#with-constraints">With Constraints</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#scenario-comparison">Scenario Comparison</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#marginal-roas">Marginal ROAS</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#optimization-algorithms">Optimization Algorithms</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#best-practices">Best Practices</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#troubleshooting">Troubleshooting</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#example-monthly-budget-planning">Example: Monthly Budget Planning</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="visualizations.html">Visualizations</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="visualizations.html#plotting-functions">Plotting Functions</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="visualizations.html#channel-contributions-waterfall">Channel Contributions Waterfall</a></li>
+<li class="toctree-l3"><a class="reference internal" href="visualizations.html#response-curves">Response Curves</a></li>
+<li class="toctree-l3"><a class="reference internal" href="visualizations.html#roas-comparison">ROAS Comparison</a></li>
+<li class="toctree-l3"><a class="reference internal" href="visualizations.html#model-diagnostics">Model Diagnostics</a></li>
+<li class="toctree-l3"><a class="reference internal" href="visualizations.html#multi-market-heatmap">Multi-Market Heatmap</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="visualizations.html#usage-examples">Usage Examples</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="visualizations.html#waterfall-chart">Waterfall Chart</a></li>
+<li class="toctree-l3"><a class="reference internal" href="visualizations.html#id1">Response Curves</a></li>
+<li class="toctree-l3"><a class="reference internal" href="visualizations.html#id2">ROAS Comparison</a></li>
+<li class="toctree-l3"><a class="reference internal" href="visualizations.html#id3">Model Diagnostics</a></li>
+<li class="toctree-l3"><a class="reference internal" href="visualizations.html#multi-market-analysis">Multi-Market Analysis</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="visualizations.html#customization">Customization</a></li>
+<li class="toctree-l2"><a class="reference internal" href="visualizations.html#exporting">Exporting</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="utils.html">Utilities</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="utils.html#data-utils">Data Utils</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="utils.html#src.utils.data_utils.validate_required_columns"><code class="docutils literal notranslate"><span class="pre">validate_required_columns()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="utils.html#src.utils.data_utils.validate_column_types"><code class="docutils literal notranslate"><span class="pre">validate_column_types()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="utils.html#src.utils.data_utils.safe_divide"><code class="docutils literal notranslate"><span class="pre">safe_divide()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="utils.html#key-functions">Key Functions</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="utils.html#segment-utils">Segment Utils</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="utils.html#src.utils.segment_utils.parse_segment"><code class="docutils literal notranslate"><span class="pre">parse_segment()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="utils.html#src.utils.segment_utils.filter_by_segment"><code class="docutils literal notranslate"><span class="pre">filter_by_segment()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="utils.html#src.utils.segment_utils.get_segment_hierarchy"><code class="docutils literal notranslate"><span class="pre">get_segment_hierarchy()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="utils.html#id1">Key Functions</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="utils.html#plot-utils">Plot Utils</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="utils.html#src.utils.plot_utils.get_default_layout"><code class="docutils literal notranslate"><span class="pre">get_default_layout()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="utils.html#src.utils.plot_utils.apply_default_layout"><code class="docutils literal notranslate"><span class="pre">apply_default_layout()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="utils.html#src.utils.plot_utils.get_color_palette"><code class="docutils literal notranslate"><span class="pre">get_color_palette()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="utils.html#src.utils.plot_utils.format_currency"><code class="docutils literal notranslate"><span class="pre">format_currency()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="utils.html#src.utils.plot_utils.format_percentage"><code class="docutils literal notranslate"><span class="pre">format_percentage()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="utils.html#src.utils.plot_utils.add_annotation"><code class="docutils literal notranslate"><span class="pre">add_annotation()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="utils.html#id2">Key Functions</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="utils.html#id0"><code class="docutils literal notranslate"><span class="pre">format_currency()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="utils.html#usage-examples">Usage Examples</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="utils.html#data-validation">Data Validation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="utils.html#weekly-aggregation">Weekly Aggregation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="utils.html#fill-missing-weeks">Fill Missing Weeks</a></li>
+<li class="toctree-l3"><a class="reference internal" href="utils.html#outlier-detection">Outlier Detection</a></li>
+<li class="toctree-l3"><a class="reference internal" href="utils.html#segment-analysis">Segment Analysis</a></li>
+<li class="toctree-l3"><a class="reference internal" href="utils.html#currency-formatting">Currency Formatting</a></li>
+<li class="toctree-l3"><a class="reference internal" href="utils.html#color-palettes">Color Palettes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="utils.html#add-plot-annotations">Add Plot Annotations</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="utils.html#helper-constants">Helper Constants</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Development</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../contributing.html">Contributing to Ridge MMM</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../contributing.html#getting-started">Getting Started</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../contributing.html#development-workflow">Development Workflow</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../contributing.html#creating-a-branch">Creating a Branch</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../contributing.html#making-changes">Making Changes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../contributing.html#code-style">Code Style</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../contributing.html#testing">Testing</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../contributing.html#documentation">Documentation</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../contributing.html#submitting-changes">Submitting Changes</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../contributing.html#commit-messages">Commit Messages</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../contributing.html#pull-requests">Pull Requests</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../contributing.html#code-review">Code Review</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../contributing.html#areas-for-contribution">Areas for Contribution</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../contributing.html#high-priority">High Priority</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../contributing.html#medium-priority">Medium Priority</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../contributing.html#id1">Documentation</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../contributing.html#questions">Questions?</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../changelog.html">Changelog</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../changelog.html#unreleased">[Unreleased]</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../changelog.html#added">Added</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../changelog.html#xx">[0.1.0] - 2024-01-XX</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../changelog.html#id1">Added</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../changelog.html#features">Features</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../changelog.html#core-modeling">Core Modeling</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../changelog.html#transformations">Transformations</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../changelog.html#optimization">Optimization</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../changelog.html#multi-market">Multi-Market</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../changelog.html#user-interface">User Interface</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../changelog.html#documentation">Documentation</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../changelog.html#initial-development">[0.0.1] - Initial Development</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../changelog.html#id2">Added</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../changelog.html#version-history-legend">Version History Legend</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../architecture.html">Architecture Overview</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../architecture.html#high-level-architecture">High-Level Architecture</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../architecture.html#component-details">Component Details</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../architecture.html#data-processor-src-data-processor-py">1. Data Processor (<code class="docutils literal notranslate"><span class="pre">src/data_processor.py</span></code>)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../architecture.html#transformations-src-transformations-py">2. Transformations (<code class="docutils literal notranslate"><span class="pre">src/transformations.py</span></code>)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../architecture.html#ridge-mmm-src-ridge-mmm-py">3. Ridge MMM (<code class="docutils literal notranslate"><span class="pre">src/ridge_mmm.py</span></code>)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../architecture.html#hierarchical-mmm-src-hierarchical-mmm-py">4. Hierarchical MMM (<code class="docutils literal notranslate"><span class="pre">src/hierarchical_mmm.py</span></code>)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../architecture.html#budget-optimizer-src-optimizer-py">5. Budget Optimizer (<code class="docutils literal notranslate"><span class="pre">src/optimizer.py</span></code>)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../architecture.html#visualizations-src-visualizations-py">6. Visualizations (<code class="docutils literal notranslate"><span class="pre">src/visualizations.py</span></code>)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../architecture.html#utilities-src-utils">7. Utilities (<code class="docutils literal notranslate"><span class="pre">src/utils/</span></code>)</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../architecture.html#streamlit-interface">Streamlit Interface</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../architecture.html#page-structure">Page Structure</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../architecture.html#state-management">State Management</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../architecture.html#data-flow">Data Flow</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../architecture.html#complete-workflow">Complete Workflow</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../architecture.html#design-principles">Design Principles</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../architecture.html#separation-of-concerns">1. Separation of Concerns</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../architecture.html#modularity">2. Modularity</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../architecture.html#type-safety">3. Type Safety</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../architecture.html#testability">4. Testability</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../architecture.html#documentation">5. Documentation</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../architecture.html#extension-points">Extension Points</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../architecture.html#adding-new-transformations">Adding New Transformations</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../architecture.html#adding-new-optimization-algorithms">Adding New Optimization Algorithms</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../architecture.html#custom-visualizations">Custom Visualizations</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../architecture.html#performance-considerations">Performance Considerations</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../architecture.html#bottlenecks">Bottlenecks</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../architecture.html#optimizations">Optimizations</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../architecture.html#security">Security</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../architecture.html#data-privacy">Data Privacy</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../architecture.html#input-validation">Input Validation</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../architecture.html#future-architecture-enhancements">Future Architecture Enhancements</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../architecture.html#planned">Planned</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../architecture.html#under-consideration">Under Consideration</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Ridge MMM</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content style-external-links">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Budget Optimizer</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/api/optimizer.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="budget-optimizer">
+<h1>Budget Optimizer<a class="headerlink" href="#budget-optimizer" title="Link to this heading"></a></h1>
+<p>Budget allocation optimization based on MMM response curves.</p>
+<section id="budgetoptimizer-class">
+<h2>BudgetOptimizer Class<a class="headerlink" href="#budgetoptimizer-class" title="Link to this heading"></a></h2>
+<p>Optimizes budget allocation across channels to maximize predicted revenue.</p>
+</section>
+<section id="optimizationerror">
+<h2>OptimizationError<a class="headerlink" href="#optimizationerror" title="Link to this heading"></a></h2>
+<p>Exception raised when optimization fails.</p>
+</section>
+<section id="optimization-problem">
+<h2>Optimization Problem<a class="headerlink" href="#optimization-problem" title="Link to this heading"></a></h2>
+<p>The budget optimization problem is formulated as:</p>
+<div class="math notranslate nohighlight">
+\[ \begin{align}\begin{aligned}\begin{split}\\max_{x_1, ..., x_n} \\sum_{i=1}^{n} f_i(x_i)\end{split}\\\begin{split}\\text{subject to:}\end{split}\\\begin{split}\\sum_{i=1}^{n} x_i = B\end{split}\\\begin{split}L_i \\leq x_i \\leq U_i \\quad \\forall i\end{split}\end{aligned}\end{align} \]</div>
+<p>where:</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(x_i\)</span> is the spend on channel <span class="math notranslate nohighlight">\(i\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(f_i(x_i)\)</span> is the revenue response function for channel <span class="math notranslate nohighlight">\(i\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(B\)</span> is the total budget</p></li>
+<li><p><span class="math notranslate nohighlight">\(L_i, U_i\)</span> are lower/upper bounds on channel <span class="math notranslate nohighlight">\(i\)</span></p></li>
+</ul>
+</section>
+<section id="usage-example">
+<h2>Usage Example<a class="headerlink" href="#usage-example" title="Link to this heading"></a></h2>
+<section id="basic-optimization">
+<h3>Basic Optimization<a class="headerlink" href="#basic-optimization" title="Link to this heading"></a></h3>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">src.optimizer</span><span class="w"> </span><span class="kn">import</span> <span class="n">BudgetOptimizer</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">src.ridge_mmm</span><span class="w"> </span><span class="kn">import</span> <span class="n">RidgeMMM</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
+
+<span class="c1"># Assume we have a trained MMM model</span>
+<span class="n">mmm</span> <span class="o">=</span> <span class="n">RidgeMMM</span><span class="p">(</span><span class="n">alpha</span><span class="o">=</span><span class="mf">1.0</span><span class="p">)</span>
+<span class="c1"># ... (fit model) ...</span>
+
+<span class="c1"># Initialize optimizer</span>
+<span class="n">optimizer</span> <span class="o">=</span> <span class="n">BudgetOptimizer</span><span class="p">(</span><span class="n">model</span><span class="o">=</span><span class="n">mmm</span><span class="p">)</span>
+
+<span class="c1"># Optimize for total budget</span>
+<span class="n">total_budget</span> <span class="o">=</span> <span class="mi">5000000</span>  <span class="c1"># $5M</span>
+<span class="n">optimal_allocation</span> <span class="o">=</span> <span class="n">optimizer</span><span class="o">.</span><span class="n">optimize</span><span class="p">(</span>
+    <span class="n">total_budget</span><span class="o">=</span><span class="n">total_budget</span><span class="p">,</span>
+    <span class="n">channels</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;google_uac&#39;</span><span class="p">,</span> <span class="s1">&#39;meta&#39;</span><span class="p">,</span> <span class="s1">&#39;apple_search&#39;</span><span class="p">]</span>
+<span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">optimal_allocation</span><span class="p">)</span>
+<span class="c1"># Output:</span>
+<span class="c1"># {</span>
+<span class="c1">#     &#39;google_uac&#39;: 2500000,</span>
+<span class="c1">#     &#39;meta&#39;: 1800000,</span>
+<span class="c1">#     &#39;apple_search&#39;: 700000,</span>
+<span class="c1">#     &#39;predicted_revenue&#39;: 15200000,</span>
+<span class="c1">#     &#39;total_roas&#39;: 3.04</span>
+<span class="c1"># }</span>
+</pre></div>
+</div>
+</section>
+<section id="with-constraints">
+<h3>With Constraints<a class="headerlink" href="#with-constraints" title="Link to this heading"></a></h3>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Set channel constraints</span>
+<span class="n">constraints</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s1">&#39;google_uac&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;min&#39;</span><span class="p">:</span> <span class="mi">1000000</span><span class="p">,</span> <span class="s1">&#39;max&#39;</span><span class="p">:</span> <span class="mi">3000000</span><span class="p">},</span>  <span class="c1"># $1M-$3M</span>
+    <span class="s1">&#39;meta&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;min&#39;</span><span class="p">:</span> <span class="mi">500000</span><span class="p">,</span> <span class="s1">&#39;max&#39;</span><span class="p">:</span> <span class="mi">2000000</span><span class="p">},</span>         <span class="c1"># $0.5M-$2M</span>
+    <span class="s1">&#39;apple_search&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;min&#39;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span> <span class="s1">&#39;max&#39;</span><span class="p">:</span> <span class="mi">2000000</span><span class="p">}</span>       <span class="c1"># $0-$2M</span>
+<span class="p">}</span>
+
+<span class="c1"># Optimize with constraints</span>
+<span class="n">optimal</span> <span class="o">=</span> <span class="n">optimizer</span><span class="o">.</span><span class="n">optimize_with_constraints</span><span class="p">(</span>
+    <span class="n">total_budget</span><span class="o">=</span><span class="mi">5000000</span><span class="p">,</span>
+    <span class="n">constraints</span><span class="o">=</span><span class="n">constraints</span>
+<span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Optimal allocation:&quot;</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">channel</span><span class="p">,</span> <span class="n">spend</span> <span class="ow">in</span> <span class="n">optimal</span><span class="p">[</span><span class="s1">&#39;allocation&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;  </span><span class="si">{</span><span class="n">channel</span><span class="si">}</span><span class="s2">: $</span><span class="si">{</span><span class="n">spend</span><span class="si">:</span><span class="s2">,.0f</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section id="scenario-comparison">
+<h3>Scenario Comparison<a class="headerlink" href="#scenario-comparison" title="Link to this heading"></a></h3>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Define scenarios</span>
+<span class="n">scenarios</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s1">&#39;Current&#39;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s1">&#39;google_uac&#39;</span><span class="p">:</span> <span class="mi">2000000</span><span class="p">,</span>
+        <span class="s1">&#39;meta&#39;</span><span class="p">:</span> <span class="mi">1500000</span><span class="p">,</span>
+        <span class="s1">&#39;apple_search&#39;</span><span class="p">:</span> <span class="mi">1500000</span>
+    <span class="p">},</span>
+    <span class="s1">&#39;Aggressive&#39;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s1">&#39;google_uac&#39;</span><span class="p">:</span> <span class="mi">3000000</span><span class="p">,</span>
+        <span class="s1">&#39;meta&#39;</span><span class="p">:</span> <span class="mi">1500000</span><span class="p">,</span>
+        <span class="s1">&#39;apple_search&#39;</span><span class="p">:</span> <span class="mi">500000</span>
+    <span class="p">},</span>
+    <span class="s1">&#39;Balanced&#39;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s1">&#39;google_uac&#39;</span><span class="p">:</span> <span class="mi">2500000</span><span class="p">,</span>
+        <span class="s1">&#39;meta&#39;</span><span class="p">:</span> <span class="mi">1500000</span><span class="p">,</span>
+        <span class="s1">&#39;apple_search&#39;</span><span class="p">:</span> <span class="mi">1000000</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="c1"># Compare scenarios</span>
+<span class="n">comparison</span> <span class="o">=</span> <span class="n">optimizer</span><span class="o">.</span><span class="n">compare_scenarios</span><span class="p">(</span><span class="n">scenarios</span><span class="p">)</span>
+
+<span class="c1"># Visualize</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">plotly.express</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">px</span>
+<span class="n">fig</span> <span class="o">=</span> <span class="n">px</span><span class="o">.</span><span class="n">bar</span><span class="p">(</span>
+    <span class="n">comparison</span><span class="p">,</span>
+    <span class="n">x</span><span class="o">=</span><span class="s1">&#39;scenario&#39;</span><span class="p">,</span>
+    <span class="n">y</span><span class="o">=</span><span class="s1">&#39;predicted_revenue&#39;</span><span class="p">,</span>
+    <span class="n">color</span><span class="o">=</span><span class="s1">&#39;total_roas&#39;</span><span class="p">,</span>
+    <span class="n">title</span><span class="o">=</span><span class="s1">&#39;Scenario Comparison&#39;</span>
+<span class="p">)</span>
+<span class="n">fig</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</section>
+<section id="marginal-roas">
+<h3>Marginal ROAS<a class="headerlink" href="#marginal-roas" title="Link to this heading"></a></h3>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Get marginal ROAS (incremental efficiency)</span>
+<span class="n">marginal_roas</span> <span class="o">=</span> <span class="n">optimizer</span><span class="o">.</span><span class="n">get_marginal_roas</span><span class="p">(</span>
+    <span class="n">current_spend</span><span class="o">=</span><span class="p">{</span>
+        <span class="s1">&#39;google_uac&#39;</span><span class="p">:</span> <span class="mi">2000000</span><span class="p">,</span>
+        <span class="s1">&#39;meta&#39;</span><span class="p">:</span> <span class="mi">1500000</span><span class="p">,</span>
+        <span class="s1">&#39;apple_search&#39;</span><span class="p">:</span> <span class="mi">1500000</span>
+    <span class="p">},</span>
+    <span class="n">increment</span><span class="o">=</span><span class="mi">100000</span>  <span class="c1"># $100K increments</span>
+<span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">marginal_roas</span><span class="p">)</span>
+<span class="c1"># Output:</span>
+<span class="c1"># {</span>
+<span class="c1">#     &#39;google_uac&#39;: 2.5,  # Next $100K yields $2.50 per $1</span>
+<span class="c1">#     &#39;meta&#39;: 2.8,        # Best marginal ROAS</span>
+<span class="c1">#     &#39;apple_search&#39;: 1.8 # Saturating</span>
+<span class="c1"># }</span>
+
+<span class="c1"># Recommendation: Shift budget from apple_search to meta</span>
+</pre></div>
+</div>
+</section>
+</section>
+<section id="optimization-algorithms">
+<h2>Optimization Algorithms<a class="headerlink" href="#optimization-algorithms" title="Link to this heading"></a></h2>
+<p>The optimizer supports multiple algorithms:</p>
+<dl>
+<dt><strong>SLSQP (Default)</strong></dt><dd><p>Sequential Least Squares Programming. Fast and reliable for smooth objectives.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">optimizer</span> <span class="o">=</span> <span class="n">BudgetOptimizer</span><span class="p">(</span><span class="n">model</span><span class="o">=</span><span class="n">mmm</span><span class="p">,</span> <span class="n">method</span><span class="o">=</span><span class="s1">&#39;SLSQP&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</dd>
+<dt><strong>Trust-Constr</strong></dt><dd><p>Trust-region constrained algorithm. More robust for difficult problems.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">optimizer</span> <span class="o">=</span> <span class="n">BudgetOptimizer</span><span class="p">(</span><span class="n">model</span><span class="o">=</span><span class="n">mmm</span><span class="p">,</span> <span class="n">method</span><span class="o">=</span><span class="s1">&#39;trust-constr&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</dd>
+<dt><strong>L-BFGS-B</strong></dt><dd><p>Limited-memory BFGS with bounds. Good for large-scale problems.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">optimizer</span> <span class="o">=</span> <span class="n">BudgetOptimizer</span><span class="p">(</span><span class="n">model</span><span class="o">=</span><span class="n">mmm</span><span class="p">,</span> <span class="n">method</span><span class="o">=</span><span class="s1">&#39;L-BFGS-B&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</dd>
+</dl>
+</section>
+<section id="best-practices">
+<h2>Best Practices<a class="headerlink" href="#best-practices" title="Link to this heading"></a></h2>
+<ol class="arabic">
+<li><p><strong>Set Realistic Constraints</strong></p>
+<p>Don’t allow channels to go to $0 or infinity. Use historical ranges.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Good: Based on historical data</span>
+<span class="n">constraints</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s1">&#39;google&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;min&#39;</span><span class="p">:</span> <span class="n">historical_min</span> <span class="o">*</span> <span class="mf">0.5</span><span class="p">,</span> <span class="s1">&#39;max&#39;</span><span class="p">:</span> <span class="n">historical_max</span> <span class="o">*</span> <span class="mf">1.5</span><span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</li>
+<li><p><strong>Validate Response Curves</strong></p>
+<p>Check that curves are smooth and saturating before optimization.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">curves</span> <span class="o">=</span> <span class="n">mmm</span><span class="o">.</span><span class="n">get_response_curves</span><span class="p">(</span><span class="n">channels</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;google&#39;</span><span class="p">],</span> <span class="n">n_points</span><span class="o">=</span><span class="mi">100</span><span class="p">)</span>
+<span class="c1"># Plot and visually inspect</span>
+</pre></div>
+</div>
+</li>
+<li><p><strong>Gradual Implementation</strong></p>
+<p>Don’t shift entire budget at once. Move 10-20% at a time.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">current_spend</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;google&#39;</span><span class="p">:</span> <span class="mi">2000000</span><span class="p">,</span> <span class="s1">&#39;meta&#39;</span><span class="p">:</span> <span class="mi">1500000</span><span class="p">}</span>
+<span class="n">optimal_spend</span> <span class="o">=</span> <span class="n">optimizer</span><span class="o">.</span><span class="n">optimize</span><span class="p">(</span><span class="n">total_budget</span><span class="o">=</span><span class="mi">3500000</span><span class="p">)</span>
+
+<span class="c1"># Implement 20% of the shift</span>
+<span class="n">gradual_spend</span> <span class="o">=</span> <span class="p">{}</span>
+<span class="k">for</span> <span class="n">channel</span> <span class="ow">in</span> <span class="n">current_spend</span><span class="p">:</span>
+    <span class="n">shift</span> <span class="o">=</span> <span class="n">optimal_spend</span><span class="p">[</span><span class="n">channel</span><span class="p">]</span> <span class="o">-</span> <span class="n">current_spend</span><span class="p">[</span><span class="n">channel</span><span class="p">]</span>
+    <span class="n">gradual_spend</span><span class="p">[</span><span class="n">channel</span><span class="p">]</span> <span class="o">=</span> <span class="n">current_spend</span><span class="p">[</span><span class="n">channel</span><span class="p">]</span> <span class="o">+</span> <span class="mf">0.2</span> <span class="o">*</span> <span class="n">shift</span>
+</pre></div>
+</div>
+</li>
+<li><p><strong>Monitor and Adjust</strong></p>
+<p>Re-optimize monthly as new data comes in.</p>
+</li>
+</ol>
+</section>
+<section id="troubleshooting">
+<h2>Troubleshooting<a class="headerlink" href="#troubleshooting" title="Link to this heading"></a></h2>
+<dl class="simple">
+<dt><strong>Optimization Failed</strong></dt><dd><ul class="simple">
+<li><p>Check constraints are feasible (total budget achievable)</p></li>
+<li><p>Verify response curves are smooth (no discontinuities)</p></li>
+<li><p>Try different optimization method</p></li>
+</ul>
+</dd>
+<dt><strong>Extreme Allocations</strong></dt><dd><ul class="simple">
+<li><p>Add more constraints (min/max per channel)</p></li>
+<li><p>Increase regularization in MMM (alpha parameter)</p></li>
+<li><p>Check for overfitting in underlying model</p></li>
+</ul>
+</dd>
+<dt><strong>Slow Convergence</strong></dt><dd><ul class="simple">
+<li><p>Use simpler method (SLSQP instead of trust-constr)</p></li>
+<li><p>Reduce number of channels</p></li>
+<li><p>Scale spend data (divide by 1M)</p></li>
+</ul>
+</dd>
+</dl>
+</section>
+<section id="example-monthly-budget-planning">
+<h2>Example: Monthly Budget Planning<a class="headerlink" href="#example-monthly-budget-planning" title="Link to this heading"></a></h2>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">src.optimizer</span><span class="w"> </span><span class="kn">import</span> <span class="n">BudgetOptimizer</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">src.ridge_mmm</span><span class="w"> </span><span class="kn">import</span> <span class="n">RidgeMMM</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
+
+<span class="c1"># Load historical data and train model</span>
+<span class="n">data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;marketing_data.csv&#39;</span><span class="p">)</span>
+<span class="n">mmm</span> <span class="o">=</span> <span class="n">RidgeMMM</span><span class="p">(</span><span class="n">alpha</span><span class="o">=</span><span class="mf">1.0</span><span class="p">)</span>
+<span class="n">mmm</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X</span><span class="o">=</span><span class="n">data</span><span class="p">[</span><span class="n">channels</span><span class="p">],</span> <span class="n">y</span><span class="o">=</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;revenue&#39;</span><span class="p">],</span> <span class="n">channel_configs</span><span class="o">=</span><span class="n">configs</span><span class="p">)</span>
+
+<span class="c1"># Monthly budget planning</span>
+<span class="n">monthly_budgets</span> <span class="o">=</span> <span class="p">[</span><span class="mi">4000000</span><span class="p">,</span> <span class="mi">4500000</span><span class="p">,</span> <span class="mi">5000000</span><span class="p">,</span> <span class="mi">5500000</span><span class="p">]</span>
+
+<span class="n">results</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="k">for</span> <span class="n">budget</span> <span class="ow">in</span> <span class="n">monthly_budgets</span><span class="p">:</span>
+    <span class="n">optimal</span> <span class="o">=</span> <span class="n">optimizer</span><span class="o">.</span><span class="n">optimize</span><span class="p">(</span>
+        <span class="n">total_budget</span><span class="o">=</span><span class="n">budget</span><span class="p">,</span>
+        <span class="n">channels</span><span class="o">=</span><span class="n">channels</span><span class="p">,</span>
+        <span class="n">constraints</span><span class="o">=</span><span class="n">constraints</span>
+    <span class="p">)</span>
+    <span class="n">results</span><span class="o">.</span><span class="n">append</span><span class="p">({</span>
+        <span class="s1">&#39;budget&#39;</span><span class="p">:</span> <span class="n">budget</span><span class="p">,</span>
+        <span class="s1">&#39;predicted_revenue&#39;</span><span class="p">:</span> <span class="n">optimal</span><span class="p">[</span><span class="s1">&#39;predicted_revenue&#39;</span><span class="p">],</span>
+        <span class="s1">&#39;roas&#39;</span><span class="p">:</span> <span class="n">optimal</span><span class="p">[</span><span class="s1">&#39;total_roas&#39;</span><span class="p">],</span>
+        <span class="s1">&#39;allocation&#39;</span><span class="p">:</span> <span class="n">optimal</span><span class="p">[</span><span class="s1">&#39;allocation&#39;</span><span class="p">]</span>
+    <span class="p">})</span>
+
+<span class="c1"># Find best budget-revenue trade-off</span>
+<span class="n">df_results</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">results</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">df_results</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="hierarchical_mmm.html" class="btn btn-neutral float-left" title="Hierarchical MMM" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="visualizations.html" class="btn btn-neutral float-right" title="Visualizations" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2024, Ridge MMM Contributors.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

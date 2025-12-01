@@ -1,0 +1,1154 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../../">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>src.data_processor &mdash; Ridge MMM v0.1.0</title>
+      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=03e43079" />
+      <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css?v=19f00094" />
+
+  
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../../_static/documentation_options.js?v=01f34227"></script>
+        <script src="../../_static/doctools.js?v=9a2dae69"></script>
+        <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../index.html" class="icon icon-home">
+            Ridge MMM
+          </a>
+              <div class="version">
+                0.1.0
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">User Documentation</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../user_guide.html">Ridge MMM User Guide</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../user_guide.html#table-of-contents">Table of Contents</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../user_guide.html#introduction">Introduction</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../user_guide.html#what-is-marketing-mix-modeling-mmm">What is Marketing Mix Modeling (MMM)?</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../user_guide.html#when-to-use-this-tool">When to Use This Tool</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../user_guide.html#quick-start">Quick Start</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../user_guide.html#step-1-prepare-your-data">Step 1: Prepare Your Data</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../user_guide.html#step-2-upload-data">Step 2: Upload Data</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../user_guide.html#step-3-configure-model">Step 3: Configure Model</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../user_guide.html#step-4-analyze-results">Step 4: Analyze Results</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../user_guide.html#step-5-optimize-budget">Step 5: Optimize Budget</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../user_guide.html#data-preparation">Data Preparation</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../user_guide.html#data-format-requirements">Data Format Requirements</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../user_guide.html#column-naming">Column Naming</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../user_guide.html#multi-market-data-format">Multi-Market Data Format</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../user_guide.html#data-quality-checks">Data Quality Checks</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../user_guide.html#model-configuration">Model Configuration</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../user_guide.html#understanding-adstock-carryover-effect">Understanding Adstock (Carryover Effect)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../user_guide.html#understanding-hill-saturation">Understanding Hill Saturation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../user_guide.html#model-settings">Model Settings</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../user_guide.html#understanding-results">Understanding Results</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../user_guide.html#channel-contributions-tab">Channel Contributions Tab</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../user_guide.html#response-curves-tab">Response Curves Tab</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../user_guide.html#model-diagnostics-tab">Model Diagnostics Tab</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../user_guide.html#budget-optimization">Budget Optimization</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../user_guide.html#using-the-optimizer">Using the Optimizer</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../user_guide.html#scenario-builder">Scenario Builder</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../user_guide.html#interpreting-recommendations">Interpreting Recommendations</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../user_guide.html#multi-market-analysis">Multi-Market Analysis</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../user_guide.html#setting-up-multi-market-models">Setting Up Multi-Market Models</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../user_guide.html#comparing-markets">Comparing Markets</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../user_guide.html#cross-market-insights">Cross-Market Insights</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../user_guide.html#best-practices">Best Practices</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../user_guide.html#data-collection">Data Collection</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../user_guide.html#model-development">Model Development</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../user_guide.html#using-results">Using Results</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../user_guide.html#troubleshooting">Troubleshooting</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../user_guide.html#model-has-poor-fit-r2-0-5">“Model has poor fit (R² &lt; 0.5)”</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../user_guide.html#optimization-suggests-extreme-allocations">“Optimization suggests extreme allocations”</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../user_guide.html#results-dont-match-my-intuition">“Results don’t match my intuition”</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../user_guide.html#different-from-last-click-attribution">“Different from last-click attribution”</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../user_guide.html#glossary">Glossary</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../user_guide.html#support-resources">Support &amp; Resources</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../quick_reference.html">Quick Reference Card</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../quick_reference.html#essential-formulas">Essential Formulas</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../quick_reference.html#roas-calculation">ROAS Calculation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../quick_reference.html#adstock-transformation">Adstock Transformation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../quick_reference.html#hill-saturation">Hill Saturation</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../quick_reference.html#parameter-quick-guide">Parameter Quick Guide</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../quick_reference.html#interpretation-guide">Interpretation Guide</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../quick_reference.html#roas-benchmarks">ROAS Benchmarks</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../quick_reference.html#model-fit-r2">Model Fit (R²)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../quick_reference.html#mape-prediction-error">MAPE (Prediction Error)</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../quick_reference.html#common-workflows">Common Workflows</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../quick_reference.html#weekly-refresh">Weekly Refresh</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../quick_reference.html#monthly-budget-planning">Monthly Budget Planning</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../quick_reference.html#quarterly-strategy-review">Quarterly Strategy Review</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../quick_reference.html#keyboard-shortcuts-streamlit">Keyboard Shortcuts (Streamlit)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../quick_reference.html#file-locations">File Locations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../quick_reference.html#error-messages">Error Messages</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../quick_reference.html#pro-tips">Pro Tips</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../tutorials.html">Tutorials</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../tutorials.html#coming-soon">Coming Soon</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../faq.html">Frequently Asked Questions</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../faq.html#general-questions">General Questions</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../faq.html#what-is-marketing-mix-modeling-mmm">What is Marketing Mix Modeling (MMM)?</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../faq.html#how-is-this-different-from-attribution-models">How is this different from attribution models?</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../faq.html#how-much-data-do-i-need">How much data do I need?</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../faq.html#model-questions">Model Questions</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../faq.html#what-does-the-alpha-parameter-do">What does the alpha parameter do?</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../faq.html#how-do-i-choose-adstock-parameters">How do I choose adstock parameters?</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../faq.html#what-if-my-r2-is-low">What if my R² is low?</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../faq.html#optimization-questions">Optimization Questions</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../faq.html#why-does-the-optimizer-suggest-extreme-allocations">Why does the optimizer suggest extreme allocations?</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../faq.html#can-i-optimize-for-multiple-objectives">Can I optimize for multiple objectives?</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../faq.html#technical-questions">Technical Questions</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../faq.html#can-i-use-daily-data-instead-of-weekly">Can I use daily data instead of weekly?</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../faq.html#does-this-support-bayesian-mmm">Does this support Bayesian MMM?</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../faq.html#can-i-add-custom-transformations">Can I add custom transformations?</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../faq.html#still-have-questions">Still Have Questions?</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">API Reference</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../api/data_processor.html">Data Processor</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../api/data_processor.html#src.data_processor.DataProcessor"><code class="docutils literal notranslate"><span class="pre">DataProcessor</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../api/data_processor.html#src.data_processor.DataProcessor.__init__"><code class="docutils literal notranslate"><span class="pre">DataProcessor.__init__()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../api/data_processor.html#src.data_processor.DataProcessor.load_csv"><code class="docutils literal notranslate"><span class="pre">DataProcessor.load_csv()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../api/data_processor.html#src.data_processor.DataProcessor.validate_data"><code class="docutils literal notranslate"><span class="pre">DataProcessor.validate_data()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../api/data_processor.html#src.data_processor.DataProcessor.check_missing_values"><code class="docutils literal notranslate"><span class="pre">DataProcessor.check_missing_values()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../api/data_processor.html#src.data_processor.DataProcessor.detect_outliers"><code class="docutils literal notranslate"><span class="pre">DataProcessor.detect_outliers()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../api/data_processor.html#src.data_processor.DataProcessor.get_summary_stats"><code class="docutils literal notranslate"><span class="pre">DataProcessor.get_summary_stats()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../api/data_processor.html#src.data_processor.DataProcessor.convert_date_column"><code class="docutils literal notranslate"><span class="pre">DataProcessor.convert_date_column()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../api/data_processor.html#src.data_processor.DataProcessor.get_date_range"><code class="docutils literal notranslate"><span class="pre">DataProcessor.get_date_range()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../api/data_processor.html#src.data_processor.DataProcessor.detect_data_format"><code class="docutils literal notranslate"><span class="pre">DataProcessor.detect_data_format()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../api/data_processor.html#src.data_processor.DataProcessor.validate_multi_market_data"><code class="docutils literal notranslate"><span class="pre">DataProcessor.validate_multi_market_data()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../api/data_processor.html#src.data_processor.DataProcessor.aggregate_data"><code class="docutils literal notranslate"><span class="pre">DataProcessor.aggregate_data()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../api/data_processor.html#src.data_processor.DataProcessor.get_market_segments"><code class="docutils literal notranslate"><span class="pre">DataProcessor.get_market_segments()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../api/data_processor.html#src.data_processor.DataProcessor.get_market_hierarchy"><code class="docutils literal notranslate"><span class="pre">DataProcessor.get_market_hierarchy()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../api/data_processor.html#dataprocessor-class">DataProcessor Class</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../api/data_processor.html#id0"><code class="docutils literal notranslate"><span class="pre">DataProcessor</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../api/data_processor.html#id1"><code class="docutils literal notranslate"><span class="pre">DataProcessor.__init__()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../api/data_processor.html#id2"><code class="docutils literal notranslate"><span class="pre">DataProcessor.load_csv()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../api/data_processor.html#id3"><code class="docutils literal notranslate"><span class="pre">DataProcessor.validate_data()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../api/data_processor.html#id4"><code class="docutils literal notranslate"><span class="pre">DataProcessor.check_missing_values()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../api/data_processor.html#id5"><code class="docutils literal notranslate"><span class="pre">DataProcessor.detect_outliers()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../api/data_processor.html#id6"><code class="docutils literal notranslate"><span class="pre">DataProcessor.get_summary_stats()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../api/data_processor.html#id7"><code class="docutils literal notranslate"><span class="pre">DataProcessor.convert_date_column()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../api/data_processor.html#id8"><code class="docutils literal notranslate"><span class="pre">DataProcessor.get_date_range()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../api/data_processor.html#id9"><code class="docutils literal notranslate"><span class="pre">DataProcessor.detect_data_format()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../api/data_processor.html#id10"><code class="docutils literal notranslate"><span class="pre">DataProcessor.validate_multi_market_data()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../api/data_processor.html#id11"><code class="docutils literal notranslate"><span class="pre">DataProcessor.aggregate_data()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../api/data_processor.html#id12"><code class="docutils literal notranslate"><span class="pre">DataProcessor.get_market_segments()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../api/data_processor.html#id13"><code class="docutils literal notranslate"><span class="pre">DataProcessor.get_market_hierarchy()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../api/data_processor.html#usage-example">Usage Example</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../api/transformations.html">Transformations</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../api/transformations.html#src.transformations.AdstockTransformer"><code class="docutils literal notranslate"><span class="pre">AdstockTransformer</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../api/transformations.html#src.transformations.AdstockTransformer.decay_rate"><code class="docutils literal notranslate"><span class="pre">AdstockTransformer.decay_rate</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../api/transformations.html#src.transformations.AdstockTransformer.__init__"><code class="docutils literal notranslate"><span class="pre">AdstockTransformer.__init__()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../api/transformations.html#src.transformations.AdstockTransformer.transform"><code class="docutils literal notranslate"><span class="pre">AdstockTransformer.transform()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../api/transformations.html#src.transformations.AdstockTransformer.get_decay_curve"><code class="docutils literal notranslate"><span class="pre">AdstockTransformer.get_decay_curve()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../api/transformations.html#src.transformations.HillTransformer"><code class="docutils literal notranslate"><span class="pre">HillTransformer</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../api/transformations.html#src.transformations.HillTransformer.K"><code class="docutils literal notranslate"><span class="pre">HillTransformer.K</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../api/transformations.html#src.transformations.HillTransformer.S"><code class="docutils literal notranslate"><span class="pre">HillTransformer.S</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../api/transformations.html#src.transformations.HillTransformer.__init__"><code class="docutils literal notranslate"><span class="pre">HillTransformer.__init__()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../api/transformations.html#src.transformations.HillTransformer.transform"><code class="docutils literal notranslate"><span class="pre">HillTransformer.transform()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../api/transformations.html#src.transformations.HillTransformer.get_response_curve"><code class="docutils literal notranslate"><span class="pre">HillTransformer.get_response_curve()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../api/transformations.html#src.transformations.TransformationPipeline"><code class="docutils literal notranslate"><span class="pre">TransformationPipeline</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../api/transformations.html#src.transformations.TransformationPipeline.channel_configs"><code class="docutils literal notranslate"><span class="pre">TransformationPipeline.channel_configs</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../api/transformations.html#src.transformations.TransformationPipeline.__init__"><code class="docutils literal notranslate"><span class="pre">TransformationPipeline.__init__()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../api/transformations.html#src.transformations.TransformationPipeline.fit_transform"><code class="docutils literal notranslate"><span class="pre">TransformationPipeline.fit_transform()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../api/transformations.html#src.transformations.TransformationPipeline.transform"><code class="docutils literal notranslate"><span class="pre">TransformationPipeline.transform()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../api/transformations.html#src.transformations.TransformationPipeline.get_transformation_summary"><code class="docutils literal notranslate"><span class="pre">TransformationPipeline.get_transformation_summary()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../api/transformations.html#src.transformations.TransformationPipeline.transform_single_channel"><code class="docutils literal notranslate"><span class="pre">TransformationPipeline.transform_single_channel()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../api/transformations.html#adstock-transformer">Adstock Transformer</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../api/transformations.html#id0"><code class="docutils literal notranslate"><span class="pre">AdstockTransformer</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../api/transformations.html#id1"><code class="docutils literal notranslate"><span class="pre">AdstockTransformer.decay_rate</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../api/transformations.html#id2"><code class="docutils literal notranslate"><span class="pre">AdstockTransformer.__init__()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../api/transformations.html#id3"><code class="docutils literal notranslate"><span class="pre">AdstockTransformer.transform()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../api/transformations.html#id4"><code class="docutils literal notranslate"><span class="pre">AdstockTransformer.get_decay_curve()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../api/transformations.html#hill-transformer">Hill Transformer</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../api/transformations.html#id5"><code class="docutils literal notranslate"><span class="pre">HillTransformer</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../api/transformations.html#id6"><code class="docutils literal notranslate"><span class="pre">HillTransformer.K</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../api/transformations.html#id7"><code class="docutils literal notranslate"><span class="pre">HillTransformer.S</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../api/transformations.html#id8"><code class="docutils literal notranslate"><span class="pre">HillTransformer.__init__()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../api/transformations.html#id9"><code class="docutils literal notranslate"><span class="pre">HillTransformer.transform()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../api/transformations.html#id10"><code class="docutils literal notranslate"><span class="pre">HillTransformer.get_response_curve()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../api/transformations.html#transformation-pipeline">Transformation Pipeline</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../api/transformations.html#id11"><code class="docutils literal notranslate"><span class="pre">TransformationPipeline</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../api/transformations.html#id12"><code class="docutils literal notranslate"><span class="pre">TransformationPipeline.channel_configs</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../api/transformations.html#id13"><code class="docutils literal notranslate"><span class="pre">TransformationPipeline.__init__()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../api/transformations.html#id14"><code class="docutils literal notranslate"><span class="pre">TransformationPipeline.fit_transform()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../api/transformations.html#id15"><code class="docutils literal notranslate"><span class="pre">TransformationPipeline.transform()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../api/transformations.html#id16"><code class="docutils literal notranslate"><span class="pre">TransformationPipeline.get_transformation_summary()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../api/transformations.html#id17"><code class="docutils literal notranslate"><span class="pre">TransformationPipeline.transform_single_channel()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../api/transformations.html#usage-examples">Usage Examples</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../api/transformations.html#adstock-example">Adstock Example</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../api/transformations.html#hill-saturation-example">Hill Saturation Example</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../api/transformations.html#pipeline-example">Pipeline Example</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../api/ridge_mmm.html">Ridge MMM</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../api/ridge_mmm.html#ridgemmm-class">RidgeMMM Class</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../api/ridge_mmm.html#model-architecture">Model Architecture</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../api/ridge_mmm.html#usage-example">Usage Example</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../api/ridge_mmm.html#basic-usage">Basic Usage</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../api/ridge_mmm.html#getting-contributions">Getting Contributions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../api/ridge_mmm.html#calculating-roas">Calculating ROAS</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../api/ridge_mmm.html#response-curves">Response Curves</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../api/ridge_mmm.html#model-diagnostics">Model Diagnostics</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../api/ridge_mmm.html#mathematical-formulation">Mathematical Formulation</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../api/hierarchical_mmm.html">Hierarchical MMM</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../api/hierarchical_mmm.html#hierarchicalmmm-class">HierarchicalMMM Class</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../api/hierarchical_mmm.html#overview">Overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../api/hierarchical_mmm.html#use-cases">Use Cases</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../api/hierarchical_mmm.html#usage-example">Usage Example</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../api/hierarchical_mmm.html#basic-segmentation">Basic Segmentation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../api/hierarchical_mmm.html#segment-specific-roas">Segment-Specific ROAS</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../api/hierarchical_mmm.html#compare-segments">Compare Segments</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../api/hierarchical_mmm.html#segment-performance">Segment Performance</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../api/hierarchical_mmm.html#pooling-strategies">Pooling Strategies</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../api/hierarchical_mmm.html#best-practices">Best Practices</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../api/hierarchical_mmm.html#example-global-campaign-analysis">Example: Global Campaign Analysis</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../api/optimizer.html">Budget Optimizer</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../api/optimizer.html#budgetoptimizer-class">BudgetOptimizer Class</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../api/optimizer.html#optimizationerror">OptimizationError</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../api/optimizer.html#optimization-problem">Optimization Problem</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../api/optimizer.html#usage-example">Usage Example</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../api/optimizer.html#basic-optimization">Basic Optimization</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../api/optimizer.html#with-constraints">With Constraints</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../api/optimizer.html#scenario-comparison">Scenario Comparison</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../api/optimizer.html#marginal-roas">Marginal ROAS</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../api/optimizer.html#optimization-algorithms">Optimization Algorithms</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../api/optimizer.html#best-practices">Best Practices</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../api/optimizer.html#troubleshooting">Troubleshooting</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../api/optimizer.html#example-monthly-budget-planning">Example: Monthly Budget Planning</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../api/visualizations.html">Visualizations</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../api/visualizations.html#plotting-functions">Plotting Functions</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../api/visualizations.html#channel-contributions-waterfall">Channel Contributions Waterfall</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../api/visualizations.html#response-curves">Response Curves</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../api/visualizations.html#roas-comparison">ROAS Comparison</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../api/visualizations.html#model-diagnostics">Model Diagnostics</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../api/visualizations.html#multi-market-heatmap">Multi-Market Heatmap</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../api/visualizations.html#usage-examples">Usage Examples</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../api/visualizations.html#waterfall-chart">Waterfall Chart</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../api/visualizations.html#id1">Response Curves</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../api/visualizations.html#id2">ROAS Comparison</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../api/visualizations.html#id3">Model Diagnostics</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../api/visualizations.html#multi-market-analysis">Multi-Market Analysis</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../api/visualizations.html#customization">Customization</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../api/visualizations.html#exporting">Exporting</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../api/utils.html">Utilities</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../api/utils.html#data-utils">Data Utils</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../api/utils.html#src.utils.data_utils.validate_required_columns"><code class="docutils literal notranslate"><span class="pre">validate_required_columns()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../api/utils.html#src.utils.data_utils.validate_column_types"><code class="docutils literal notranslate"><span class="pre">validate_column_types()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../api/utils.html#src.utils.data_utils.safe_divide"><code class="docutils literal notranslate"><span class="pre">safe_divide()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../api/utils.html#key-functions">Key Functions</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../api/utils.html#segment-utils">Segment Utils</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../api/utils.html#src.utils.segment_utils.parse_segment"><code class="docutils literal notranslate"><span class="pre">parse_segment()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../api/utils.html#src.utils.segment_utils.filter_by_segment"><code class="docutils literal notranslate"><span class="pre">filter_by_segment()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../api/utils.html#src.utils.segment_utils.get_segment_hierarchy"><code class="docutils literal notranslate"><span class="pre">get_segment_hierarchy()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../api/utils.html#id1">Key Functions</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../api/utils.html#plot-utils">Plot Utils</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../api/utils.html#src.utils.plot_utils.get_default_layout"><code class="docutils literal notranslate"><span class="pre">get_default_layout()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../api/utils.html#src.utils.plot_utils.apply_default_layout"><code class="docutils literal notranslate"><span class="pre">apply_default_layout()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../api/utils.html#src.utils.plot_utils.get_color_palette"><code class="docutils literal notranslate"><span class="pre">get_color_palette()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../api/utils.html#src.utils.plot_utils.format_currency"><code class="docutils literal notranslate"><span class="pre">format_currency()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../api/utils.html#src.utils.plot_utils.format_percentage"><code class="docutils literal notranslate"><span class="pre">format_percentage()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../api/utils.html#src.utils.plot_utils.add_annotation"><code class="docutils literal notranslate"><span class="pre">add_annotation()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../api/utils.html#id2">Key Functions</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../api/utils.html#id0"><code class="docutils literal notranslate"><span class="pre">format_currency()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../api/utils.html#usage-examples">Usage Examples</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../api/utils.html#data-validation">Data Validation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../api/utils.html#weekly-aggregation">Weekly Aggregation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../api/utils.html#fill-missing-weeks">Fill Missing Weeks</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../api/utils.html#outlier-detection">Outlier Detection</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../api/utils.html#segment-analysis">Segment Analysis</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../api/utils.html#currency-formatting">Currency Formatting</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../api/utils.html#color-palettes">Color Palettes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../api/utils.html#add-plot-annotations">Add Plot Annotations</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../api/utils.html#helper-constants">Helper Constants</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Development</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../contributing.html">Contributing to Ridge MMM</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../contributing.html#getting-started">Getting Started</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../contributing.html#development-workflow">Development Workflow</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../contributing.html#creating-a-branch">Creating a Branch</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../contributing.html#making-changes">Making Changes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../contributing.html#code-style">Code Style</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../contributing.html#testing">Testing</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../contributing.html#documentation">Documentation</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../contributing.html#submitting-changes">Submitting Changes</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../contributing.html#commit-messages">Commit Messages</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../contributing.html#pull-requests">Pull Requests</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../contributing.html#code-review">Code Review</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../contributing.html#areas-for-contribution">Areas for Contribution</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../contributing.html#high-priority">High Priority</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../contributing.html#medium-priority">Medium Priority</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../contributing.html#id1">Documentation</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../contributing.html#questions">Questions?</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../changelog.html">Changelog</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../changelog.html#unreleased">[Unreleased]</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../changelog.html#added">Added</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../changelog.html#xx">[0.1.0] - 2024-01-XX</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../changelog.html#id1">Added</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../changelog.html#features">Features</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../changelog.html#core-modeling">Core Modeling</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../changelog.html#transformations">Transformations</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../changelog.html#optimization">Optimization</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../changelog.html#multi-market">Multi-Market</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../changelog.html#user-interface">User Interface</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../changelog.html#documentation">Documentation</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../changelog.html#initial-development">[0.0.1] - Initial Development</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../changelog.html#id2">Added</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../changelog.html#version-history-legend">Version History Legend</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../architecture.html">Architecture Overview</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../architecture.html#high-level-architecture">High-Level Architecture</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../architecture.html#component-details">Component Details</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../architecture.html#data-processor-src-data-processor-py">1. Data Processor (<code class="docutils literal notranslate"><span class="pre">src/data_processor.py</span></code>)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../architecture.html#transformations-src-transformations-py">2. Transformations (<code class="docutils literal notranslate"><span class="pre">src/transformations.py</span></code>)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../architecture.html#ridge-mmm-src-ridge-mmm-py">3. Ridge MMM (<code class="docutils literal notranslate"><span class="pre">src/ridge_mmm.py</span></code>)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../architecture.html#hierarchical-mmm-src-hierarchical-mmm-py">4. Hierarchical MMM (<code class="docutils literal notranslate"><span class="pre">src/hierarchical_mmm.py</span></code>)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../architecture.html#budget-optimizer-src-optimizer-py">5. Budget Optimizer (<code class="docutils literal notranslate"><span class="pre">src/optimizer.py</span></code>)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../architecture.html#visualizations-src-visualizations-py">6. Visualizations (<code class="docutils literal notranslate"><span class="pre">src/visualizations.py</span></code>)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../architecture.html#utilities-src-utils">7. Utilities (<code class="docutils literal notranslate"><span class="pre">src/utils/</span></code>)</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../architecture.html#streamlit-interface">Streamlit Interface</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../architecture.html#page-structure">Page Structure</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../architecture.html#state-management">State Management</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../architecture.html#data-flow">Data Flow</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../architecture.html#complete-workflow">Complete Workflow</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../architecture.html#design-principles">Design Principles</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../architecture.html#separation-of-concerns">1. Separation of Concerns</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../architecture.html#modularity">2. Modularity</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../architecture.html#type-safety">3. Type Safety</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../architecture.html#testability">4. Testability</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../architecture.html#documentation">5. Documentation</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../architecture.html#extension-points">Extension Points</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../architecture.html#adding-new-transformations">Adding New Transformations</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../architecture.html#adding-new-optimization-algorithms">Adding New Optimization Algorithms</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../architecture.html#custom-visualizations">Custom Visualizations</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../architecture.html#performance-considerations">Performance Considerations</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../architecture.html#bottlenecks">Bottlenecks</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../architecture.html#optimizations">Optimizations</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../architecture.html#security">Security</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../architecture.html#data-privacy">Data Privacy</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../architecture.html#input-validation">Input Validation</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../architecture.html#future-architecture-enhancements">Future Architecture Enhancements</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../architecture.html#planned">Planned</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../architecture.html#under-consideration">Under Consideration</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">Ridge MMM</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content style-external-links">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../index.html">Module code</a></li>
+      <li class="breadcrumb-item active">src.data_processor</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <h1>Source code for src.data_processor</h1><div class="highlight"><pre>
+<span></span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">Data processing module for Ridge MMM application.</span>
+
+<span class="sd">This module provides the DataProcessor class for loading, validating,</span>
+<span class="sd">and analyzing marketing data.</span>
+<span class="sd">&quot;&quot;&quot;</span>
+
+<span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">typing</span><span class="w"> </span><span class="kn">import</span> <span class="n">Dict</span><span class="p">,</span> <span class="n">List</span><span class="p">,</span> <span class="n">Tuple</span><span class="p">,</span> <span class="n">Optional</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">io</span>
+
+
+<div class="viewcode-block" id="DataProcessor">
+<a class="viewcode-back" href="../../api/data_processor.html#src.data_processor.DataProcessor">[docs]</a>
+<span class="k">class</span><span class="w"> </span><span class="nc">DataProcessor</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    A class for processing and validating marketing mix modeling data.</span>
+<span class="sd">    </span>
+<span class="sd">    This class handles data loading, validation, quality checks, and</span>
+<span class="sd">    statistical analysis of marketing data.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    
+<div class="viewcode-block" id="DataProcessor.__init__">
+<a class="viewcode-back" href="../../api/data_processor.html#src.data_processor.DataProcessor.__init__">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Initialize the DataProcessor.&quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">df</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">date_column</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">revenue_column</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">media_columns</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">exog_columns</span> <span class="o">=</span> <span class="p">[]</span></div>
+
+    
+<div class="viewcode-block" id="DataProcessor.load_csv">
+<a class="viewcode-back" href="../../api/data_processor.html#src.data_processor.DataProcessor.load_csv">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">load_csv</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">file</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Load CSV file and return DataFrame.</span>
+<span class="sd">        </span>
+<span class="sd">        Args:</span>
+<span class="sd">            file: File object from Streamlit file_uploader or file path</span>
+<span class="sd">            </span>
+<span class="sd">        Returns:</span>
+<span class="sd">            pd.DataFrame: Loaded data</span>
+<span class="sd">            </span>
+<span class="sd">        Raises:</span>
+<span class="sd">            ValueError: If file cannot be loaded or is empty</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="c1"># Handle both file path and file-like object</span>
+            <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">file</span><span class="p">,</span> <span class="nb">str</span><span class="p">):</span>
+                <span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">file</span><span class="p">)</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">file</span><span class="p">)</span>
+            
+            <span class="k">if</span> <span class="n">df</span><span class="o">.</span><span class="n">empty</span><span class="p">:</span>
+                <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;The uploaded file is empty&quot;</span><span class="p">)</span>
+            
+            <span class="bp">self</span><span class="o">.</span><span class="n">df</span> <span class="o">=</span> <span class="n">df</span>
+            <span class="k">return</span> <span class="n">df</span>
+            
+        <span class="k">except</span> <span class="n">pd</span><span class="o">.</span><span class="n">errors</span><span class="o">.</span><span class="n">EmptyDataError</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;The file is empty or contains no data&quot;</span><span class="p">)</span>
+        <span class="k">except</span> <span class="n">pd</span><span class="o">.</span><span class="n">errors</span><span class="o">.</span><span class="n">ParserError</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Error parsing CSV file: </span><span class="si">{</span><span class="nb">str</span><span class="p">(</span><span class="n">e</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Error loading file: </span><span class="si">{</span><span class="nb">str</span><span class="p">(</span><span class="n">e</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span></div>
+
+    
+<div class="viewcode-block" id="DataProcessor.validate_data">
+<a class="viewcode-back" href="../../api/data_processor.html#src.data_processor.DataProcessor.validate_data">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">validate_data</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">df</span><span class="p">:</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">,</span> 
+                     <span class="n">date_col</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+                     <span class="n">revenue_col</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+                     <span class="n">media_cols</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">]]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">any</span><span class="p">]:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Validate data for required columns and basic requirements.</span>
+<span class="sd">        </span>
+<span class="sd">        Args:</span>
+<span class="sd">            df: DataFrame to validate</span>
+<span class="sd">            date_col: Name of date column (optional)</span>
+<span class="sd">            revenue_col: Name of revenue column (optional)</span>
+<span class="sd">            media_cols: List of media channel columns (optional)</span>
+<span class="sd">            </span>
+<span class="sd">        Returns:</span>
+<span class="sd">            Dict with validation results:</span>
+<span class="sd">                - &#39;is_valid&#39;: bool</span>
+<span class="sd">                - &#39;errors&#39;: List of error messages</span>
+<span class="sd">                - &#39;warnings&#39;: List of warning messages</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">errors</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="n">warnings</span> <span class="o">=</span> <span class="p">[]</span>
+        
+        <span class="c1"># Check if DataFrame is empty</span>
+        <span class="k">if</span> <span class="n">df</span><span class="o">.</span><span class="n">empty</span><span class="p">:</span>
+            <span class="n">errors</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s2">&quot;DataFrame is empty&quot;</span><span class="p">)</span>
+            <span class="k">return</span> <span class="p">{</span><span class="s1">&#39;is_valid&#39;</span><span class="p">:</span> <span class="kc">False</span><span class="p">,</span> <span class="s1">&#39;errors&#39;</span><span class="p">:</span> <span class="n">errors</span><span class="p">,</span> <span class="s1">&#39;warnings&#39;</span><span class="p">:</span> <span class="n">warnings</span><span class="p">}</span>
+        
+        <span class="c1"># Check minimum number of rows</span>
+        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">df</span><span class="p">)</span> <span class="o">&lt;</span> <span class="mi">10</span><span class="p">:</span>
+            <span class="n">warnings</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Dataset has only </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">df</span><span class="p">)</span><span class="si">}</span><span class="s2"> rows. Recommend at least 52 weeks for reliable modeling&quot;</span><span class="p">)</span>
+        
+        <span class="c1"># Validate date column if provided</span>
+        <span class="k">if</span> <span class="n">date_col</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">date_col</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">df</span><span class="o">.</span><span class="n">columns</span><span class="p">:</span>
+                <span class="n">errors</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Date column &#39;</span><span class="si">{</span><span class="n">date_col</span><span class="si">}</span><span class="s2">&#39; not found in data&quot;</span><span class="p">)</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="k">try</span><span class="p">:</span>
+                    <span class="n">pd</span><span class="o">.</span><span class="n">to_datetime</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="n">date_col</span><span class="p">])</span>
+                <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+                    <span class="n">errors</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Date column &#39;</span><span class="si">{</span><span class="n">date_col</span><span class="si">}</span><span class="s2">&#39; cannot be converted to datetime: </span><span class="si">{</span><span class="nb">str</span><span class="p">(</span><span class="n">e</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+        
+        <span class="c1"># Validate revenue column if provided</span>
+        <span class="k">if</span> <span class="n">revenue_col</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">revenue_col</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">df</span><span class="o">.</span><span class="n">columns</span><span class="p">:</span>
+                <span class="n">errors</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Revenue column &#39;</span><span class="si">{</span><span class="n">revenue_col</span><span class="si">}</span><span class="s2">&#39; not found in data&quot;</span><span class="p">)</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="k">if</span> <span class="ow">not</span> <span class="n">pd</span><span class="o">.</span><span class="n">api</span><span class="o">.</span><span class="n">types</span><span class="o">.</span><span class="n">is_numeric_dtype</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="n">revenue_col</span><span class="p">]):</span>
+                    <span class="n">errors</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Revenue column &#39;</span><span class="si">{</span><span class="n">revenue_col</span><span class="si">}</span><span class="s2">&#39; must be numeric&quot;</span><span class="p">)</span>
+                <span class="k">if</span> <span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="n">revenue_col</span><span class="p">]</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">)</span><span class="o">.</span><span class="n">any</span><span class="p">():</span>
+                    <span class="n">warnings</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Revenue column &#39;</span><span class="si">{</span><span class="n">revenue_col</span><span class="si">}</span><span class="s2">&#39; contains negative values&quot;</span><span class="p">)</span>
+        
+        <span class="c1"># Validate media columns if provided</span>
+        <span class="k">if</span> <span class="n">media_cols</span><span class="p">:</span>
+            <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">media_cols</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+                <span class="n">errors</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s2">&quot;At least one media channel column is required&quot;</span><span class="p">)</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="k">for</span> <span class="n">col</span> <span class="ow">in</span> <span class="n">media_cols</span><span class="p">:</span>
+                    <span class="k">if</span> <span class="n">col</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">df</span><span class="o">.</span><span class="n">columns</span><span class="p">:</span>
+                        <span class="n">errors</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Media column &#39;</span><span class="si">{</span><span class="n">col</span><span class="si">}</span><span class="s2">&#39; not found in data&quot;</span><span class="p">)</span>
+                    <span class="k">else</span><span class="p">:</span>
+                        <span class="k">if</span> <span class="ow">not</span> <span class="n">pd</span><span class="o">.</span><span class="n">api</span><span class="o">.</span><span class="n">types</span><span class="o">.</span><span class="n">is_numeric_dtype</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="n">col</span><span class="p">]):</span>
+                            <span class="n">errors</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Media column &#39;</span><span class="si">{</span><span class="n">col</span><span class="si">}</span><span class="s2">&#39; must be numeric&quot;</span><span class="p">)</span>
+                        <span class="k">if</span> <span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="n">col</span><span class="p">]</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">)</span><span class="o">.</span><span class="n">any</span><span class="p">():</span>
+                            <span class="n">warnings</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Media column &#39;</span><span class="si">{</span><span class="n">col</span><span class="si">}</span><span class="s2">&#39; contains negative values&quot;</span><span class="p">)</span>
+        
+        <span class="c1"># Check for duplicate column names</span>
+        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">columns</span><span class="p">)</span> <span class="o">!=</span> <span class="nb">len</span><span class="p">(</span><span class="nb">set</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">columns</span><span class="p">)):</span>
+            <span class="n">duplicates</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">columns</span><span class="p">[</span><span class="n">df</span><span class="o">.</span><span class="n">columns</span><span class="o">.</span><span class="n">duplicated</span><span class="p">()]</span><span class="o">.</span><span class="n">tolist</span><span class="p">()</span>
+            <span class="n">errors</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Duplicate column names found: </span><span class="si">{</span><span class="n">duplicates</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+        
+        <span class="n">is_valid</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">errors</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span>
+        
+        <span class="k">return</span> <span class="p">{</span>
+            <span class="s1">&#39;is_valid&#39;</span><span class="p">:</span> <span class="n">is_valid</span><span class="p">,</span>
+            <span class="s1">&#39;errors&#39;</span><span class="p">:</span> <span class="n">errors</span><span class="p">,</span>
+            <span class="s1">&#39;warnings&#39;</span><span class="p">:</span> <span class="n">warnings</span>
+        <span class="p">}</span></div>
+
+    
+<div class="viewcode-block" id="DataProcessor.check_missing_values">
+<a class="viewcode-back" href="../../api/data_processor.html#src.data_processor.DataProcessor.check_missing_values">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">check_missing_values</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">df</span><span class="p">:</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Check for missing values in the DataFrame.</span>
+<span class="sd">        </span>
+<span class="sd">        Args:</span>
+<span class="sd">            df: DataFrame to check</span>
+<span class="sd">            </span>
+<span class="sd">        Returns:</span>
+<span class="sd">            pd.DataFrame: Report with columns, missing count, and percentage</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">missing_data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span>
+            <span class="s1">&#39;Column&#39;</span><span class="p">:</span> <span class="n">df</span><span class="o">.</span><span class="n">columns</span><span class="p">,</span>
+            <span class="s1">&#39;Missing_Count&#39;</span><span class="p">:</span> <span class="n">df</span><span class="o">.</span><span class="n">isnull</span><span class="p">()</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span><span class="o">.</span><span class="n">values</span><span class="p">,</span>
+            <span class="s1">&#39;Missing_Percentage&#39;</span><span class="p">:</span> <span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">isnull</span><span class="p">()</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span><span class="o">.</span><span class="n">values</span> <span class="o">/</span> <span class="nb">len</span><span class="p">(</span><span class="n">df</span><span class="p">)</span> <span class="o">*</span> <span class="mi">100</span><span class="p">)</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+        <span class="p">})</span>
+        
+        <span class="c1"># Sort by missing count descending</span>
+        <span class="n">missing_data</span> <span class="o">=</span> <span class="n">missing_data</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="s1">&#39;Missing_Count&#39;</span><span class="p">,</span> <span class="n">ascending</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+        <span class="n">missing_data</span> <span class="o">=</span> <span class="n">missing_data</span><span class="o">.</span><span class="n">reset_index</span><span class="p">(</span><span class="n">drop</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+        
+        <span class="k">return</span> <span class="n">missing_data</span></div>
+
+    
+<div class="viewcode-block" id="DataProcessor.detect_outliers">
+<a class="viewcode-back" href="../../api/data_processor.html#src.data_processor.DataProcessor.detect_outliers">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">detect_outliers</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">df</span><span class="p">:</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">,</span> 
+                       <span class="n">columns</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">]]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+                       <span class="n">iqr_multiplier</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">1.5</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Dict</span><span class="p">]:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Detect outliers using IQR (Interquartile Range) method.</span>
+<span class="sd">        </span>
+<span class="sd">        Args:</span>
+<span class="sd">            df: DataFrame to analyze</span>
+<span class="sd">            columns: List of columns to check (if None, checks all numeric columns)</span>
+<span class="sd">            iqr_multiplier: Multiplier for IQR (default 1.5 for standard outliers)</span>
+<span class="sd">            </span>
+<span class="sd">        Returns:</span>
+<span class="sd">            Dict with outlier information for each column:</span>
+<span class="sd">                - &#39;lower_bound&#39;: Lower threshold</span>
+<span class="sd">                - &#39;upper_bound&#39;: Upper threshold</span>
+<span class="sd">                - &#39;outlier_count&#39;: Number of outliers</span>
+<span class="sd">                - &#39;outlier_indices&#39;: List of row indices with outliers</span>
+<span class="sd">                - &#39;outlier_values&#39;: List of outlier values</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="n">columns</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">columns</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">select_dtypes</span><span class="p">(</span><span class="n">include</span><span class="o">=</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">number</span><span class="p">])</span><span class="o">.</span><span class="n">columns</span><span class="o">.</span><span class="n">tolist</span><span class="p">()</span>
+        
+        <span class="n">outlier_report</span> <span class="o">=</span> <span class="p">{}</span>
+        
+        <span class="k">for</span> <span class="n">col</span> <span class="ow">in</span> <span class="n">columns</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">col</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">df</span><span class="o">.</span><span class="n">columns</span><span class="p">:</span>
+                <span class="k">continue</span>
+                
+            <span class="k">if</span> <span class="ow">not</span> <span class="n">pd</span><span class="o">.</span><span class="n">api</span><span class="o">.</span><span class="n">types</span><span class="o">.</span><span class="n">is_numeric_dtype</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="n">col</span><span class="p">]):</span>
+                <span class="k">continue</span>
+            
+            <span class="c1"># Calculate IQR</span>
+            <span class="n">Q1</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="n">col</span><span class="p">]</span><span class="o">.</span><span class="n">quantile</span><span class="p">(</span><span class="mf">0.25</span><span class="p">)</span>
+            <span class="n">Q3</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="n">col</span><span class="p">]</span><span class="o">.</span><span class="n">quantile</span><span class="p">(</span><span class="mf">0.75</span><span class="p">)</span>
+            <span class="n">IQR</span> <span class="o">=</span> <span class="n">Q3</span> <span class="o">-</span> <span class="n">Q1</span>
+            
+            <span class="c1"># Calculate bounds</span>
+            <span class="n">lower_bound</span> <span class="o">=</span> <span class="n">Q1</span> <span class="o">-</span> <span class="n">iqr_multiplier</span> <span class="o">*</span> <span class="n">IQR</span>
+            <span class="n">upper_bound</span> <span class="o">=</span> <span class="n">Q3</span> <span class="o">+</span> <span class="n">iqr_multiplier</span> <span class="o">*</span> <span class="n">IQR</span>
+            
+            <span class="c1"># Find outliers</span>
+            <span class="n">outliers_mask</span> <span class="o">=</span> <span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="n">col</span><span class="p">]</span> <span class="o">&lt;</span> <span class="n">lower_bound</span><span class="p">)</span> <span class="o">|</span> <span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="n">col</span><span class="p">]</span> <span class="o">&gt;</span> <span class="n">upper_bound</span><span class="p">)</span>
+            <span class="n">outlier_indices</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="n">outliers_mask</span><span class="p">]</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">tolist</span><span class="p">()</span>
+            <span class="n">outlier_values</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">outliers_mask</span><span class="p">,</span> <span class="n">col</span><span class="p">]</span><span class="o">.</span><span class="n">tolist</span><span class="p">()</span>
+            
+            <span class="n">outlier_report</span><span class="p">[</span><span class="n">col</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span>
+                <span class="s1">&#39;lower_bound&#39;</span><span class="p">:</span> <span class="nb">round</span><span class="p">(</span><span class="n">lower_bound</span><span class="p">,</span> <span class="mi">2</span><span class="p">),</span>
+                <span class="s1">&#39;upper_bound&#39;</span><span class="p">:</span> <span class="nb">round</span><span class="p">(</span><span class="n">upper_bound</span><span class="p">,</span> <span class="mi">2</span><span class="p">),</span>
+                <span class="s1">&#39;outlier_count&#39;</span><span class="p">:</span> <span class="nb">len</span><span class="p">(</span><span class="n">outlier_indices</span><span class="p">),</span>
+                <span class="s1">&#39;outlier_indices&#39;</span><span class="p">:</span> <span class="n">outlier_indices</span><span class="p">,</span>
+                <span class="s1">&#39;outlier_values&#39;</span><span class="p">:</span> <span class="p">[</span><span class="nb">round</span><span class="p">(</span><span class="n">v</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span> <span class="k">for</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">outlier_values</span><span class="p">]</span>
+            <span class="p">}</span>
+        
+        <span class="k">return</span> <span class="n">outlier_report</span></div>
+
+    
+<div class="viewcode-block" id="DataProcessor.get_summary_stats">
+<a class="viewcode-back" href="../../api/data_processor.html#src.data_processor.DataProcessor.get_summary_stats">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">get_summary_stats</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">df</span><span class="p">:</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">,</span> 
+                         <span class="n">columns</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">]]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Get summary statistics for numeric columns.</span>
+<span class="sd">        </span>
+<span class="sd">        Args:</span>
+<span class="sd">            df: DataFrame to analyze</span>
+<span class="sd">            columns: List of columns to include (if None, includes all numeric columns)</span>
+<span class="sd">            </span>
+<span class="sd">        Returns:</span>
+<span class="sd">            pd.DataFrame: Summary statistics (describe() output transposed)</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="n">columns</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">numeric_df</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">select_dtypes</span><span class="p">(</span><span class="n">include</span><span class="o">=</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">number</span><span class="p">])</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">numeric_df</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="n">columns</span><span class="p">]</span><span class="o">.</span><span class="n">select_dtypes</span><span class="p">(</span><span class="n">include</span><span class="o">=</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">number</span><span class="p">])</span>
+        
+        <span class="k">if</span> <span class="n">numeric_df</span><span class="o">.</span><span class="n">empty</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">()</span>
+        
+        <span class="c1"># Get describe statistics and transpose for better readability</span>
+        <span class="n">stats</span> <span class="o">=</span> <span class="n">numeric_df</span><span class="o">.</span><span class="n">describe</span><span class="p">()</span><span class="o">.</span><span class="n">T</span>
+        
+        <span class="c1"># Round to 2 decimal places</span>
+        <span class="n">stats</span> <span class="o">=</span> <span class="n">stats</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+        
+        <span class="c1"># Add additional statistics</span>
+        <span class="n">stats</span><span class="p">[</span><span class="s1">&#39;missing&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">numeric_df</span><span class="o">.</span><span class="n">isnull</span><span class="p">()</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
+        <span class="n">stats</span><span class="p">[</span><span class="s1">&#39;missing_pct&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="n">numeric_df</span><span class="o">.</span><span class="n">isnull</span><span class="p">()</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span> <span class="o">/</span> <span class="nb">len</span><span class="p">(</span><span class="n">df</span><span class="p">)</span> <span class="o">*</span> <span class="mi">100</span><span class="p">)</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+        
+        <span class="k">return</span> <span class="n">stats</span></div>
+
+    
+<div class="viewcode-block" id="DataProcessor.convert_date_column">
+<a class="viewcode-back" href="../../api/data_processor.html#src.data_processor.DataProcessor.convert_date_column">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">convert_date_column</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">df</span><span class="p">:</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">,</span> <span class="n">date_col</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Convert date column to datetime format.</span>
+<span class="sd">        </span>
+<span class="sd">        Args:</span>
+<span class="sd">            df: DataFrame containing the date column</span>
+<span class="sd">            date_col: Name of the date column</span>
+<span class="sd">            </span>
+<span class="sd">        Returns:</span>
+<span class="sd">            pd.DataFrame: DataFrame with converted date column</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">df</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+        <span class="n">df</span><span class="p">[</span><span class="n">date_col</span><span class="p">]</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">to_datetime</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="n">date_col</span><span class="p">])</span>
+        <span class="k">return</span> <span class="n">df</span></div>
+
+    
+<div class="viewcode-block" id="DataProcessor.get_date_range">
+<a class="viewcode-back" href="../../api/data_processor.html#src.data_processor.DataProcessor.get_date_range">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">get_date_range</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">df</span><span class="p">:</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">,</span> <span class="n">date_col</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Tuple</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">str</span><span class="p">,</span> <span class="nb">int</span><span class="p">]:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Get date range information from the dataset.</span>
+<span class="sd">        </span>
+<span class="sd">        Args:</span>
+<span class="sd">            df: DataFrame containing the date column</span>
+<span class="sd">            date_col: Name of the date column</span>
+<span class="sd">            </span>
+<span class="sd">        Returns:</span>
+<span class="sd">            Tuple of (start_date, end_date, num_periods)</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">df_copy</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+        <span class="n">df_copy</span><span class="p">[</span><span class="n">date_col</span><span class="p">]</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">to_datetime</span><span class="p">(</span><span class="n">df_copy</span><span class="p">[</span><span class="n">date_col</span><span class="p">])</span>
+        
+        <span class="n">start_date</span> <span class="o">=</span> <span class="n">df_copy</span><span class="p">[</span><span class="n">date_col</span><span class="p">]</span><span class="o">.</span><span class="n">min</span><span class="p">()</span><span class="o">.</span><span class="n">strftime</span><span class="p">(</span><span class="s1">&#39;%Y-%m-</span><span class="si">%d</span><span class="s1">&#39;</span><span class="p">)</span>
+        <span class="n">end_date</span> <span class="o">=</span> <span class="n">df_copy</span><span class="p">[</span><span class="n">date_col</span><span class="p">]</span><span class="o">.</span><span class="n">max</span><span class="p">()</span><span class="o">.</span><span class="n">strftime</span><span class="p">(</span><span class="s1">&#39;%Y-%m-</span><span class="si">%d</span><span class="s1">&#39;</span><span class="p">)</span>
+        <span class="n">num_periods</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">df_copy</span><span class="p">)</span>
+        
+        <span class="k">return</span> <span class="n">start_date</span><span class="p">,</span> <span class="n">end_date</span><span class="p">,</span> <span class="n">num_periods</span></div>
+
+    
+    <span class="c1"># ========================================================================</span>
+    <span class="c1"># MULTI-MARKET SUPPORT METHODS</span>
+    <span class="c1"># ========================================================================</span>
+    
+<div class="viewcode-block" id="DataProcessor.detect_data_format">
+<a class="viewcode-back" href="../../api/data_processor.html#src.data_processor.DataProcessor.detect_data_format">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">detect_data_format</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">df</span><span class="p">:</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Detect if data is single-market, multi-country, or multi-country-os format.</span>
+<span class="sd">        </span>
+<span class="sd">        Args:</span>
+<span class="sd">            df: DataFrame to analyze</span>
+<span class="sd">            </span>
+<span class="sd">        Returns:</span>
+<span class="sd">            str: &#39;single&#39; | &#39;multi_country&#39; | &#39;multi_country_os&#39;</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">has_country</span> <span class="o">=</span> <span class="s1">&#39;country&#39;</span> <span class="ow">in</span> <span class="n">df</span><span class="o">.</span><span class="n">columns</span>
+        <span class="n">has_os</span> <span class="o">=</span> <span class="s1">&#39;os&#39;</span> <span class="ow">in</span> <span class="n">df</span><span class="o">.</span><span class="n">columns</span>
+        
+        <span class="k">if</span> <span class="n">has_country</span> <span class="ow">and</span> <span class="n">has_os</span><span class="p">:</span>
+            <span class="k">return</span> <span class="s1">&#39;multi_country_os&#39;</span>
+        <span class="k">elif</span> <span class="n">has_country</span><span class="p">:</span>
+            <span class="k">return</span> <span class="s1">&#39;multi_country&#39;</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">return</span> <span class="s1">&#39;single&#39;</span></div>
+
+    
+<div class="viewcode-block" id="DataProcessor.validate_multi_market_data">
+<a class="viewcode-back" href="../../api/data_processor.html#src.data_processor.DataProcessor.validate_multi_market_data">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">validate_multi_market_data</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">df</span><span class="p">:</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">,</span> <span class="n">format_type</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="kc">None</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Dict</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Validate multi-market data structure.</span>
+<span class="sd">        </span>
+<span class="sd">        Args:</span>
+<span class="sd">            df: DataFrame to validate</span>
+<span class="sd">            format_type: Expected format (&#39;multi_country&#39; or &#39;multi_country_os&#39;)</span>
+<span class="sd">                        If None, auto-detects</span>
+<span class="sd">        </span>
+<span class="sd">        Returns:</span>
+<span class="sd">            Dict with validation results:</span>
+<span class="sd">                - &#39;is_valid&#39;: bool</span>
+<span class="sd">                - &#39;format&#39;: str</span>
+<span class="sd">                - &#39;countries&#39;: list</span>
+<span class="sd">                - &#39;os_platforms&#39;: list</span>
+<span class="sd">                - &#39;market_segments&#39;: list</span>
+<span class="sd">                - &#39;date_range&#39;: tuple</span>
+<span class="sd">                - &#39;issues&#39;: list</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="n">format_type</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">format_type</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">detect_data_format</span><span class="p">(</span><span class="n">df</span><span class="p">)</span>
+        
+        <span class="n">issues</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="n">countries</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="n">os_platforms</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="n">market_segments</span> <span class="o">=</span> <span class="p">[]</span>
+        
+        <span class="c1"># Validate format-specific requirements</span>
+        <span class="k">if</span> <span class="n">format_type</span> <span class="o">==</span> <span class="s1">&#39;multi_country&#39;</span><span class="p">:</span>
+            <span class="k">if</span> <span class="s1">&#39;country&#39;</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">df</span><span class="o">.</span><span class="n">columns</span><span class="p">:</span>
+                <span class="n">issues</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s2">&quot;&#39;country&#39; column is required for multi-country format&quot;</span><span class="p">)</span>
+                <span class="k">return</span> <span class="p">{</span><span class="s1">&#39;is_valid&#39;</span><span class="p">:</span> <span class="kc">False</span><span class="p">,</span> <span class="s1">&#39;format&#39;</span><span class="p">:</span> <span class="n">format_type</span><span class="p">,</span> <span class="s1">&#39;issues&#39;</span><span class="p">:</span> <span class="n">issues</span><span class="p">}</span>
+            
+            <span class="n">countries</span> <span class="o">=</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;country&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">unique</span><span class="p">()</span><span class="o">.</span><span class="n">tolist</span><span class="p">())</span>
+            
+            <span class="c1"># Check for reasonable number of countries</span>
+            <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">countries</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">50</span><span class="p">:</span>
+                <span class="n">issues</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Unusually high number of countries (</span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">countries</span><span class="p">)</span><span class="si">}</span><span class="s2">). Please verify data.&quot;</span><span class="p">)</span>
+            
+            <span class="n">market_segments</span> <span class="o">=</span> <span class="n">countries</span>
+            
+        <span class="k">elif</span> <span class="n">format_type</span> <span class="o">==</span> <span class="s1">&#39;multi_country_os&#39;</span><span class="p">:</span>
+            <span class="k">if</span> <span class="s1">&#39;country&#39;</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">df</span><span class="o">.</span><span class="n">columns</span><span class="p">:</span>
+                <span class="n">issues</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s2">&quot;&#39;country&#39; column is required&quot;</span><span class="p">)</span>
+            <span class="k">if</span> <span class="s1">&#39;os&#39;</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">df</span><span class="o">.</span><span class="n">columns</span><span class="p">:</span>
+                <span class="n">issues</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s2">&quot;&#39;os&#39; column is required&quot;</span><span class="p">)</span>
+                
+            <span class="k">if</span> <span class="n">issues</span><span class="p">:</span>
+                <span class="k">return</span> <span class="p">{</span><span class="s1">&#39;is_valid&#39;</span><span class="p">:</span> <span class="kc">False</span><span class="p">,</span> <span class="s1">&#39;format&#39;</span><span class="p">:</span> <span class="n">format_type</span><span class="p">,</span> <span class="s1">&#39;issues&#39;</span><span class="p">:</span> <span class="n">issues</span><span class="p">}</span>
+            
+            <span class="n">countries</span> <span class="o">=</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;country&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">unique</span><span class="p">()</span><span class="o">.</span><span class="n">tolist</span><span class="p">())</span>
+            <span class="n">os_platforms</span> <span class="o">=</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;os&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">unique</span><span class="p">()</span><span class="o">.</span><span class="n">tolist</span><span class="p">())</span>
+            
+            <span class="c1"># Generate market segments (country-os combinations)</span>
+            <span class="n">market_segments</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_market_segments</span><span class="p">(</span><span class="n">df</span><span class="p">)</span>
+            
+            <span class="c1"># Check for missing combinations</span>
+            <span class="n">expected_combinations</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">countries</span><span class="p">)</span> <span class="o">*</span> <span class="nb">len</span><span class="p">(</span><span class="n">os_platforms</span><span class="p">)</span>
+            <span class="n">actual_combinations</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">market_segments</span><span class="p">)</span>
+            
+            <span class="k">if</span> <span class="n">actual_combinations</span> <span class="o">&lt;</span> <span class="n">expected_combinations</span><span class="p">:</span>
+                <span class="n">missing</span> <span class="o">=</span> <span class="n">expected_combinations</span> <span class="o">-</span> <span class="n">actual_combinations</span>
+                <span class="n">issues</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Missing </span><span class="si">{</span><span class="n">missing</span><span class="si">}</span><span class="s2"> market combinations. Some country-os pairs have no data.&quot;</span><span class="p">)</span>
+        
+        <span class="c1"># Check data balance across markets</span>
+        <span class="k">if</span> <span class="n">format_type</span> <span class="ow">in</span> <span class="p">[</span><span class="s1">&#39;multi_country&#39;</span><span class="p">,</span> <span class="s1">&#39;multi_country_os&#39;</span><span class="p">]:</span>
+            <span class="n">market_counts</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span>
+                <span class="p">[</span><span class="s1">&#39;country&#39;</span><span class="p">,</span> <span class="s1">&#39;os&#39;</span><span class="p">]</span> <span class="k">if</span> <span class="n">format_type</span> <span class="o">==</span> <span class="s1">&#39;multi_country_os&#39;</span> <span class="k">else</span> <span class="p">[</span><span class="s1">&#39;country&#39;</span><span class="p">]</span>
+            <span class="p">)</span><span class="o">.</span><span class="n">size</span><span class="p">()</span>
+            
+            <span class="n">min_count</span> <span class="o">=</span> <span class="n">market_counts</span><span class="o">.</span><span class="n">min</span><span class="p">()</span>
+            <span class="n">max_count</span> <span class="o">=</span> <span class="n">market_counts</span><span class="o">.</span><span class="n">max</span><span class="p">()</span>
+            
+            <span class="k">if</span> <span class="n">max_count</span> <span class="o">&gt;</span> <span class="n">min_count</span> <span class="o">*</span> <span class="mi">10</span><span class="p">:</span>
+                <span class="n">issues</span><span class="o">.</span><span class="n">append</span><span class="p">(</span>
+                    <span class="sa">f</span><span class="s2">&quot;Imbalanced data: largest market has </span><span class="si">{</span><span class="n">max_count</span><span class="si">}</span><span class="s2"> rows, &quot;</span>
+                    <span class="sa">f</span><span class="s2">&quot;smallest has </span><span class="si">{</span><span class="n">min_count</span><span class="si">}</span><span class="s2"> rows (10x difference)&quot;</span>
+                <span class="p">)</span>
+        
+        <span class="c1"># Get date range</span>
+        <span class="n">date_range</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="k">if</span> <span class="s1">&#39;date&#39;</span> <span class="ow">in</span> <span class="n">df</span><span class="o">.</span><span class="n">columns</span><span class="p">:</span>
+            <span class="k">try</span><span class="p">:</span>
+                <span class="n">df_copy</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+                <span class="n">df_copy</span><span class="p">[</span><span class="s1">&#39;date&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">to_datetime</span><span class="p">(</span><span class="n">df_copy</span><span class="p">[</span><span class="s1">&#39;date&#39;</span><span class="p">])</span>
+                <span class="n">date_range</span> <span class="o">=</span> <span class="p">(</span>
+                    <span class="n">df_copy</span><span class="p">[</span><span class="s1">&#39;date&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">min</span><span class="p">()</span><span class="o">.</span><span class="n">strftime</span><span class="p">(</span><span class="s1">&#39;%Y-%m-</span><span class="si">%d</span><span class="s1">&#39;</span><span class="p">),</span>
+                    <span class="n">df_copy</span><span class="p">[</span><span class="s1">&#39;date&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">max</span><span class="p">()</span><span class="o">.</span><span class="n">strftime</span><span class="p">(</span><span class="s1">&#39;%Y-%m-</span><span class="si">%d</span><span class="s1">&#39;</span><span class="p">)</span>
+                <span class="p">)</span>
+            <span class="k">except</span><span class="p">:</span>
+                <span class="n">issues</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s2">&quot;Could not parse date column&quot;</span><span class="p">)</span>
+        
+        <span class="n">is_valid</span> <span class="o">=</span> <span class="nb">len</span><span class="p">([</span><span class="n">i</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">issues</span> <span class="k">if</span> <span class="s1">&#39;required&#39;</span> <span class="ow">in</span> <span class="n">i</span><span class="o">.</span><span class="n">lower</span><span class="p">()])</span> <span class="o">==</span> <span class="mi">0</span>
+        
+        <span class="k">return</span> <span class="p">{</span>
+            <span class="s1">&#39;is_valid&#39;</span><span class="p">:</span> <span class="n">is_valid</span><span class="p">,</span>
+            <span class="s1">&#39;format&#39;</span><span class="p">:</span> <span class="n">format_type</span><span class="p">,</span>
+            <span class="s1">&#39;countries&#39;</span><span class="p">:</span> <span class="n">countries</span><span class="p">,</span>
+            <span class="s1">&#39;os_platforms&#39;</span><span class="p">:</span> <span class="n">os_platforms</span><span class="p">,</span>
+            <span class="s1">&#39;market_segments&#39;</span><span class="p">:</span> <span class="n">market_segments</span><span class="p">,</span>
+            <span class="s1">&#39;date_range&#39;</span><span class="p">:</span> <span class="n">date_range</span><span class="p">,</span>
+            <span class="s1">&#39;issues&#39;</span><span class="p">:</span> <span class="n">issues</span>
+        <span class="p">}</span></div>
+
+    
+<div class="viewcode-block" id="DataProcessor.aggregate_data">
+<a class="viewcode-back" href="../../api/data_processor.html#src.data_processor.DataProcessor.aggregate_data">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">aggregate_data</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span> 
+        <span class="n">df</span><span class="p">:</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">,</span> 
+        <span class="n">level</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+        <span class="n">filters</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">Dict</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Aggregate data to specified level.</span>
+<span class="sd">        </span>
+<span class="sd">        Args:</span>
+<span class="sd">            df: DataFrame to aggregate</span>
+<span class="sd">            level: Aggregation level:</span>
+<span class="sd">                  - &#39;global&#39;: Sum across all markets</span>
+<span class="sd">                  - &#39;country&#39;: Group by country</span>
+<span class="sd">                  - &#39;os&#39;: Group by OS</span>
+<span class="sd">                  - &#39;country_os&#39;: Keep country-os granularity</span>
+<span class="sd">            filters: Optional dict to filter data before aggregation</span>
+<span class="sd">                    e.g., {&#39;country&#39;: [&#39;KR&#39;, &#39;US&#39;], &#39;os&#39;: [&#39;iOS&#39;]}</span>
+<span class="sd">        </span>
+<span class="sd">        Returns:</span>
+<span class="sd">            pd.DataFrame: Aggregated data</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">df_filtered</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+        
+        <span class="c1"># Apply filters if provided</span>
+        <span class="k">if</span> <span class="n">filters</span><span class="p">:</span>
+            <span class="k">for</span> <span class="n">col</span><span class="p">,</span> <span class="n">values</span> <span class="ow">in</span> <span class="n">filters</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+                <span class="k">if</span> <span class="n">col</span> <span class="ow">in</span> <span class="n">df_filtered</span><span class="o">.</span><span class="n">columns</span><span class="p">:</span>
+                    <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">values</span><span class="p">,</span> <span class="nb">list</span><span class="p">):</span>
+                        <span class="n">values</span> <span class="o">=</span> <span class="p">[</span><span class="n">values</span><span class="p">]</span>
+                    <span class="n">df_filtered</span> <span class="o">=</span> <span class="n">df_filtered</span><span class="p">[</span><span class="n">df_filtered</span><span class="p">[</span><span class="n">col</span><span class="p">]</span><span class="o">.</span><span class="n">isin</span><span class="p">(</span><span class="n">values</span><span class="p">)]</span>
+        
+        <span class="c1"># Determine grouping columns</span>
+        <span class="n">format_type</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">detect_data_format</span><span class="p">(</span><span class="n">df_filtered</span><span class="p">)</span>
+        
+        <span class="k">if</span> <span class="n">level</span> <span class="o">==</span> <span class="s1">&#39;global&#39;</span><span class="p">:</span>
+            <span class="c1"># Aggregate everything by date</span>
+            <span class="n">group_cols</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;date&#39;</span><span class="p">]</span> <span class="k">if</span> <span class="s1">&#39;date&#39;</span> <span class="ow">in</span> <span class="n">df_filtered</span><span class="o">.</span><span class="n">columns</span> <span class="k">else</span> <span class="p">[]</span>
+            
+        <span class="k">elif</span> <span class="n">level</span> <span class="o">==</span> <span class="s1">&#39;country&#39;</span><span class="p">:</span>
+            <span class="k">if</span> <span class="s1">&#39;country&#39;</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">df_filtered</span><span class="o">.</span><span class="n">columns</span><span class="p">:</span>
+                <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Cannot aggregate by country: &#39;country&#39; column not found&quot;</span><span class="p">)</span>
+            <span class="n">group_cols</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;date&#39;</span><span class="p">,</span> <span class="s1">&#39;country&#39;</span><span class="p">]</span> <span class="k">if</span> <span class="s1">&#39;date&#39;</span> <span class="ow">in</span> <span class="n">df_filtered</span><span class="o">.</span><span class="n">columns</span> <span class="k">else</span> <span class="p">[</span><span class="s1">&#39;country&#39;</span><span class="p">]</span>
+            
+        <span class="k">elif</span> <span class="n">level</span> <span class="o">==</span> <span class="s1">&#39;os&#39;</span><span class="p">:</span>
+            <span class="k">if</span> <span class="s1">&#39;os&#39;</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">df_filtered</span><span class="o">.</span><span class="n">columns</span><span class="p">:</span>
+                <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Cannot aggregate by OS: &#39;os&#39; column not found&quot;</span><span class="p">)</span>
+            <span class="n">group_cols</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;date&#39;</span><span class="p">,</span> <span class="s1">&#39;os&#39;</span><span class="p">]</span> <span class="k">if</span> <span class="s1">&#39;date&#39;</span> <span class="ow">in</span> <span class="n">df_filtered</span><span class="o">.</span><span class="n">columns</span> <span class="k">else</span> <span class="p">[</span><span class="s1">&#39;os&#39;</span><span class="p">]</span>
+            
+        <span class="k">elif</span> <span class="n">level</span> <span class="o">==</span> <span class="s1">&#39;country_os&#39;</span><span class="p">:</span>
+            <span class="k">if</span> <span class="s1">&#39;country&#39;</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">df_filtered</span><span class="o">.</span><span class="n">columns</span> <span class="ow">or</span> <span class="s1">&#39;os&#39;</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">df_filtered</span><span class="o">.</span><span class="n">columns</span><span class="p">:</span>
+                <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Cannot aggregate by country_os: required columns not found&quot;</span><span class="p">)</span>
+            <span class="n">group_cols</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;date&#39;</span><span class="p">,</span> <span class="s1">&#39;country&#39;</span><span class="p">,</span> <span class="s1">&#39;os&#39;</span><span class="p">]</span> <span class="k">if</span> <span class="s1">&#39;date&#39;</span> <span class="ow">in</span> <span class="n">df_filtered</span><span class="o">.</span><span class="n">columns</span> <span class="k">else</span> <span class="p">[</span><span class="s1">&#39;country&#39;</span><span class="p">,</span> <span class="s1">&#39;os&#39;</span><span class="p">]</span>
+            
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Invalid aggregation level: </span><span class="si">{</span><span class="n">level</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+        
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">group_cols</span><span class="p">:</span>
+            <span class="c1"># No grouping needed, return as is</span>
+            <span class="k">return</span> <span class="n">df_filtered</span>
+        
+        <span class="c1"># Identify numeric columns to aggregate</span>
+        <span class="n">numeric_cols</span> <span class="o">=</span> <span class="n">df_filtered</span><span class="o">.</span><span class="n">select_dtypes</span><span class="p">(</span><span class="n">include</span><span class="o">=</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">number</span><span class="p">])</span><span class="o">.</span><span class="n">columns</span><span class="o">.</span><span class="n">tolist</span><span class="p">()</span>
+        
+        <span class="c1"># Aggregate</span>
+        <span class="n">agg_df</span> <span class="o">=</span> <span class="n">df_filtered</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="n">group_cols</span><span class="p">)[</span><span class="n">numeric_cols</span><span class="p">]</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span><span class="o">.</span><span class="n">reset_index</span><span class="p">()</span>
+        
+        <span class="k">return</span> <span class="n">agg_df</span></div>
+
+    
+<div class="viewcode-block" id="DataProcessor.get_market_segments">
+<a class="viewcode-back" href="../../api/data_processor.html#src.data_processor.DataProcessor.get_market_segments">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">get_market_segments</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">df</span><span class="p">:</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">]:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Return list of unique market segments (country-os combinations).</span>
+<span class="sd">        </span>
+<span class="sd">        Args:</span>
+<span class="sd">            df: DataFrame with market data</span>
+<span class="sd">            </span>
+<span class="sd">        Returns:</span>
+<span class="sd">            List of market segment strings (e.g., [&#39;KR-iOS&#39;, &#39;KR-Android&#39;, &#39;US-iOS&#39;])</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">format_type</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">detect_data_format</span><span class="p">(</span><span class="n">df</span><span class="p">)</span>
+        
+        <span class="k">if</span> <span class="n">format_type</span> <span class="o">==</span> <span class="s1">&#39;multi_country_os&#39;</span><span class="p">:</span>
+            <span class="c1"># Create country-os combinations</span>
+            <span class="n">segments</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">groupby</span><span class="p">([</span><span class="s1">&#39;country&#39;</span><span class="p">,</span> <span class="s1">&#39;os&#39;</span><span class="p">])</span><span class="o">.</span><span class="n">size</span><span class="p">()</span><span class="o">.</span><span class="n">reset_index</span><span class="p">()[[</span><span class="s1">&#39;country&#39;</span><span class="p">,</span> <span class="s1">&#39;os&#39;</span><span class="p">]]</span>
+            <span class="n">market_segments</span> <span class="o">=</span> <span class="p">[</span>
+                <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">row</span><span class="p">[</span><span class="s1">&#39;country&#39;</span><span class="p">]</span><span class="si">}</span><span class="s2">-</span><span class="si">{</span><span class="n">row</span><span class="p">[</span><span class="s1">&#39;os&#39;</span><span class="p">]</span><span class="si">}</span><span class="s2">&quot;</span> 
+                <span class="k">for</span> <span class="n">_</span><span class="p">,</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">segments</span><span class="o">.</span><span class="n">iterrows</span><span class="p">()</span>
+            <span class="p">]</span>
+            <span class="k">return</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">market_segments</span><span class="p">)</span>
+            
+        <span class="k">elif</span> <span class="n">format_type</span> <span class="o">==</span> <span class="s1">&#39;multi_country&#39;</span><span class="p">:</span>
+            <span class="c1"># Just return countries</span>
+            <span class="k">return</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;country&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">unique</span><span class="p">()</span><span class="o">.</span><span class="n">tolist</span><span class="p">())</span>
+            
+        <span class="k">else</span><span class="p">:</span>
+            <span class="c1"># Single market</span>
+            <span class="k">return</span> <span class="p">[</span><span class="s1">&#39;GLOBAL&#39;</span><span class="p">]</span></div>
+
+    
+<div class="viewcode-block" id="DataProcessor.get_market_hierarchy">
+<a class="viewcode-back" href="../../api/data_processor.html#src.data_processor.DataProcessor.get_market_hierarchy">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">get_market_hierarchy</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">df</span><span class="p">:</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Dict</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Return hierarchical structure of markets.</span>
+<span class="sd">        </span>
+<span class="sd">        Args:</span>
+<span class="sd">            df: DataFrame with market data</span>
+<span class="sd">            </span>
+<span class="sd">        Returns:</span>
+<span class="sd">            Dict with market hierarchy:</span>
+<span class="sd">                {</span>
+<span class="sd">                    &#39;format&#39;: str,</span>
+<span class="sd">                    &#39;countries&#39;: list,</span>
+<span class="sd">                    &#39;os_platforms&#39;: list,</span>
+<span class="sd">                    &#39;hierarchy&#39;: dict  # Nested structure</span>
+<span class="sd">                }</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">format_type</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">detect_data_format</span><span class="p">(</span><span class="n">df</span><span class="p">)</span>
+        
+        <span class="n">hierarchy</span> <span class="o">=</span> <span class="p">{</span>
+            <span class="s1">&#39;format&#39;</span><span class="p">:</span> <span class="n">format_type</span><span class="p">,</span>
+            <span class="s1">&#39;countries&#39;</span><span class="p">:</span> <span class="p">[],</span>
+            <span class="s1">&#39;os_platforms&#39;</span><span class="p">:</span> <span class="p">[],</span>
+            <span class="s1">&#39;hierarchy&#39;</span><span class="p">:</span> <span class="p">{}</span>
+        <span class="p">}</span>
+        
+        <span class="k">if</span> <span class="n">format_type</span> <span class="o">==</span> <span class="s1">&#39;multi_country_os&#39;</span><span class="p">:</span>
+            <span class="n">countries</span> <span class="o">=</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;country&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">unique</span><span class="p">()</span><span class="o">.</span><span class="n">tolist</span><span class="p">())</span>
+            <span class="n">os_platforms</span> <span class="o">=</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;os&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">unique</span><span class="p">()</span><span class="o">.</span><span class="n">tolist</span><span class="p">())</span>
+            
+            <span class="n">hierarchy</span><span class="p">[</span><span class="s1">&#39;countries&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">countries</span>
+            <span class="n">hierarchy</span><span class="p">[</span><span class="s1">&#39;os_platforms&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">os_platforms</span>
+            
+            <span class="c1"># Build nested structure</span>
+            <span class="k">for</span> <span class="n">country</span> <span class="ow">in</span> <span class="n">countries</span><span class="p">:</span>
+                <span class="n">hierarchy</span><span class="p">[</span><span class="s1">&#39;hierarchy&#39;</span><span class="p">][</span><span class="n">country</span><span class="p">]</span> <span class="o">=</span> <span class="p">{}</span>
+                <span class="k">for</span> <span class="n">os</span> <span class="ow">in</span> <span class="n">os_platforms</span><span class="p">:</span>
+                    <span class="c1"># Check if this combination exists</span>
+                    <span class="n">exists</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">df</span><span class="p">[(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;country&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="n">country</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;os&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="n">os</span><span class="p">)])</span> <span class="o">&gt;</span> <span class="mi">0</span>
+                    <span class="k">if</span> <span class="n">exists</span><span class="p">:</span>
+                        <span class="n">hierarchy</span><span class="p">[</span><span class="s1">&#39;hierarchy&#39;</span><span class="p">][</span><span class="n">country</span><span class="p">][</span><span class="n">os</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span>
+                            <span class="s1">&#39;segment&#39;</span><span class="p">:</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">country</span><span class="si">}</span><span class="s2">-</span><span class="si">{</span><span class="n">os</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">,</span>
+                            <span class="s1">&#39;row_count&#39;</span><span class="p">:</span> <span class="nb">len</span><span class="p">(</span><span class="n">df</span><span class="p">[(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;country&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="n">country</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;os&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="n">os</span><span class="p">)])</span>
+                        <span class="p">}</span>
+                        
+        <span class="k">elif</span> <span class="n">format_type</span> <span class="o">==</span> <span class="s1">&#39;multi_country&#39;</span><span class="p">:</span>
+            <span class="n">countries</span> <span class="o">=</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;country&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">unique</span><span class="p">()</span><span class="o">.</span><span class="n">tolist</span><span class="p">())</span>
+            <span class="n">hierarchy</span><span class="p">[</span><span class="s1">&#39;countries&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">countries</span>
+            
+            <span class="k">for</span> <span class="n">country</span> <span class="ow">in</span> <span class="n">countries</span><span class="p">:</span>
+                <span class="n">hierarchy</span><span class="p">[</span><span class="s1">&#39;hierarchy&#39;</span><span class="p">][</span><span class="n">country</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span>
+                    <span class="s1">&#39;row_count&#39;</span><span class="p">:</span> <span class="nb">len</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;country&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="n">country</span><span class="p">])</span>
+                <span class="p">}</span>
+        
+        <span class="k">return</span> <span class="n">hierarchy</span></div>
+</div>
+
+</pre></div>
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2024, Ridge MMM Contributors.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

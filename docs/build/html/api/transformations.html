@@ -1,0 +1,1428 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Transformations &mdash; Ridge MMM v0.1.0</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=03e43079" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=19f00094" />
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../_static/documentation_options.js?v=01f34227"></script>
+        <script src="../_static/doctools.js?v=9a2dae69"></script>
+        <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+        <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+        <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Ridge MMM" href="ridge_mmm.html" />
+    <link rel="prev" title="Data Processor" href="data_processor.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            Ridge MMM
+          </a>
+              <div class="version">
+                0.1.0
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">User Documentation</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../user_guide.html">Ridge MMM User Guide</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../user_guide.html#table-of-contents">Table of Contents</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../user_guide.html#introduction">Introduction</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../user_guide.html#what-is-marketing-mix-modeling-mmm">What is Marketing Mix Modeling (MMM)?</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../user_guide.html#when-to-use-this-tool">When to Use This Tool</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../user_guide.html#quick-start">Quick Start</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../user_guide.html#step-1-prepare-your-data">Step 1: Prepare Your Data</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../user_guide.html#step-2-upload-data">Step 2: Upload Data</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../user_guide.html#step-3-configure-model">Step 3: Configure Model</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../user_guide.html#step-4-analyze-results">Step 4: Analyze Results</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../user_guide.html#step-5-optimize-budget">Step 5: Optimize Budget</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../user_guide.html#data-preparation">Data Preparation</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../user_guide.html#data-format-requirements">Data Format Requirements</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../user_guide.html#column-naming">Column Naming</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../user_guide.html#multi-market-data-format">Multi-Market Data Format</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../user_guide.html#data-quality-checks">Data Quality Checks</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../user_guide.html#model-configuration">Model Configuration</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../user_guide.html#understanding-adstock-carryover-effect">Understanding Adstock (Carryover Effect)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../user_guide.html#understanding-hill-saturation">Understanding Hill Saturation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../user_guide.html#model-settings">Model Settings</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../user_guide.html#understanding-results">Understanding Results</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../user_guide.html#channel-contributions-tab">Channel Contributions Tab</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../user_guide.html#response-curves-tab">Response Curves Tab</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../user_guide.html#model-diagnostics-tab">Model Diagnostics Tab</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../user_guide.html#budget-optimization">Budget Optimization</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../user_guide.html#using-the-optimizer">Using the Optimizer</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../user_guide.html#scenario-builder">Scenario Builder</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../user_guide.html#interpreting-recommendations">Interpreting Recommendations</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../user_guide.html#multi-market-analysis">Multi-Market Analysis</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../user_guide.html#setting-up-multi-market-models">Setting Up Multi-Market Models</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../user_guide.html#comparing-markets">Comparing Markets</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../user_guide.html#cross-market-insights">Cross-Market Insights</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../user_guide.html#best-practices">Best Practices</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../user_guide.html#data-collection">Data Collection</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../user_guide.html#model-development">Model Development</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../user_guide.html#using-results">Using Results</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../user_guide.html#troubleshooting">Troubleshooting</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../user_guide.html#model-has-poor-fit-r2-0-5">“Model has poor fit (R² &lt; 0.5)”</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../user_guide.html#optimization-suggests-extreme-allocations">“Optimization suggests extreme allocations”</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../user_guide.html#results-dont-match-my-intuition">“Results don’t match my intuition”</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../user_guide.html#different-from-last-click-attribution">“Different from last-click attribution”</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../user_guide.html#glossary">Glossary</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../user_guide.html#support-resources">Support &amp; Resources</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../quick_reference.html">Quick Reference Card</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../quick_reference.html#essential-formulas">Essential Formulas</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../quick_reference.html#roas-calculation">ROAS Calculation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../quick_reference.html#adstock-transformation">Adstock Transformation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../quick_reference.html#hill-saturation">Hill Saturation</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../quick_reference.html#parameter-quick-guide">Parameter Quick Guide</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../quick_reference.html#interpretation-guide">Interpretation Guide</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../quick_reference.html#roas-benchmarks">ROAS Benchmarks</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../quick_reference.html#model-fit-r2">Model Fit (R²)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../quick_reference.html#mape-prediction-error">MAPE (Prediction Error)</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../quick_reference.html#common-workflows">Common Workflows</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../quick_reference.html#weekly-refresh">Weekly Refresh</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../quick_reference.html#monthly-budget-planning">Monthly Budget Planning</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../quick_reference.html#quarterly-strategy-review">Quarterly Strategy Review</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../quick_reference.html#keyboard-shortcuts-streamlit">Keyboard Shortcuts (Streamlit)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../quick_reference.html#file-locations">File Locations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../quick_reference.html#error-messages">Error Messages</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../quick_reference.html#pro-tips">Pro Tips</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials.html">Tutorials</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../tutorials.html#coming-soon">Coming Soon</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../faq.html">Frequently Asked Questions</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../faq.html#general-questions">General Questions</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../faq.html#what-is-marketing-mix-modeling-mmm">What is Marketing Mix Modeling (MMM)?</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../faq.html#how-is-this-different-from-attribution-models">How is this different from attribution models?</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../faq.html#how-much-data-do-i-need">How much data do I need?</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../faq.html#model-questions">Model Questions</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../faq.html#what-does-the-alpha-parameter-do">What does the alpha parameter do?</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../faq.html#how-do-i-choose-adstock-parameters">How do I choose adstock parameters?</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../faq.html#what-if-my-r2-is-low">What if my R² is low?</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../faq.html#optimization-questions">Optimization Questions</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../faq.html#why-does-the-optimizer-suggest-extreme-allocations">Why does the optimizer suggest extreme allocations?</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../faq.html#can-i-optimize-for-multiple-objectives">Can I optimize for multiple objectives?</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../faq.html#technical-questions">Technical Questions</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../faq.html#can-i-use-daily-data-instead-of-weekly">Can I use daily data instead of weekly?</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../faq.html#does-this-support-bayesian-mmm">Does this support Bayesian MMM?</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../faq.html#can-i-add-custom-transformations">Can I add custom transformations?</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../faq.html#still-have-questions">Still Have Questions?</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">API Reference</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="data_processor.html">Data Processor</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="data_processor.html#src.data_processor.DataProcessor"><code class="docutils literal notranslate"><span class="pre">DataProcessor</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="data_processor.html#src.data_processor.DataProcessor.__init__"><code class="docutils literal notranslate"><span class="pre">DataProcessor.__init__()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="data_processor.html#src.data_processor.DataProcessor.load_csv"><code class="docutils literal notranslate"><span class="pre">DataProcessor.load_csv()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="data_processor.html#src.data_processor.DataProcessor.validate_data"><code class="docutils literal notranslate"><span class="pre">DataProcessor.validate_data()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="data_processor.html#src.data_processor.DataProcessor.check_missing_values"><code class="docutils literal notranslate"><span class="pre">DataProcessor.check_missing_values()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="data_processor.html#src.data_processor.DataProcessor.detect_outliers"><code class="docutils literal notranslate"><span class="pre">DataProcessor.detect_outliers()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="data_processor.html#src.data_processor.DataProcessor.get_summary_stats"><code class="docutils literal notranslate"><span class="pre">DataProcessor.get_summary_stats()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="data_processor.html#src.data_processor.DataProcessor.convert_date_column"><code class="docutils literal notranslate"><span class="pre">DataProcessor.convert_date_column()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="data_processor.html#src.data_processor.DataProcessor.get_date_range"><code class="docutils literal notranslate"><span class="pre">DataProcessor.get_date_range()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="data_processor.html#src.data_processor.DataProcessor.detect_data_format"><code class="docutils literal notranslate"><span class="pre">DataProcessor.detect_data_format()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="data_processor.html#src.data_processor.DataProcessor.validate_multi_market_data"><code class="docutils literal notranslate"><span class="pre">DataProcessor.validate_multi_market_data()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="data_processor.html#src.data_processor.DataProcessor.aggregate_data"><code class="docutils literal notranslate"><span class="pre">DataProcessor.aggregate_data()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="data_processor.html#src.data_processor.DataProcessor.get_market_segments"><code class="docutils literal notranslate"><span class="pre">DataProcessor.get_market_segments()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="data_processor.html#src.data_processor.DataProcessor.get_market_hierarchy"><code class="docutils literal notranslate"><span class="pre">DataProcessor.get_market_hierarchy()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="data_processor.html#dataprocessor-class">DataProcessor Class</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="data_processor.html#id0"><code class="docutils literal notranslate"><span class="pre">DataProcessor</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="data_processor.html#id1"><code class="docutils literal notranslate"><span class="pre">DataProcessor.__init__()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="data_processor.html#id2"><code class="docutils literal notranslate"><span class="pre">DataProcessor.load_csv()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="data_processor.html#id3"><code class="docutils literal notranslate"><span class="pre">DataProcessor.validate_data()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="data_processor.html#id4"><code class="docutils literal notranslate"><span class="pre">DataProcessor.check_missing_values()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="data_processor.html#id5"><code class="docutils literal notranslate"><span class="pre">DataProcessor.detect_outliers()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="data_processor.html#id6"><code class="docutils literal notranslate"><span class="pre">DataProcessor.get_summary_stats()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="data_processor.html#id7"><code class="docutils literal notranslate"><span class="pre">DataProcessor.convert_date_column()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="data_processor.html#id8"><code class="docutils literal notranslate"><span class="pre">DataProcessor.get_date_range()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="data_processor.html#id9"><code class="docutils literal notranslate"><span class="pre">DataProcessor.detect_data_format()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="data_processor.html#id10"><code class="docutils literal notranslate"><span class="pre">DataProcessor.validate_multi_market_data()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="data_processor.html#id11"><code class="docutils literal notranslate"><span class="pre">DataProcessor.aggregate_data()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="data_processor.html#id12"><code class="docutils literal notranslate"><span class="pre">DataProcessor.get_market_segments()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="data_processor.html#id13"><code class="docutils literal notranslate"><span class="pre">DataProcessor.get_market_hierarchy()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="data_processor.html#usage-example">Usage Example</a></li>
+</ul>
+</li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Transformations</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#src.transformations.AdstockTransformer"><code class="docutils literal notranslate"><span class="pre">AdstockTransformer</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#src.transformations.AdstockTransformer.decay_rate"><code class="docutils literal notranslate"><span class="pre">AdstockTransformer.decay_rate</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#src.transformations.AdstockTransformer.__init__"><code class="docutils literal notranslate"><span class="pre">AdstockTransformer.__init__()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#src.transformations.AdstockTransformer.transform"><code class="docutils literal notranslate"><span class="pre">AdstockTransformer.transform()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#src.transformations.AdstockTransformer.get_decay_curve"><code class="docutils literal notranslate"><span class="pre">AdstockTransformer.get_decay_curve()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#src.transformations.HillTransformer"><code class="docutils literal notranslate"><span class="pre">HillTransformer</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#src.transformations.HillTransformer.K"><code class="docutils literal notranslate"><span class="pre">HillTransformer.K</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#src.transformations.HillTransformer.S"><code class="docutils literal notranslate"><span class="pre">HillTransformer.S</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#src.transformations.HillTransformer.__init__"><code class="docutils literal notranslate"><span class="pre">HillTransformer.__init__()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#src.transformations.HillTransformer.transform"><code class="docutils literal notranslate"><span class="pre">HillTransformer.transform()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#src.transformations.HillTransformer.get_response_curve"><code class="docutils literal notranslate"><span class="pre">HillTransformer.get_response_curve()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#src.transformations.TransformationPipeline"><code class="docutils literal notranslate"><span class="pre">TransformationPipeline</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#src.transformations.TransformationPipeline.channel_configs"><code class="docutils literal notranslate"><span class="pre">TransformationPipeline.channel_configs</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#src.transformations.TransformationPipeline.__init__"><code class="docutils literal notranslate"><span class="pre">TransformationPipeline.__init__()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#src.transformations.TransformationPipeline.fit_transform"><code class="docutils literal notranslate"><span class="pre">TransformationPipeline.fit_transform()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#src.transformations.TransformationPipeline.transform"><code class="docutils literal notranslate"><span class="pre">TransformationPipeline.transform()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#src.transformations.TransformationPipeline.get_transformation_summary"><code class="docutils literal notranslate"><span class="pre">TransformationPipeline.get_transformation_summary()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#src.transformations.TransformationPipeline.transform_single_channel"><code class="docutils literal notranslate"><span class="pre">TransformationPipeline.transform_single_channel()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#adstock-transformer">Adstock Transformer</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id0"><code class="docutils literal notranslate"><span class="pre">AdstockTransformer</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id1"><code class="docutils literal notranslate"><span class="pre">AdstockTransformer.decay_rate</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id2"><code class="docutils literal notranslate"><span class="pre">AdstockTransformer.__init__()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id3"><code class="docutils literal notranslate"><span class="pre">AdstockTransformer.transform()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id4"><code class="docutils literal notranslate"><span class="pre">AdstockTransformer.get_decay_curve()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#hill-transformer">Hill Transformer</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id5"><code class="docutils literal notranslate"><span class="pre">HillTransformer</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id6"><code class="docutils literal notranslate"><span class="pre">HillTransformer.K</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id7"><code class="docutils literal notranslate"><span class="pre">HillTransformer.S</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id8"><code class="docutils literal notranslate"><span class="pre">HillTransformer.__init__()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id9"><code class="docutils literal notranslate"><span class="pre">HillTransformer.transform()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id10"><code class="docutils literal notranslate"><span class="pre">HillTransformer.get_response_curve()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#transformation-pipeline">Transformation Pipeline</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id11"><code class="docutils literal notranslate"><span class="pre">TransformationPipeline</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id12"><code class="docutils literal notranslate"><span class="pre">TransformationPipeline.channel_configs</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id13"><code class="docutils literal notranslate"><span class="pre">TransformationPipeline.__init__()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id14"><code class="docutils literal notranslate"><span class="pre">TransformationPipeline.fit_transform()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id15"><code class="docutils literal notranslate"><span class="pre">TransformationPipeline.transform()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id16"><code class="docutils literal notranslate"><span class="pre">TransformationPipeline.get_transformation_summary()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id17"><code class="docutils literal notranslate"><span class="pre">TransformationPipeline.transform_single_channel()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#usage-examples">Usage Examples</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#adstock-example">Adstock Example</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#hill-saturation-example">Hill Saturation Example</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#pipeline-example">Pipeline Example</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="ridge_mmm.html">Ridge MMM</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="ridge_mmm.html#ridgemmm-class">RidgeMMM Class</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ridge_mmm.html#model-architecture">Model Architecture</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ridge_mmm.html#usage-example">Usage Example</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="ridge_mmm.html#basic-usage">Basic Usage</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ridge_mmm.html#getting-contributions">Getting Contributions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ridge_mmm.html#calculating-roas">Calculating ROAS</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ridge_mmm.html#response-curves">Response Curves</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ridge_mmm.html#model-diagnostics">Model Diagnostics</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="ridge_mmm.html#mathematical-formulation">Mathematical Formulation</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="hierarchical_mmm.html">Hierarchical MMM</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="hierarchical_mmm.html#hierarchicalmmm-class">HierarchicalMMM Class</a></li>
+<li class="toctree-l2"><a class="reference internal" href="hierarchical_mmm.html#overview">Overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="hierarchical_mmm.html#use-cases">Use Cases</a></li>
+<li class="toctree-l2"><a class="reference internal" href="hierarchical_mmm.html#usage-example">Usage Example</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="hierarchical_mmm.html#basic-segmentation">Basic Segmentation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="hierarchical_mmm.html#segment-specific-roas">Segment-Specific ROAS</a></li>
+<li class="toctree-l3"><a class="reference internal" href="hierarchical_mmm.html#compare-segments">Compare Segments</a></li>
+<li class="toctree-l3"><a class="reference internal" href="hierarchical_mmm.html#segment-performance">Segment Performance</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="hierarchical_mmm.html#pooling-strategies">Pooling Strategies</a></li>
+<li class="toctree-l2"><a class="reference internal" href="hierarchical_mmm.html#best-practices">Best Practices</a></li>
+<li class="toctree-l2"><a class="reference internal" href="hierarchical_mmm.html#example-global-campaign-analysis">Example: Global Campaign Analysis</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="optimizer.html">Budget Optimizer</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="optimizer.html#budgetoptimizer-class">BudgetOptimizer Class</a></li>
+<li class="toctree-l2"><a class="reference internal" href="optimizer.html#optimizationerror">OptimizationError</a></li>
+<li class="toctree-l2"><a class="reference internal" href="optimizer.html#optimization-problem">Optimization Problem</a></li>
+<li class="toctree-l2"><a class="reference internal" href="optimizer.html#usage-example">Usage Example</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="optimizer.html#basic-optimization">Basic Optimization</a></li>
+<li class="toctree-l3"><a class="reference internal" href="optimizer.html#with-constraints">With Constraints</a></li>
+<li class="toctree-l3"><a class="reference internal" href="optimizer.html#scenario-comparison">Scenario Comparison</a></li>
+<li class="toctree-l3"><a class="reference internal" href="optimizer.html#marginal-roas">Marginal ROAS</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="optimizer.html#optimization-algorithms">Optimization Algorithms</a></li>
+<li class="toctree-l2"><a class="reference internal" href="optimizer.html#best-practices">Best Practices</a></li>
+<li class="toctree-l2"><a class="reference internal" href="optimizer.html#troubleshooting">Troubleshooting</a></li>
+<li class="toctree-l2"><a class="reference internal" href="optimizer.html#example-monthly-budget-planning">Example: Monthly Budget Planning</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="visualizations.html">Visualizations</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="visualizations.html#plotting-functions">Plotting Functions</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="visualizations.html#channel-contributions-waterfall">Channel Contributions Waterfall</a></li>
+<li class="toctree-l3"><a class="reference internal" href="visualizations.html#response-curves">Response Curves</a></li>
+<li class="toctree-l3"><a class="reference internal" href="visualizations.html#roas-comparison">ROAS Comparison</a></li>
+<li class="toctree-l3"><a class="reference internal" href="visualizations.html#model-diagnostics">Model Diagnostics</a></li>
+<li class="toctree-l3"><a class="reference internal" href="visualizations.html#multi-market-heatmap">Multi-Market Heatmap</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="visualizations.html#usage-examples">Usage Examples</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="visualizations.html#waterfall-chart">Waterfall Chart</a></li>
+<li class="toctree-l3"><a class="reference internal" href="visualizations.html#id1">Response Curves</a></li>
+<li class="toctree-l3"><a class="reference internal" href="visualizations.html#id2">ROAS Comparison</a></li>
+<li class="toctree-l3"><a class="reference internal" href="visualizations.html#id3">Model Diagnostics</a></li>
+<li class="toctree-l3"><a class="reference internal" href="visualizations.html#multi-market-analysis">Multi-Market Analysis</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="visualizations.html#customization">Customization</a></li>
+<li class="toctree-l2"><a class="reference internal" href="visualizations.html#exporting">Exporting</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="utils.html">Utilities</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="utils.html#data-utils">Data Utils</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="utils.html#src.utils.data_utils.validate_required_columns"><code class="docutils literal notranslate"><span class="pre">validate_required_columns()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="utils.html#src.utils.data_utils.validate_column_types"><code class="docutils literal notranslate"><span class="pre">validate_column_types()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="utils.html#src.utils.data_utils.safe_divide"><code class="docutils literal notranslate"><span class="pre">safe_divide()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="utils.html#key-functions">Key Functions</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="utils.html#segment-utils">Segment Utils</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="utils.html#src.utils.segment_utils.parse_segment"><code class="docutils literal notranslate"><span class="pre">parse_segment()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="utils.html#src.utils.segment_utils.filter_by_segment"><code class="docutils literal notranslate"><span class="pre">filter_by_segment()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="utils.html#src.utils.segment_utils.get_segment_hierarchy"><code class="docutils literal notranslate"><span class="pre">get_segment_hierarchy()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="utils.html#id1">Key Functions</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="utils.html#plot-utils">Plot Utils</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="utils.html#src.utils.plot_utils.get_default_layout"><code class="docutils literal notranslate"><span class="pre">get_default_layout()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="utils.html#src.utils.plot_utils.apply_default_layout"><code class="docutils literal notranslate"><span class="pre">apply_default_layout()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="utils.html#src.utils.plot_utils.get_color_palette"><code class="docutils literal notranslate"><span class="pre">get_color_palette()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="utils.html#src.utils.plot_utils.format_currency"><code class="docutils literal notranslate"><span class="pre">format_currency()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="utils.html#src.utils.plot_utils.format_percentage"><code class="docutils literal notranslate"><span class="pre">format_percentage()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="utils.html#src.utils.plot_utils.add_annotation"><code class="docutils literal notranslate"><span class="pre">add_annotation()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="utils.html#id2">Key Functions</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="utils.html#id0"><code class="docutils literal notranslate"><span class="pre">format_currency()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="utils.html#usage-examples">Usage Examples</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="utils.html#data-validation">Data Validation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="utils.html#weekly-aggregation">Weekly Aggregation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="utils.html#fill-missing-weeks">Fill Missing Weeks</a></li>
+<li class="toctree-l3"><a class="reference internal" href="utils.html#outlier-detection">Outlier Detection</a></li>
+<li class="toctree-l3"><a class="reference internal" href="utils.html#segment-analysis">Segment Analysis</a></li>
+<li class="toctree-l3"><a class="reference internal" href="utils.html#currency-formatting">Currency Formatting</a></li>
+<li class="toctree-l3"><a class="reference internal" href="utils.html#color-palettes">Color Palettes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="utils.html#add-plot-annotations">Add Plot Annotations</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="utils.html#helper-constants">Helper Constants</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Development</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../contributing.html">Contributing to Ridge MMM</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../contributing.html#getting-started">Getting Started</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../contributing.html#development-workflow">Development Workflow</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../contributing.html#creating-a-branch">Creating a Branch</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../contributing.html#making-changes">Making Changes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../contributing.html#code-style">Code Style</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../contributing.html#testing">Testing</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../contributing.html#documentation">Documentation</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../contributing.html#submitting-changes">Submitting Changes</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../contributing.html#commit-messages">Commit Messages</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../contributing.html#pull-requests">Pull Requests</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../contributing.html#code-review">Code Review</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../contributing.html#areas-for-contribution">Areas for Contribution</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../contributing.html#high-priority">High Priority</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../contributing.html#medium-priority">Medium Priority</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../contributing.html#id1">Documentation</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../contributing.html#questions">Questions?</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../changelog.html">Changelog</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../changelog.html#unreleased">[Unreleased]</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../changelog.html#added">Added</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../changelog.html#xx">[0.1.0] - 2024-01-XX</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../changelog.html#id1">Added</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../changelog.html#features">Features</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../changelog.html#core-modeling">Core Modeling</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../changelog.html#transformations">Transformations</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../changelog.html#optimization">Optimization</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../changelog.html#multi-market">Multi-Market</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../changelog.html#user-interface">User Interface</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../changelog.html#documentation">Documentation</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../changelog.html#initial-development">[0.0.1] - Initial Development</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../changelog.html#id2">Added</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../changelog.html#version-history-legend">Version History Legend</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../architecture.html">Architecture Overview</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../architecture.html#high-level-architecture">High-Level Architecture</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../architecture.html#component-details">Component Details</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../architecture.html#data-processor-src-data-processor-py">1. Data Processor (<code class="docutils literal notranslate"><span class="pre">src/data_processor.py</span></code>)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../architecture.html#transformations-src-transformations-py">2. Transformations (<code class="docutils literal notranslate"><span class="pre">src/transformations.py</span></code>)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../architecture.html#ridge-mmm-src-ridge-mmm-py">3. Ridge MMM (<code class="docutils literal notranslate"><span class="pre">src/ridge_mmm.py</span></code>)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../architecture.html#hierarchical-mmm-src-hierarchical-mmm-py">4. Hierarchical MMM (<code class="docutils literal notranslate"><span class="pre">src/hierarchical_mmm.py</span></code>)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../architecture.html#budget-optimizer-src-optimizer-py">5. Budget Optimizer (<code class="docutils literal notranslate"><span class="pre">src/optimizer.py</span></code>)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../architecture.html#visualizations-src-visualizations-py">6. Visualizations (<code class="docutils literal notranslate"><span class="pre">src/visualizations.py</span></code>)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../architecture.html#utilities-src-utils">7. Utilities (<code class="docutils literal notranslate"><span class="pre">src/utils/</span></code>)</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../architecture.html#streamlit-interface">Streamlit Interface</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../architecture.html#page-structure">Page Structure</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../architecture.html#state-management">State Management</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../architecture.html#data-flow">Data Flow</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../architecture.html#complete-workflow">Complete Workflow</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../architecture.html#design-principles">Design Principles</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../architecture.html#separation-of-concerns">1. Separation of Concerns</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../architecture.html#modularity">2. Modularity</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../architecture.html#type-safety">3. Type Safety</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../architecture.html#testability">4. Testability</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../architecture.html#documentation">5. Documentation</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../architecture.html#extension-points">Extension Points</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../architecture.html#adding-new-transformations">Adding New Transformations</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../architecture.html#adding-new-optimization-algorithms">Adding New Optimization Algorithms</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../architecture.html#custom-visualizations">Custom Visualizations</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../architecture.html#performance-considerations">Performance Considerations</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../architecture.html#bottlenecks">Bottlenecks</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../architecture.html#optimizations">Optimizations</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../architecture.html#security">Security</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../architecture.html#data-privacy">Data Privacy</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../architecture.html#input-validation">Input Validation</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../architecture.html#future-architecture-enhancements">Future Architecture Enhancements</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../architecture.html#planned">Planned</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../architecture.html#under-consideration">Under Consideration</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Ridge MMM</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content style-external-links">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Transformations</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/api/transformations.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="transformations">
+<h1>Transformations<a class="headerlink" href="#transformations" title="Link to this heading"></a></h1>
+<p>This module contains transformation functions for Marketing Mix Modeling, including
+adstock (carryover effects) and Hill saturation (diminishing returns).</p>
+<p id="module-src.transformations">Transformation functions for Marketing Mix Modeling (MMM).</p>
+<p>This module provides transformation classes for applying adstock (carryover effects)
+and saturation (diminishing returns) to marketing spend data.</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="src.transformations.AdstockTransformer">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">src.transformations.</span></span><span class="sig-name descname"><span class="pre">AdstockTransformer</span></span><a class="reference internal" href="../_modules/src/transformations.html#AdstockTransformer"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.transformations.AdstockTransformer" title="Link to this definition"></a></dt>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.14)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
+<p>Apply exponential adstock transformation to capture carryover effects.</p>
+<p>Adstock models the delayed and prolonged effect of advertising spend.
+The exponential decay model assumes that the effect of advertising
+diminishes exponentially over time.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="src.transformations.AdstockTransformer.decay_rate">
+<span class="sig-name descname"><span class="pre">decay_rate</span></span><a class="headerlink" href="#src.transformations.AdstockTransformer.decay_rate" title="Link to this definition"></a></dt>
+<dd><p>Decay rate between 0 and 1. Higher values mean
+longer carryover effects.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.14)"><code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<div class="admonition-example admonition">
+<p class="admonition-title">Example</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">transformer</span> <span class="o">=</span> <span class="n">AdstockTransformer</span><span class="p">(</span><span class="n">decay_rate</span><span class="o">=</span><span class="mf">0.5</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">transformed</span> <span class="o">=</span> <span class="n">transformer</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="c1"># Result: [1.0, 0.5, 0.25, 0.125, 0.0625]</span>
+</pre></div>
+</div>
+</div>
+<dl class="py method">
+<dt class="sig sig-object py" id="src.transformations.AdstockTransformer.__init__">
+<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">decay_rate</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.5</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/src/transformations.html#AdstockTransformer.__init__"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.transformations.AdstockTransformer.__init__" title="Link to this definition"></a></dt>
+<dd><p>Initialize AdstockTransformer.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>decay_rate</strong> (<span class="sphinx_autodoc_typehints-type"><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.14)"><code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code></a></span>) – Decay rate between 0 and 1. Default is 0.5.
+0 = no carryover, 1 = infinite carryover</p>
+</dd>
+<dt class="field-even">Raises<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/library/exceptions.html#ValueError" title="(in Python v3.14)"><strong>ValueError</strong></a> – If decay_rate is not between 0 and 1</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="src.transformations.AdstockTransformer.transform">
+<span class="sig-name descname"><span class="pre">transform</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/src/transformations.html#AdstockTransformer.transform"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.transformations.AdstockTransformer.transform" title="Link to this definition"></a></dt>
+<dd><p>Apply exponential adstock transformation.</p>
+<p>The transformation follows the formula:
+adstock[t] = x[t] + decay_rate * adstock[t-1]</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>x</strong> (<span class="sphinx_autodoc_typehints-type"><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v2.3)"><code class="xref py py-class docutils literal notranslate"><span class="pre">ndarray</span></code></a></span>) – Input array of advertising spend values</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><span class="sphinx_autodoc_typehints-type"><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v2.3)"><code class="xref py py-class docutils literal notranslate"><span class="pre">ndarray</span></code></a></span></p>
+</dd>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Transformed array with adstock effects applied</p>
+</dd>
+<dt class="field-even">Raises<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/library/exceptions.html#ValueError" title="(in Python v3.14)"><strong>ValueError</strong></a> – If input is not a numpy array or is empty</p>
+</dd>
+</dl>
+<div class="admonition-example admonition">
+<p class="admonition-title">Example</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">transformer</span> <span class="o">=</span> <span class="n">AdstockTransformer</span><span class="p">(</span><span class="n">decay_rate</span><span class="o">=</span><span class="mf">0.5</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">100</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">50</span><span class="p">,</span> <span class="mi">0</span><span class="p">])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">result</span> <span class="o">=</span> <span class="n">transformer</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="src.transformations.AdstockTransformer.get_decay_curve">
+<span class="sig-name descname"><span class="pre">get_decay_curve</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">length</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">52</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/src/transformations.html#AdstockTransformer.get_decay_curve"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.transformations.AdstockTransformer.get_decay_curve" title="Link to this definition"></a></dt>
+<dd><p>Generate theoretical decay curve for visualization.</p>
+<p>Shows how a single unit of spend decays over time.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>length</strong> (<span class="sphinx_autodoc_typehints-type"><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.14)"><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code></a></span>) – Number of time periods to generate (default: 52 weeks)</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><span class="sphinx_autodoc_typehints-type"><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v2.3)"><code class="xref py py-class docutils literal notranslate"><span class="pre">ndarray</span></code></a></span></p>
+</dd>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Array showing decay pattern over time</p>
+</dd>
+</dl>
+<div class="admonition-example admonition">
+<p class="admonition-title">Example</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">transformer</span> <span class="o">=</span> <span class="n">AdstockTransformer</span><span class="p">(</span><span class="n">decay_rate</span><span class="o">=</span><span class="mf">0.7</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">curve</span> <span class="o">=</span> <span class="n">transformer</span><span class="o">.</span><span class="n">get_decay_curve</span><span class="p">(</span><span class="n">length</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="src.transformations.HillTransformer">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">src.transformations.</span></span><span class="sig-name descname"><span class="pre">HillTransformer</span></span><a class="reference internal" href="../_modules/src/transformations.html#HillTransformer"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.transformations.HillTransformer" title="Link to this definition"></a></dt>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.14)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
+<p>Apply Hill saturation function to model diminishing returns.</p>
+<p>The Hill equation models the saturation effect where increasing spend
+yields progressively smaller returns. This is common in advertising
+where initial spend is highly effective but additional spend has
+diminishing impact.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="src.transformations.HillTransformer.K">
+<span class="sig-name descname"><span class="pre">K</span></span><a class="headerlink" href="#src.transformations.HillTransformer.K" title="Link to this definition"></a></dt>
+<dd><p>Scale parameter (half-saturation point)</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.14)"><code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="src.transformations.HillTransformer.S">
+<span class="sig-name descname"><span class="pre">S</span></span><a class="headerlink" href="#src.transformations.HillTransformer.S" title="Link to this definition"></a></dt>
+<dd><p>Shape parameter (controls curve steepness)</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.14)"><code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<div class="admonition-example admonition">
+<p class="admonition-title">Example</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">transformer</span> <span class="o">=</span> <span class="n">HillTransformer</span><span class="p">(</span><span class="n">K</span><span class="o">=</span><span class="mf">1.0</span><span class="p">,</span> <span class="n">S</span><span class="o">=</span><span class="mf">1.0</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">10</span><span class="p">])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">transformed</span> <span class="o">=</span> <span class="n">transformer</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<dl class="py method">
+<dt class="sig sig-object py" id="src.transformations.HillTransformer.__init__">
+<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">K</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">S</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1.0</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/src/transformations.html#HillTransformer.__init__"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.transformations.HillTransformer.__init__" title="Link to this definition"></a></dt>
+<dd><p>Initialize HillTransformer.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>K</strong> (<span class="sphinx_autodoc_typehints-type"><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.14)"><code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code></a></span>) – Scale parameter (half-saturation point). Default is 1.0.
+Higher K means saturation occurs at higher spend levels.</p></li>
+<li><p><strong>S</strong> (<span class="sphinx_autodoc_typehints-type"><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.14)"><code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code></a></span>) – Shape parameter (curve steepness). Default is 1.0.
+Higher S means sharper transition to saturation.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Raises<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/library/exceptions.html#ValueError" title="(in Python v3.14)"><strong>ValueError</strong></a> – If K or S are not positive</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="src.transformations.HillTransformer.transform">
+<span class="sig-name descname"><span class="pre">transform</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/src/transformations.html#HillTransformer.transform"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.transformations.HillTransformer.transform" title="Link to this definition"></a></dt>
+<dd><p>Apply Hill saturation transformation with numerical stability.</p>
+<p>The transformation follows the formula:
+y = K * (x^S) / (x^S + 1)</p>
+<p>This implementation includes comprehensive numerical stability improvements:
+- Clipping extreme values
+- Log-space computation for large exponents
+- Safe division with zero handling
+- NaN/Inf sanitization
+- Output range validation</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>x</strong> (<span class="sphinx_autodoc_typehints-type"><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v2.3)"><code class="xref py py-class docutils literal notranslate"><span class="pre">ndarray</span></code></a></span>) – Input array of values (typically adstocked spend)</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><span class="sphinx_autodoc_typehints-type"><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v2.3)"><code class="xref py py-class docutils literal notranslate"><span class="pre">ndarray</span></code></a></span></p>
+</dd>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Transformed array with saturation effects applied</p>
+</dd>
+<dt class="field-even">Raises<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/library/exceptions.html#ValueError" title="(in Python v3.14)"><strong>ValueError</strong></a> – If input is empty or transformation produces invalid results</p>
+</dd>
+</dl>
+<div class="admonition-example admonition">
+<p class="admonition-title">Example</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">transformer</span> <span class="o">=</span> <span class="n">HillTransformer</span><span class="p">(</span><span class="n">K</span><span class="o">=</span><span class="mf">1.0</span><span class="p">,</span> <span class="n">S</span><span class="o">=</span><span class="mf">1.0</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">10</span><span class="p">])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">result</span> <span class="o">=</span> <span class="n">transformer</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="src.transformations.HillTransformer.get_response_curve">
+<span class="sig-name descname"><span class="pre">get_response_curve</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x_range</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/src/transformations.html#HillTransformer.get_response_curve"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.transformations.HillTransformer.get_response_curve" title="Link to this definition"></a></dt>
+<dd><p>Generate response curve for visualization.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>x_range</strong> (<span class="sphinx_autodoc_typehints-type"><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v2.3)"><code class="xref py py-class docutils literal notranslate"><span class="pre">ndarray</span></code></a></span>) – Array of input values to evaluate</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><span class="sphinx_autodoc_typehints-type"><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v2.3)"><code class="xref py py-class docutils literal notranslate"><span class="pre">ndarray</span></code></a></span></p>
+</dd>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Array of transformed values</p>
+</dd>
+</dl>
+<div class="admonition-example admonition">
+<p class="admonition-title">Example</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">transformer</span> <span class="o">=</span> <span class="n">HillTransformer</span><span class="p">(</span><span class="n">K</span><span class="o">=</span><span class="mf">1.0</span><span class="p">,</span> <span class="n">S</span><span class="o">=</span><span class="mf">1.0</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">x_range</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">curve</span> <span class="o">=</span> <span class="n">transformer</span><span class="o">.</span><span class="n">get_response_curve</span><span class="p">(</span><span class="n">x_range</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="src.transformations.TransformationPipeline">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">src.transformations.</span></span><span class="sig-name descname"><span class="pre">TransformationPipeline</span></span><a class="reference internal" href="../_modules/src/transformations.html#TransformationPipeline"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.transformations.TransformationPipeline" title="Link to this definition"></a></dt>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.14)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
+<p>Pipeline to apply transformations to multiple channels.</p>
+<p>This class manages the application of adstock and saturation transformations
+to multiple marketing channels, with potentially different parameters for each.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="src.transformations.TransformationPipeline.channel_configs">
+<span class="sig-name descname"><span class="pre">channel_configs</span></span><a class="headerlink" href="#src.transformations.TransformationPipeline.channel_configs" title="Link to this definition"></a></dt>
+<dd><p>Configuration for each channel</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.14)"><code class="xref py py-class docutils literal notranslate"><span class="pre">dict</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<div class="admonition-example admonition">
+<p class="admonition-title">Example</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">configs</span> <span class="o">=</span> <span class="p">{</span>
+<span class="gp">... </span>    <span class="s1">&#39;google&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;adstock&#39;</span><span class="p">:</span> <span class="mf">0.5</span><span class="p">,</span> <span class="s1">&#39;hill_K&#39;</span><span class="p">:</span> <span class="mf">1.0</span><span class="p">,</span> <span class="s1">&#39;hill_S&#39;</span><span class="p">:</span> <span class="mf">1.0</span><span class="p">},</span>
+<span class="gp">... </span>    <span class="s1">&#39;facebook&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;adstock&#39;</span><span class="p">:</span> <span class="mf">0.7</span><span class="p">,</span> <span class="s1">&#39;hill_K&#39;</span><span class="p">:</span> <span class="mf">1.2</span><span class="p">,</span> <span class="s1">&#39;hill_S&#39;</span><span class="p">:</span> <span class="mf">0.9</span><span class="p">}</span>
+<span class="gp">... </span><span class="p">}</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">pipeline</span> <span class="o">=</span> <span class="n">TransformationPipeline</span><span class="p">(</span><span class="n">configs</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">transformed_df</span> <span class="o">=</span> <span class="n">pipeline</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">df</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<dl class="py method">
+<dt class="sig sig-object py" id="src.transformations.TransformationPipeline.__init__">
+<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">channel_configs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/src/transformations.html#TransformationPipeline.__init__"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.transformations.TransformationPipeline.__init__" title="Link to this definition"></a></dt>
+<dd><p>Initialize TransformationPipeline.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>channel_configs</strong> (<span class="sphinx_autodoc_typehints-type"><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Dict" title="(in Python v3.14)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Dict</span></code></a>[<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.14)"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></a>, <a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Dict" title="(in Python v3.14)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Dict</span></code></a>[<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.14)"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></a>, <a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.14)"><code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code></a>]]</span>) – Dictionary mapping channel names to their configs.
+Each config should have keys: ‘adstock’, ‘hill_K’, ‘hill_S’</p>
+</dd>
+</dl>
+<div class="admonition-example admonition">
+<p class="admonition-title">Example</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">configs</span> <span class="o">=</span> <span class="p">{</span>
+<span class="gp">... </span>    <span class="s1">&#39;google&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;adstock&#39;</span><span class="p">:</span> <span class="mf">0.5</span><span class="p">,</span> <span class="s1">&#39;hill_K&#39;</span><span class="p">:</span> <span class="mf">1.0</span><span class="p">,</span> <span class="s1">&#39;hill_S&#39;</span><span class="p">:</span> <span class="mf">1.0</span><span class="p">},</span>
+<span class="gp">... </span>    <span class="s1">&#39;facebook&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;adstock&#39;</span><span class="p">:</span> <span class="mf">0.7</span><span class="p">,</span> <span class="s1">&#39;hill_K&#39;</span><span class="p">:</span> <span class="mf">1.2</span><span class="p">,</span> <span class="s1">&#39;hill_S&#39;</span><span class="p">:</span> <span class="mf">0.9</span><span class="p">}</span>
+<span class="gp">... </span><span class="p">}</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">pipeline</span> <span class="o">=</span> <span class="n">TransformationPipeline</span><span class="p">(</span><span class="n">configs</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Raises<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/exceptions.html#ValueError" title="(in Python v3.14)"><strong>ValueError</strong></a> – If channel_configs is empty or invalid</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="src.transformations.TransformationPipeline.fit_transform">
+<span class="sig-name descname"><span class="pre">fit_transform</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">df</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/src/transformations.html#TransformationPipeline.fit_transform"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.transformations.TransformationPipeline.fit_transform" title="Link to this definition"></a></dt>
+<dd><p>Fit transformers and apply them to the DataFrame.</p>
+<p>This method should be called on training data. It validates the data,
+stores which channels were fitted, and applies transformations.</p>
+<p>Transformations are applied in order:
+1. Adstock transformation (carryover effects)
+2. Hill transformation (saturation effects)</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>df</strong> (<span class="sphinx_autodoc_typehints-type"><a class="reference external" href="https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.html#pandas.DataFrame" title="(in pandas v2.3.3)"><code class="xref py py-class docutils literal notranslate"><span class="pre">DataFrame</span></code></a></span>) – DataFrame containing media spend columns</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><span class="sphinx_autodoc_typehints-type"><a class="reference external" href="https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.html#pandas.DataFrame" title="(in pandas v2.3.3)"><code class="xref py py-class docutils literal notranslate"><span class="pre">DataFrame</span></code></a></span></p>
+</dd>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Transformed DataFrame with same column names</p>
+</dd>
+<dt class="field-even">Raises<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/library/exceptions.html#ValueError" title="(in Python v3.14)"><strong>ValueError</strong></a> – If required columns are missing from DataFrame</p>
+</dd>
+</dl>
+<div class="admonition-example admonition">
+<p class="admonition-title">Example</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span>
+<span class="gp">... </span>    <span class="s1">&#39;google&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">100</span><span class="p">,</span> <span class="mi">200</span><span class="p">,</span> <span class="mi">150</span><span class="p">],</span>
+<span class="gp">... </span>    <span class="s1">&#39;facebook&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">50</span><span class="p">,</span> <span class="mi">75</span><span class="p">,</span> <span class="mi">60</span><span class="p">]</span>
+<span class="gp">... </span><span class="p">})</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">transformed_df</span> <span class="o">=</span> <span class="n">pipeline</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">df</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="src.transformations.TransformationPipeline.transform">
+<span class="sig-name descname"><span class="pre">transform</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">df</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/src/transformations.html#TransformationPipeline.transform"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.transformations.TransformationPipeline.transform" title="Link to this definition"></a></dt>
+<dd><p>Apply fitted transformations to data (without re-fitting).</p>
+<p>This is used for test/production data where we want to apply
+the same transformations that were fit on training data.</p>
+<p>IMPORTANT: This method must be called after fit_transform().
+It reuses the same transformer instances to ensure consistency
+and prevent data leakage.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>df</strong> (<span class="sphinx_autodoc_typehints-type"><a class="reference external" href="https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.html#pandas.DataFrame" title="(in pandas v2.3.3)"><code class="xref py py-class docutils literal notranslate"><span class="pre">DataFrame</span></code></a></span>) – DataFrame with media channels</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><span class="sphinx_autodoc_typehints-type"><a class="reference external" href="https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.html#pandas.DataFrame" title="(in pandas v2.3.3)"><code class="xref py py-class docutils literal notranslate"><span class="pre">DataFrame</span></code></a></span></p>
+</dd>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Transformed DataFrame</p>
+</dd>
+<dt class="field-even">Raises<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/library/exceptions.html#ValueError" title="(in Python v3.14)"><strong>ValueError</strong></a> – If transform called before fit_transform, or if
+    required channels are missing from data</p>
+</dd>
+</dl>
+<div class="admonition-example admonition">
+<p class="admonition-title">Example</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="c1"># Fit on training data</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">train_transformed</span> <span class="o">=</span> <span class="n">pipeline</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">train_df</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="c1"># Transform test data with same transformers</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">test_transformed</span> <span class="o">=</span> <span class="n">pipeline</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="n">test_df</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="src.transformations.TransformationPipeline.get_transformation_summary">
+<span class="sig-name descname"><span class="pre">get_transformation_summary</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/src/transformations.html#TransformationPipeline.get_transformation_summary"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.transformations.TransformationPipeline.get_transformation_summary" title="Link to this definition"></a></dt>
+<dd><p>Get summary of applied transformations.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><span class="sphinx_autodoc_typehints-type"><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Dict" title="(in Python v3.14)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Dict</span></code></a>[<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.14)"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></a>, <a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Dict" title="(in Python v3.14)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Dict</span></code></a>[<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.14)"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></a>, <a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.14)"><code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code></a>]]</span></p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Dictionary with transformation parameters for each channel</p>
+</dd>
+</dl>
+<div class="admonition-example admonition">
+<p class="admonition-title">Example</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">summary</span> <span class="o">=</span> <span class="n">pipeline</span><span class="o">.</span><span class="n">get_transformation_summary</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">summary</span><span class="p">[</span><span class="s1">&#39;google&#39;</span><span class="p">])</span>
+<span class="go">{&#39;adstock&#39;: 0.5, &#39;hill_K&#39;: 1.0, &#39;hill_S&#39;: 1.0}</span>
+</pre></div>
+</div>
+</div>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="src.transformations.TransformationPipeline.transform_single_channel">
+<span class="sig-name descname"><span class="pre">transform_single_channel</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">channel</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">values</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/src/transformations.html#TransformationPipeline.transform_single_channel"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.transformations.TransformationPipeline.transform_single_channel" title="Link to this definition"></a></dt>
+<dd><p>Transform a single channel and return intermediate results.</p>
+<p>Useful for visualization and debugging.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>channel</strong> (<span class="sphinx_autodoc_typehints-type"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.14)"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></a></span>) – Channel name</p></li>
+<li><p><strong>values</strong> (<span class="sphinx_autodoc_typehints-type"><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v2.3)"><code class="xref py py-class docutils literal notranslate"><span class="pre">ndarray</span></code></a></span>) – Original values to transform</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><span class="sphinx_autodoc_typehints-type"><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Tuple" title="(in Python v3.14)"><code class="xref py py-data docutils literal notranslate"><span class="pre">Tuple</span></code></a>[<a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v2.3)"><code class="xref py py-class docutils literal notranslate"><span class="pre">ndarray</span></code></a>, <a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v2.3)"><code class="xref py py-class docutils literal notranslate"><span class="pre">ndarray</span></code></a>, <a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v2.3)"><code class="xref py py-class docutils literal notranslate"><span class="pre">ndarray</span></code></a>]</span></p>
+</dd>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Tuple of (original, adstocked, final_transformed)</p>
+</dd>
+<dt class="field-even">Raises<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/library/exceptions.html#ValueError" title="(in Python v3.14)"><strong>ValueError</strong></a> – If channel not in configuration</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<section id="adstock-transformer">
+<h2>Adstock Transformer<a class="headerlink" href="#adstock-transformer" title="Link to this heading"></a></h2>
+<p>Applies carryover effects to model delayed advertising impact.</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="id0">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">src.transformations.</span></span><span class="sig-name descname"><span class="pre">AdstockTransformer</span></span><a class="reference internal" href="../_modules/src/transformations.html#AdstockTransformer"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#id0" title="Link to this definition"></a></dt>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.14)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
+<p>Apply exponential adstock transformation to capture carryover effects.</p>
+<p>Adstock models the delayed and prolonged effect of advertising spend.
+The exponential decay model assumes that the effect of advertising
+diminishes exponentially over time.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="id1">
+<span class="sig-name descname"><span class="pre">decay_rate</span></span><a class="headerlink" href="#id1" title="Link to this definition"></a></dt>
+<dd><p>Decay rate between 0 and 1. Higher values mean
+longer carryover effects.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.14)"><code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<div class="admonition-example admonition">
+<p class="admonition-title">Example</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">transformer</span> <span class="o">=</span> <span class="n">AdstockTransformer</span><span class="p">(</span><span class="n">decay_rate</span><span class="o">=</span><span class="mf">0.5</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">transformed</span> <span class="o">=</span> <span class="n">transformer</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="c1"># Result: [1.0, 0.5, 0.25, 0.125, 0.0625]</span>
+</pre></div>
+</div>
+</div>
+<p>The adstock transformation models the carryover effect of advertising using
+geometric decay:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}adstock_t = spend_t + \\alpha \\cdot adstock_{t-1}\end{split}\]</div>
+<p>where <span class="math notranslate nohighlight">\(\\alpha\)</span> is the decay rate (0-1).</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="id2">
+<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">decay_rate</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.5</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/src/transformations.html#AdstockTransformer.__init__"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#id2" title="Link to this definition"></a></dt>
+<dd><p>Initialize AdstockTransformer.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>decay_rate</strong> (<span class="sphinx_autodoc_typehints-type"><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.14)"><code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code></a></span>) – Decay rate between 0 and 1. Default is 0.5.
+0 = no carryover, 1 = infinite carryover</p>
+</dd>
+<dt class="field-even">Raises<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/library/exceptions.html#ValueError" title="(in Python v3.14)"><strong>ValueError</strong></a> – If decay_rate is not between 0 and 1</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="id3">
+<span class="sig-name descname"><span class="pre">transform</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/src/transformations.html#AdstockTransformer.transform"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#id3" title="Link to this definition"></a></dt>
+<dd><p>Apply exponential adstock transformation.</p>
+<p>The transformation follows the formula:
+adstock[t] = x[t] + decay_rate * adstock[t-1]</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>x</strong> (<span class="sphinx_autodoc_typehints-type"><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v2.3)"><code class="xref py py-class docutils literal notranslate"><span class="pre">ndarray</span></code></a></span>) – Input array of advertising spend values</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><span class="sphinx_autodoc_typehints-type"><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v2.3)"><code class="xref py py-class docutils literal notranslate"><span class="pre">ndarray</span></code></a></span></p>
+</dd>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Transformed array with adstock effects applied</p>
+</dd>
+<dt class="field-even">Raises<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/library/exceptions.html#ValueError" title="(in Python v3.14)"><strong>ValueError</strong></a> – If input is not a numpy array or is empty</p>
+</dd>
+</dl>
+<div class="admonition-example admonition">
+<p class="admonition-title">Example</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">transformer</span> <span class="o">=</span> <span class="n">AdstockTransformer</span><span class="p">(</span><span class="n">decay_rate</span><span class="o">=</span><span class="mf">0.5</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">100</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">50</span><span class="p">,</span> <span class="mi">0</span><span class="p">])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">result</span> <span class="o">=</span> <span class="n">transformer</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="id4">
+<span class="sig-name descname"><span class="pre">get_decay_curve</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">length</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">52</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/src/transformations.html#AdstockTransformer.get_decay_curve"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#id4" title="Link to this definition"></a></dt>
+<dd><p>Generate theoretical decay curve for visualization.</p>
+<p>Shows how a single unit of spend decays over time.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>length</strong> (<span class="sphinx_autodoc_typehints-type"><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.14)"><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code></a></span>) – Number of time periods to generate (default: 52 weeks)</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><span class="sphinx_autodoc_typehints-type"><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v2.3)"><code class="xref py py-class docutils literal notranslate"><span class="pre">ndarray</span></code></a></span></p>
+</dd>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Array showing decay pattern over time</p>
+</dd>
+</dl>
+<div class="admonition-example admonition">
+<p class="admonition-title">Example</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">transformer</span> <span class="o">=</span> <span class="n">AdstockTransformer</span><span class="p">(</span><span class="n">decay_rate</span><span class="o">=</span><span class="mf">0.7</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">curve</span> <span class="o">=</span> <span class="n">transformer</span><span class="o">.</span><span class="n">get_decay_curve</span><span class="p">(</span><span class="n">length</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="hill-transformer">
+<h2>Hill Transformer<a class="headerlink" href="#hill-transformer" title="Link to this heading"></a></h2>
+<p>Applies saturation effects to model diminishing returns.</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="id5">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">src.transformations.</span></span><span class="sig-name descname"><span class="pre">HillTransformer</span></span><a class="reference internal" href="../_modules/src/transformations.html#HillTransformer"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#id5" title="Link to this definition"></a></dt>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.14)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
+<p>Apply Hill saturation function to model diminishing returns.</p>
+<p>The Hill equation models the saturation effect where increasing spend
+yields progressively smaller returns. This is common in advertising
+where initial spend is highly effective but additional spend has
+diminishing impact.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="id6">
+<span class="sig-name descname"><span class="pre">K</span></span><a class="headerlink" href="#id6" title="Link to this definition"></a></dt>
+<dd><p>Scale parameter (half-saturation point)</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.14)"><code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="id7">
+<span class="sig-name descname"><span class="pre">S</span></span><a class="headerlink" href="#id7" title="Link to this definition"></a></dt>
+<dd><p>Shape parameter (controls curve steepness)</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.14)"><code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<div class="admonition-example admonition">
+<p class="admonition-title">Example</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">transformer</span> <span class="o">=</span> <span class="n">HillTransformer</span><span class="p">(</span><span class="n">K</span><span class="o">=</span><span class="mf">1.0</span><span class="p">,</span> <span class="n">S</span><span class="o">=</span><span class="mf">1.0</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">10</span><span class="p">])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">transformed</span> <span class="o">=</span> <span class="n">transformer</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<p>The Hill transformation models saturation using:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}effect = K \\cdot \\frac{x^S}{x^S + 1}\end{split}\]</div>
+<p>where:
+- <span class="math notranslate nohighlight">\(K\)</span> is the scale parameter (maximum effect)
+- <span class="math notranslate nohighlight">\(S\)</span> is the shape parameter (saturation rate)</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="id8">
+<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">K</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">S</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1.0</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/src/transformations.html#HillTransformer.__init__"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#id8" title="Link to this definition"></a></dt>
+<dd><p>Initialize HillTransformer.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>K</strong> (<span class="sphinx_autodoc_typehints-type"><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.14)"><code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code></a></span>) – Scale parameter (half-saturation point). Default is 1.0.
+Higher K means saturation occurs at higher spend levels.</p></li>
+<li><p><strong>S</strong> (<span class="sphinx_autodoc_typehints-type"><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.14)"><code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code></a></span>) – Shape parameter (curve steepness). Default is 1.0.
+Higher S means sharper transition to saturation.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Raises<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/library/exceptions.html#ValueError" title="(in Python v3.14)"><strong>ValueError</strong></a> – If K or S are not positive</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="id9">
+<span class="sig-name descname"><span class="pre">transform</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/src/transformations.html#HillTransformer.transform"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#id9" title="Link to this definition"></a></dt>
+<dd><p>Apply Hill saturation transformation with numerical stability.</p>
+<p>The transformation follows the formula:
+y = K * (x^S) / (x^S + 1)</p>
+<p>This implementation includes comprehensive numerical stability improvements:
+- Clipping extreme values
+- Log-space computation for large exponents
+- Safe division with zero handling
+- NaN/Inf sanitization
+- Output range validation</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>x</strong> (<span class="sphinx_autodoc_typehints-type"><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v2.3)"><code class="xref py py-class docutils literal notranslate"><span class="pre">ndarray</span></code></a></span>) – Input array of values (typically adstocked spend)</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><span class="sphinx_autodoc_typehints-type"><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v2.3)"><code class="xref py py-class docutils literal notranslate"><span class="pre">ndarray</span></code></a></span></p>
+</dd>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Transformed array with saturation effects applied</p>
+</dd>
+<dt class="field-even">Raises<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/library/exceptions.html#ValueError" title="(in Python v3.14)"><strong>ValueError</strong></a> – If input is empty or transformation produces invalid results</p>
+</dd>
+</dl>
+<div class="admonition-example admonition">
+<p class="admonition-title">Example</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">transformer</span> <span class="o">=</span> <span class="n">HillTransformer</span><span class="p">(</span><span class="n">K</span><span class="o">=</span><span class="mf">1.0</span><span class="p">,</span> <span class="n">S</span><span class="o">=</span><span class="mf">1.0</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">10</span><span class="p">])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">result</span> <span class="o">=</span> <span class="n">transformer</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="id10">
+<span class="sig-name descname"><span class="pre">get_response_curve</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x_range</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/src/transformations.html#HillTransformer.get_response_curve"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#id10" title="Link to this definition"></a></dt>
+<dd><p>Generate response curve for visualization.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>x_range</strong> (<span class="sphinx_autodoc_typehints-type"><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v2.3)"><code class="xref py py-class docutils literal notranslate"><span class="pre">ndarray</span></code></a></span>) – Array of input values to evaluate</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><span class="sphinx_autodoc_typehints-type"><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v2.3)"><code class="xref py py-class docutils literal notranslate"><span class="pre">ndarray</span></code></a></span></p>
+</dd>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Array of transformed values</p>
+</dd>
+</dl>
+<div class="admonition-example admonition">
+<p class="admonition-title">Example</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">transformer</span> <span class="o">=</span> <span class="n">HillTransformer</span><span class="p">(</span><span class="n">K</span><span class="o">=</span><span class="mf">1.0</span><span class="p">,</span> <span class="n">S</span><span class="o">=</span><span class="mf">1.0</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">x_range</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">curve</span> <span class="o">=</span> <span class="n">transformer</span><span class="o">.</span><span class="n">get_response_curve</span><span class="p">(</span><span class="n">x_range</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="transformation-pipeline">
+<h2>Transformation Pipeline<a class="headerlink" href="#transformation-pipeline" title="Link to this heading"></a></h2>
+<p>Combines multiple transformations in sequence.</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="id11">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">src.transformations.</span></span><span class="sig-name descname"><span class="pre">TransformationPipeline</span></span><a class="reference internal" href="../_modules/src/transformations.html#TransformationPipeline"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#id11" title="Link to this definition"></a></dt>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.14)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
+<p>Pipeline to apply transformations to multiple channels.</p>
+<p>This class manages the application of adstock and saturation transformations
+to multiple marketing channels, with potentially different parameters for each.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="id12">
+<span class="sig-name descname"><span class="pre">channel_configs</span></span><a class="headerlink" href="#id12" title="Link to this definition"></a></dt>
+<dd><p>Configuration for each channel</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.14)"><code class="xref py py-class docutils literal notranslate"><span class="pre">dict</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<div class="admonition-example admonition">
+<p class="admonition-title">Example</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">configs</span> <span class="o">=</span> <span class="p">{</span>
+<span class="gp">... </span>    <span class="s1">&#39;google&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;adstock&#39;</span><span class="p">:</span> <span class="mf">0.5</span><span class="p">,</span> <span class="s1">&#39;hill_K&#39;</span><span class="p">:</span> <span class="mf">1.0</span><span class="p">,</span> <span class="s1">&#39;hill_S&#39;</span><span class="p">:</span> <span class="mf">1.0</span><span class="p">},</span>
+<span class="gp">... </span>    <span class="s1">&#39;facebook&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;adstock&#39;</span><span class="p">:</span> <span class="mf">0.7</span><span class="p">,</span> <span class="s1">&#39;hill_K&#39;</span><span class="p">:</span> <span class="mf">1.2</span><span class="p">,</span> <span class="s1">&#39;hill_S&#39;</span><span class="p">:</span> <span class="mf">0.9</span><span class="p">}</span>
+<span class="gp">... </span><span class="p">}</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">pipeline</span> <span class="o">=</span> <span class="n">TransformationPipeline</span><span class="p">(</span><span class="n">configs</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">transformed_df</span> <span class="o">=</span> <span class="n">pipeline</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">df</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<dl class="py method">
+<dt class="sig sig-object py" id="id13">
+<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">channel_configs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/src/transformations.html#TransformationPipeline.__init__"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#id13" title="Link to this definition"></a></dt>
+<dd><p>Initialize TransformationPipeline.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>channel_configs</strong> (<span class="sphinx_autodoc_typehints-type"><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Dict" title="(in Python v3.14)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Dict</span></code></a>[<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.14)"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></a>, <a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Dict" title="(in Python v3.14)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Dict</span></code></a>[<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.14)"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></a>, <a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.14)"><code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code></a>]]</span>) – Dictionary mapping channel names to their configs.
+Each config should have keys: ‘adstock’, ‘hill_K’, ‘hill_S’</p>
+</dd>
+</dl>
+<div class="admonition-example admonition">
+<p class="admonition-title">Example</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">configs</span> <span class="o">=</span> <span class="p">{</span>
+<span class="gp">... </span>    <span class="s1">&#39;google&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;adstock&#39;</span><span class="p">:</span> <span class="mf">0.5</span><span class="p">,</span> <span class="s1">&#39;hill_K&#39;</span><span class="p">:</span> <span class="mf">1.0</span><span class="p">,</span> <span class="s1">&#39;hill_S&#39;</span><span class="p">:</span> <span class="mf">1.0</span><span class="p">},</span>
+<span class="gp">... </span>    <span class="s1">&#39;facebook&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;adstock&#39;</span><span class="p">:</span> <span class="mf">0.7</span><span class="p">,</span> <span class="s1">&#39;hill_K&#39;</span><span class="p">:</span> <span class="mf">1.2</span><span class="p">,</span> <span class="s1">&#39;hill_S&#39;</span><span class="p">:</span> <span class="mf">0.9</span><span class="p">}</span>
+<span class="gp">... </span><span class="p">}</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">pipeline</span> <span class="o">=</span> <span class="n">TransformationPipeline</span><span class="p">(</span><span class="n">configs</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Raises<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/exceptions.html#ValueError" title="(in Python v3.14)"><strong>ValueError</strong></a> – If channel_configs is empty or invalid</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="id14">
+<span class="sig-name descname"><span class="pre">fit_transform</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">df</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/src/transformations.html#TransformationPipeline.fit_transform"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#id14" title="Link to this definition"></a></dt>
+<dd><p>Fit transformers and apply them to the DataFrame.</p>
+<p>This method should be called on training data. It validates the data,
+stores which channels were fitted, and applies transformations.</p>
+<p>Transformations are applied in order:
+1. Adstock transformation (carryover effects)
+2. Hill transformation (saturation effects)</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>df</strong> (<span class="sphinx_autodoc_typehints-type"><a class="reference external" href="https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.html#pandas.DataFrame" title="(in pandas v2.3.3)"><code class="xref py py-class docutils literal notranslate"><span class="pre">DataFrame</span></code></a></span>) – DataFrame containing media spend columns</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><span class="sphinx_autodoc_typehints-type"><a class="reference external" href="https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.html#pandas.DataFrame" title="(in pandas v2.3.3)"><code class="xref py py-class docutils literal notranslate"><span class="pre">DataFrame</span></code></a></span></p>
+</dd>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Transformed DataFrame with same column names</p>
+</dd>
+<dt class="field-even">Raises<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/library/exceptions.html#ValueError" title="(in Python v3.14)"><strong>ValueError</strong></a> – If required columns are missing from DataFrame</p>
+</dd>
+</dl>
+<div class="admonition-example admonition">
+<p class="admonition-title">Example</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span>
+<span class="gp">... </span>    <span class="s1">&#39;google&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">100</span><span class="p">,</span> <span class="mi">200</span><span class="p">,</span> <span class="mi">150</span><span class="p">],</span>
+<span class="gp">... </span>    <span class="s1">&#39;facebook&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">50</span><span class="p">,</span> <span class="mi">75</span><span class="p">,</span> <span class="mi">60</span><span class="p">]</span>
+<span class="gp">... </span><span class="p">})</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">transformed_df</span> <span class="o">=</span> <span class="n">pipeline</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">df</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="id15">
+<span class="sig-name descname"><span class="pre">transform</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">df</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/src/transformations.html#TransformationPipeline.transform"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#id15" title="Link to this definition"></a></dt>
+<dd><p>Apply fitted transformations to data (without re-fitting).</p>
+<p>This is used for test/production data where we want to apply
+the same transformations that were fit on training data.</p>
+<p>IMPORTANT: This method must be called after fit_transform().
+It reuses the same transformer instances to ensure consistency
+and prevent data leakage.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>df</strong> (<span class="sphinx_autodoc_typehints-type"><a class="reference external" href="https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.html#pandas.DataFrame" title="(in pandas v2.3.3)"><code class="xref py py-class docutils literal notranslate"><span class="pre">DataFrame</span></code></a></span>) – DataFrame with media channels</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><span class="sphinx_autodoc_typehints-type"><a class="reference external" href="https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.html#pandas.DataFrame" title="(in pandas v2.3.3)"><code class="xref py py-class docutils literal notranslate"><span class="pre">DataFrame</span></code></a></span></p>
+</dd>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Transformed DataFrame</p>
+</dd>
+<dt class="field-even">Raises<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/library/exceptions.html#ValueError" title="(in Python v3.14)"><strong>ValueError</strong></a> – If transform called before fit_transform, or if
+    required channels are missing from data</p>
+</dd>
+</dl>
+<div class="admonition-example admonition">
+<p class="admonition-title">Example</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="c1"># Fit on training data</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">train_transformed</span> <span class="o">=</span> <span class="n">pipeline</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">train_df</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="c1"># Transform test data with same transformers</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">test_transformed</span> <span class="o">=</span> <span class="n">pipeline</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="n">test_df</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="id16">
+<span class="sig-name descname"><span class="pre">get_transformation_summary</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/src/transformations.html#TransformationPipeline.get_transformation_summary"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#id16" title="Link to this definition"></a></dt>
+<dd><p>Get summary of applied transformations.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><span class="sphinx_autodoc_typehints-type"><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Dict" title="(in Python v3.14)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Dict</span></code></a>[<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.14)"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></a>, <a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Dict" title="(in Python v3.14)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Dict</span></code></a>[<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.14)"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></a>, <a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.14)"><code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code></a>]]</span></p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Dictionary with transformation parameters for each channel</p>
+</dd>
+</dl>
+<div class="admonition-example admonition">
+<p class="admonition-title">Example</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">summary</span> <span class="o">=</span> <span class="n">pipeline</span><span class="o">.</span><span class="n">get_transformation_summary</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">summary</span><span class="p">[</span><span class="s1">&#39;google&#39;</span><span class="p">])</span>
+<span class="go">{&#39;adstock&#39;: 0.5, &#39;hill_K&#39;: 1.0, &#39;hill_S&#39;: 1.0}</span>
+</pre></div>
+</div>
+</div>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="id17">
+<span class="sig-name descname"><span class="pre">transform_single_channel</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">channel</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">values</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/src/transformations.html#TransformationPipeline.transform_single_channel"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#id17" title="Link to this definition"></a></dt>
+<dd><p>Transform a single channel and return intermediate results.</p>
+<p>Useful for visualization and debugging.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>channel</strong> (<span class="sphinx_autodoc_typehints-type"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.14)"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></a></span>) – Channel name</p></li>
+<li><p><strong>values</strong> (<span class="sphinx_autodoc_typehints-type"><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v2.3)"><code class="xref py py-class docutils literal notranslate"><span class="pre">ndarray</span></code></a></span>) – Original values to transform</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><span class="sphinx_autodoc_typehints-type"><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Tuple" title="(in Python v3.14)"><code class="xref py py-data docutils literal notranslate"><span class="pre">Tuple</span></code></a>[<a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v2.3)"><code class="xref py py-class docutils literal notranslate"><span class="pre">ndarray</span></code></a>, <a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v2.3)"><code class="xref py py-class docutils literal notranslate"><span class="pre">ndarray</span></code></a>, <a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v2.3)"><code class="xref py py-class docutils literal notranslate"><span class="pre">ndarray</span></code></a>]</span></p>
+</dd>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Tuple of (original, adstocked, final_transformed)</p>
+</dd>
+<dt class="field-even">Raises<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/library/exceptions.html#ValueError" title="(in Python v3.14)"><strong>ValueError</strong></a> – If channel not in configuration</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="usage-examples">
+<h2>Usage Examples<a class="headerlink" href="#usage-examples" title="Link to this heading"></a></h2>
+<section id="adstock-example">
+<h3>Adstock Example<a class="headerlink" href="#adstock-example" title="Link to this heading"></a></h3>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">src.transformations</span><span class="w"> </span><span class="kn">import</span> <span class="n">AdstockTransformer</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+
+<span class="c1"># Create transformer with 50% decay</span>
+<span class="n">adstock</span> <span class="o">=</span> <span class="n">AdstockTransformer</span><span class="p">(</span><span class="n">decay_rate</span><span class="o">=</span><span class="mf">0.5</span><span class="p">)</span>
+
+<span class="c1"># Transform spend data</span>
+<span class="n">spend</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1000</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">])</span>
+<span class="n">adstocked</span> <span class="o">=</span> <span class="n">adstock</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="n">spend</span><span class="p">)</span>
+<span class="c1"># Result: [1000, 500, 250, 125]</span>
+</pre></div>
+</div>
+</section>
+<section id="hill-saturation-example">
+<h3>Hill Saturation Example<a class="headerlink" href="#hill-saturation-example" title="Link to this heading"></a></h3>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">src.transformations</span><span class="w"> </span><span class="kn">import</span> <span class="n">HillTransformer</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+
+<span class="c1"># Create transformer</span>
+<span class="n">hill</span> <span class="o">=</span> <span class="n">HillTransformer</span><span class="p">(</span><span class="n">K</span><span class="o">=</span><span class="mf">1.0</span><span class="p">,</span> <span class="n">S</span><span class="o">=</span><span class="mf">1.0</span><span class="p">)</span>
+
+<span class="c1"># Transform spend data</span>
+<span class="n">spend</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">100</span><span class="p">,</span> <span class="mi">500</span><span class="p">,</span> <span class="mi">1000</span><span class="p">,</span> <span class="mi">5000</span><span class="p">])</span>
+<span class="n">saturated</span> <span class="o">=</span> <span class="n">hill</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="n">spend</span><span class="p">)</span>
+
+<span class="c1"># Shows diminishing returns at higher spend levels</span>
+</pre></div>
+</div>
+</section>
+<section id="pipeline-example">
+<h3>Pipeline Example<a class="headerlink" href="#pipeline-example" title="Link to this heading"></a></h3>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">src.transformations</span><span class="w"> </span><span class="kn">import</span> <span class="n">TransformationPipeline</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">src.transformations</span><span class="w"> </span><span class="kn">import</span> <span class="n">AdstockTransformer</span><span class="p">,</span> <span class="n">HillTransformer</span>
+
+<span class="c1"># Create pipeline</span>
+<span class="n">pipeline</span> <span class="o">=</span> <span class="n">TransformationPipeline</span><span class="p">([</span>
+    <span class="n">AdstockTransformer</span><span class="p">(</span><span class="n">decay_rate</span><span class="o">=</span><span class="mf">0.5</span><span class="p">),</span>
+    <span class="n">HillTransformer</span><span class="p">(</span><span class="n">K</span><span class="o">=</span><span class="mf">1.0</span><span class="p">,</span> <span class="n">S</span><span class="o">=</span><span class="mf">1.0</span><span class="p">)</span>
+<span class="p">])</span>
+
+<span class="c1"># Apply both transformations</span>
+<span class="n">transformed</span> <span class="o">=</span> <span class="n">pipeline</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">spend_data</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="data_processor.html" class="btn btn-neutral float-left" title="Data Processor" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="ridge_mmm.html" class="btn btn-neutral float-right" title="Ridge MMM" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2024, Ridge MMM Contributors.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

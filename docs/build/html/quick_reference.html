@@ -1,0 +1,746 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="./">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Quick Reference Card &mdash; Ridge MMM v0.1.0</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=03e43079" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=19f00094" />
+
+  
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="_static/jquery.js?v=5d32c60e"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="_static/documentation_options.js?v=01f34227"></script>
+        <script src="_static/doctools.js?v=9a2dae69"></script>
+        <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Tutorials" href="tutorials.html" />
+    <link rel="prev" title="Ridge MMM User Guide" href="user_guide.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            Ridge MMM
+          </a>
+              <div class="version">
+                0.1.0
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">User Documentation</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="user_guide.html">Ridge MMM User Guide</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="user_guide.html#table-of-contents">Table of Contents</a></li>
+<li class="toctree-l2"><a class="reference internal" href="user_guide.html#introduction">Introduction</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="user_guide.html#what-is-marketing-mix-modeling-mmm">What is Marketing Mix Modeling (MMM)?</a></li>
+<li class="toctree-l3"><a class="reference internal" href="user_guide.html#when-to-use-this-tool">When to Use This Tool</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="user_guide.html#quick-start">Quick Start</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="user_guide.html#step-1-prepare-your-data">Step 1: Prepare Your Data</a></li>
+<li class="toctree-l3"><a class="reference internal" href="user_guide.html#step-2-upload-data">Step 2: Upload Data</a></li>
+<li class="toctree-l3"><a class="reference internal" href="user_guide.html#step-3-configure-model">Step 3: Configure Model</a></li>
+<li class="toctree-l3"><a class="reference internal" href="user_guide.html#step-4-analyze-results">Step 4: Analyze Results</a></li>
+<li class="toctree-l3"><a class="reference internal" href="user_guide.html#step-5-optimize-budget">Step 5: Optimize Budget</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="user_guide.html#data-preparation">Data Preparation</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="user_guide.html#data-format-requirements">Data Format Requirements</a></li>
+<li class="toctree-l3"><a class="reference internal" href="user_guide.html#column-naming">Column Naming</a></li>
+<li class="toctree-l3"><a class="reference internal" href="user_guide.html#multi-market-data-format">Multi-Market Data Format</a></li>
+<li class="toctree-l3"><a class="reference internal" href="user_guide.html#data-quality-checks">Data Quality Checks</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="user_guide.html#model-configuration">Model Configuration</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="user_guide.html#understanding-adstock-carryover-effect">Understanding Adstock (Carryover Effect)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="user_guide.html#understanding-hill-saturation">Understanding Hill Saturation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="user_guide.html#model-settings">Model Settings</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="user_guide.html#understanding-results">Understanding Results</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="user_guide.html#channel-contributions-tab">Channel Contributions Tab</a></li>
+<li class="toctree-l3"><a class="reference internal" href="user_guide.html#response-curves-tab">Response Curves Tab</a></li>
+<li class="toctree-l3"><a class="reference internal" href="user_guide.html#model-diagnostics-tab">Model Diagnostics Tab</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="user_guide.html#budget-optimization">Budget Optimization</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="user_guide.html#using-the-optimizer">Using the Optimizer</a></li>
+<li class="toctree-l3"><a class="reference internal" href="user_guide.html#scenario-builder">Scenario Builder</a></li>
+<li class="toctree-l3"><a class="reference internal" href="user_guide.html#interpreting-recommendations">Interpreting Recommendations</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="user_guide.html#multi-market-analysis">Multi-Market Analysis</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="user_guide.html#setting-up-multi-market-models">Setting Up Multi-Market Models</a></li>
+<li class="toctree-l3"><a class="reference internal" href="user_guide.html#comparing-markets">Comparing Markets</a></li>
+<li class="toctree-l3"><a class="reference internal" href="user_guide.html#cross-market-insights">Cross-Market Insights</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="user_guide.html#best-practices">Best Practices</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="user_guide.html#data-collection">Data Collection</a></li>
+<li class="toctree-l3"><a class="reference internal" href="user_guide.html#model-development">Model Development</a></li>
+<li class="toctree-l3"><a class="reference internal" href="user_guide.html#using-results">Using Results</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="user_guide.html#troubleshooting">Troubleshooting</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="user_guide.html#model-has-poor-fit-r2-0-5">“Model has poor fit (R² &lt; 0.5)”</a></li>
+<li class="toctree-l3"><a class="reference internal" href="user_guide.html#optimization-suggests-extreme-allocations">“Optimization suggests extreme allocations”</a></li>
+<li class="toctree-l3"><a class="reference internal" href="user_guide.html#results-dont-match-my-intuition">“Results don’t match my intuition”</a></li>
+<li class="toctree-l3"><a class="reference internal" href="user_guide.html#different-from-last-click-attribution">“Different from last-click attribution”</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="user_guide.html#glossary">Glossary</a></li>
+<li class="toctree-l2"><a class="reference internal" href="user_guide.html#support-resources">Support &amp; Resources</a></li>
+</ul>
+</li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Quick Reference Card</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#essential-formulas">Essential Formulas</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#roas-calculation">ROAS Calculation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#adstock-transformation">Adstock Transformation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#hill-saturation">Hill Saturation</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#parameter-quick-guide">Parameter Quick Guide</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#interpretation-guide">Interpretation Guide</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#roas-benchmarks">ROAS Benchmarks</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#model-fit-r2">Model Fit (R²)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#mape-prediction-error">MAPE (Prediction Error)</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#common-workflows">Common Workflows</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#weekly-refresh">Weekly Refresh</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#monthly-budget-planning">Monthly Budget Planning</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#quarterly-strategy-review">Quarterly Strategy Review</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#keyboard-shortcuts-streamlit">Keyboard Shortcuts (Streamlit)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#file-locations">File Locations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#error-messages">Error Messages</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#pro-tips">Pro Tips</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="tutorials.html">Tutorials</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="tutorials.html#coming-soon">Coming Soon</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="faq.html">Frequently Asked Questions</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="faq.html#general-questions">General Questions</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="faq.html#what-is-marketing-mix-modeling-mmm">What is Marketing Mix Modeling (MMM)?</a></li>
+<li class="toctree-l3"><a class="reference internal" href="faq.html#how-is-this-different-from-attribution-models">How is this different from attribution models?</a></li>
+<li class="toctree-l3"><a class="reference internal" href="faq.html#how-much-data-do-i-need">How much data do I need?</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="faq.html#model-questions">Model Questions</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="faq.html#what-does-the-alpha-parameter-do">What does the alpha parameter do?</a></li>
+<li class="toctree-l3"><a class="reference internal" href="faq.html#how-do-i-choose-adstock-parameters">How do I choose adstock parameters?</a></li>
+<li class="toctree-l3"><a class="reference internal" href="faq.html#what-if-my-r2-is-low">What if my R² is low?</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="faq.html#optimization-questions">Optimization Questions</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="faq.html#why-does-the-optimizer-suggest-extreme-allocations">Why does the optimizer suggest extreme allocations?</a></li>
+<li class="toctree-l3"><a class="reference internal" href="faq.html#can-i-optimize-for-multiple-objectives">Can I optimize for multiple objectives?</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="faq.html#technical-questions">Technical Questions</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="faq.html#can-i-use-daily-data-instead-of-weekly">Can I use daily data instead of weekly?</a></li>
+<li class="toctree-l3"><a class="reference internal" href="faq.html#does-this-support-bayesian-mmm">Does this support Bayesian MMM?</a></li>
+<li class="toctree-l3"><a class="reference internal" href="faq.html#can-i-add-custom-transformations">Can I add custom transformations?</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="faq.html#still-have-questions">Still Have Questions?</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">API Reference</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="api/data_processor.html">Data Processor</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="api/data_processor.html#src.data_processor.DataProcessor"><code class="docutils literal notranslate"><span class="pre">DataProcessor</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="api/data_processor.html#src.data_processor.DataProcessor.__init__"><code class="docutils literal notranslate"><span class="pre">DataProcessor.__init__()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/data_processor.html#src.data_processor.DataProcessor.load_csv"><code class="docutils literal notranslate"><span class="pre">DataProcessor.load_csv()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/data_processor.html#src.data_processor.DataProcessor.validate_data"><code class="docutils literal notranslate"><span class="pre">DataProcessor.validate_data()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/data_processor.html#src.data_processor.DataProcessor.check_missing_values"><code class="docutils literal notranslate"><span class="pre">DataProcessor.check_missing_values()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/data_processor.html#src.data_processor.DataProcessor.detect_outliers"><code class="docutils literal notranslate"><span class="pre">DataProcessor.detect_outliers()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/data_processor.html#src.data_processor.DataProcessor.get_summary_stats"><code class="docutils literal notranslate"><span class="pre">DataProcessor.get_summary_stats()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/data_processor.html#src.data_processor.DataProcessor.convert_date_column"><code class="docutils literal notranslate"><span class="pre">DataProcessor.convert_date_column()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/data_processor.html#src.data_processor.DataProcessor.get_date_range"><code class="docutils literal notranslate"><span class="pre">DataProcessor.get_date_range()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/data_processor.html#src.data_processor.DataProcessor.detect_data_format"><code class="docutils literal notranslate"><span class="pre">DataProcessor.detect_data_format()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/data_processor.html#src.data_processor.DataProcessor.validate_multi_market_data"><code class="docutils literal notranslate"><span class="pre">DataProcessor.validate_multi_market_data()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/data_processor.html#src.data_processor.DataProcessor.aggregate_data"><code class="docutils literal notranslate"><span class="pre">DataProcessor.aggregate_data()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/data_processor.html#src.data_processor.DataProcessor.get_market_segments"><code class="docutils literal notranslate"><span class="pre">DataProcessor.get_market_segments()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/data_processor.html#src.data_processor.DataProcessor.get_market_hierarchy"><code class="docutils literal notranslate"><span class="pre">DataProcessor.get_market_hierarchy()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="api/data_processor.html#dataprocessor-class">DataProcessor Class</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="api/data_processor.html#id0"><code class="docutils literal notranslate"><span class="pre">DataProcessor</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="api/data_processor.html#id1"><code class="docutils literal notranslate"><span class="pre">DataProcessor.__init__()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/data_processor.html#id2"><code class="docutils literal notranslate"><span class="pre">DataProcessor.load_csv()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/data_processor.html#id3"><code class="docutils literal notranslate"><span class="pre">DataProcessor.validate_data()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/data_processor.html#id4"><code class="docutils literal notranslate"><span class="pre">DataProcessor.check_missing_values()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/data_processor.html#id5"><code class="docutils literal notranslate"><span class="pre">DataProcessor.detect_outliers()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/data_processor.html#id6"><code class="docutils literal notranslate"><span class="pre">DataProcessor.get_summary_stats()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/data_processor.html#id7"><code class="docutils literal notranslate"><span class="pre">DataProcessor.convert_date_column()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/data_processor.html#id8"><code class="docutils literal notranslate"><span class="pre">DataProcessor.get_date_range()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/data_processor.html#id9"><code class="docutils literal notranslate"><span class="pre">DataProcessor.detect_data_format()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/data_processor.html#id10"><code class="docutils literal notranslate"><span class="pre">DataProcessor.validate_multi_market_data()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/data_processor.html#id11"><code class="docutils literal notranslate"><span class="pre">DataProcessor.aggregate_data()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/data_processor.html#id12"><code class="docutils literal notranslate"><span class="pre">DataProcessor.get_market_segments()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/data_processor.html#id13"><code class="docutils literal notranslate"><span class="pre">DataProcessor.get_market_hierarchy()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="api/data_processor.html#usage-example">Usage Example</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="api/transformations.html">Transformations</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="api/transformations.html#src.transformations.AdstockTransformer"><code class="docutils literal notranslate"><span class="pre">AdstockTransformer</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="api/transformations.html#src.transformations.AdstockTransformer.decay_rate"><code class="docutils literal notranslate"><span class="pre">AdstockTransformer.decay_rate</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/transformations.html#src.transformations.AdstockTransformer.__init__"><code class="docutils literal notranslate"><span class="pre">AdstockTransformer.__init__()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/transformations.html#src.transformations.AdstockTransformer.transform"><code class="docutils literal notranslate"><span class="pre">AdstockTransformer.transform()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/transformations.html#src.transformations.AdstockTransformer.get_decay_curve"><code class="docutils literal notranslate"><span class="pre">AdstockTransformer.get_decay_curve()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="api/transformations.html#src.transformations.HillTransformer"><code class="docutils literal notranslate"><span class="pre">HillTransformer</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="api/transformations.html#src.transformations.HillTransformer.K"><code class="docutils literal notranslate"><span class="pre">HillTransformer.K</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/transformations.html#src.transformations.HillTransformer.S"><code class="docutils literal notranslate"><span class="pre">HillTransformer.S</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/transformations.html#src.transformations.HillTransformer.__init__"><code class="docutils literal notranslate"><span class="pre">HillTransformer.__init__()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/transformations.html#src.transformations.HillTransformer.transform"><code class="docutils literal notranslate"><span class="pre">HillTransformer.transform()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/transformations.html#src.transformations.HillTransformer.get_response_curve"><code class="docutils literal notranslate"><span class="pre">HillTransformer.get_response_curve()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="api/transformations.html#src.transformations.TransformationPipeline"><code class="docutils literal notranslate"><span class="pre">TransformationPipeline</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="api/transformations.html#src.transformations.TransformationPipeline.channel_configs"><code class="docutils literal notranslate"><span class="pre">TransformationPipeline.channel_configs</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/transformations.html#src.transformations.TransformationPipeline.__init__"><code class="docutils literal notranslate"><span class="pre">TransformationPipeline.__init__()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/transformations.html#src.transformations.TransformationPipeline.fit_transform"><code class="docutils literal notranslate"><span class="pre">TransformationPipeline.fit_transform()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/transformations.html#src.transformations.TransformationPipeline.transform"><code class="docutils literal notranslate"><span class="pre">TransformationPipeline.transform()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/transformations.html#src.transformations.TransformationPipeline.get_transformation_summary"><code class="docutils literal notranslate"><span class="pre">TransformationPipeline.get_transformation_summary()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/transformations.html#src.transformations.TransformationPipeline.transform_single_channel"><code class="docutils literal notranslate"><span class="pre">TransformationPipeline.transform_single_channel()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="api/transformations.html#adstock-transformer">Adstock Transformer</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="api/transformations.html#id0"><code class="docutils literal notranslate"><span class="pre">AdstockTransformer</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="api/transformations.html#id1"><code class="docutils literal notranslate"><span class="pre">AdstockTransformer.decay_rate</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/transformations.html#id2"><code class="docutils literal notranslate"><span class="pre">AdstockTransformer.__init__()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/transformations.html#id3"><code class="docutils literal notranslate"><span class="pre">AdstockTransformer.transform()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/transformations.html#id4"><code class="docutils literal notranslate"><span class="pre">AdstockTransformer.get_decay_curve()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="api/transformations.html#hill-transformer">Hill Transformer</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="api/transformations.html#id5"><code class="docutils literal notranslate"><span class="pre">HillTransformer</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="api/transformations.html#id6"><code class="docutils literal notranslate"><span class="pre">HillTransformer.K</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/transformations.html#id7"><code class="docutils literal notranslate"><span class="pre">HillTransformer.S</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/transformations.html#id8"><code class="docutils literal notranslate"><span class="pre">HillTransformer.__init__()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/transformations.html#id9"><code class="docutils literal notranslate"><span class="pre">HillTransformer.transform()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/transformations.html#id10"><code class="docutils literal notranslate"><span class="pre">HillTransformer.get_response_curve()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="api/transformations.html#transformation-pipeline">Transformation Pipeline</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="api/transformations.html#id11"><code class="docutils literal notranslate"><span class="pre">TransformationPipeline</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="api/transformations.html#id12"><code class="docutils literal notranslate"><span class="pre">TransformationPipeline.channel_configs</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/transformations.html#id13"><code class="docutils literal notranslate"><span class="pre">TransformationPipeline.__init__()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/transformations.html#id14"><code class="docutils literal notranslate"><span class="pre">TransformationPipeline.fit_transform()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/transformations.html#id15"><code class="docutils literal notranslate"><span class="pre">TransformationPipeline.transform()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/transformations.html#id16"><code class="docutils literal notranslate"><span class="pre">TransformationPipeline.get_transformation_summary()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/transformations.html#id17"><code class="docutils literal notranslate"><span class="pre">TransformationPipeline.transform_single_channel()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="api/transformations.html#usage-examples">Usage Examples</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="api/transformations.html#adstock-example">Adstock Example</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/transformations.html#hill-saturation-example">Hill Saturation Example</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/transformations.html#pipeline-example">Pipeline Example</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="api/ridge_mmm.html">Ridge MMM</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="api/ridge_mmm.html#ridgemmm-class">RidgeMMM Class</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api/ridge_mmm.html#model-architecture">Model Architecture</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api/ridge_mmm.html#usage-example">Usage Example</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="api/ridge_mmm.html#basic-usage">Basic Usage</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/ridge_mmm.html#getting-contributions">Getting Contributions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/ridge_mmm.html#calculating-roas">Calculating ROAS</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/ridge_mmm.html#response-curves">Response Curves</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/ridge_mmm.html#model-diagnostics">Model Diagnostics</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="api/ridge_mmm.html#mathematical-formulation">Mathematical Formulation</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="api/hierarchical_mmm.html">Hierarchical MMM</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="api/hierarchical_mmm.html#hierarchicalmmm-class">HierarchicalMMM Class</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api/hierarchical_mmm.html#overview">Overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api/hierarchical_mmm.html#use-cases">Use Cases</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api/hierarchical_mmm.html#usage-example">Usage Example</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="api/hierarchical_mmm.html#basic-segmentation">Basic Segmentation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/hierarchical_mmm.html#segment-specific-roas">Segment-Specific ROAS</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/hierarchical_mmm.html#compare-segments">Compare Segments</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/hierarchical_mmm.html#segment-performance">Segment Performance</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="api/hierarchical_mmm.html#pooling-strategies">Pooling Strategies</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api/hierarchical_mmm.html#best-practices">Best Practices</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api/hierarchical_mmm.html#example-global-campaign-analysis">Example: Global Campaign Analysis</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="api/optimizer.html">Budget Optimizer</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="api/optimizer.html#budgetoptimizer-class">BudgetOptimizer Class</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api/optimizer.html#optimizationerror">OptimizationError</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api/optimizer.html#optimization-problem">Optimization Problem</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api/optimizer.html#usage-example">Usage Example</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="api/optimizer.html#basic-optimization">Basic Optimization</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/optimizer.html#with-constraints">With Constraints</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/optimizer.html#scenario-comparison">Scenario Comparison</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/optimizer.html#marginal-roas">Marginal ROAS</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="api/optimizer.html#optimization-algorithms">Optimization Algorithms</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api/optimizer.html#best-practices">Best Practices</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api/optimizer.html#troubleshooting">Troubleshooting</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api/optimizer.html#example-monthly-budget-planning">Example: Monthly Budget Planning</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="api/visualizations.html">Visualizations</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="api/visualizations.html#plotting-functions">Plotting Functions</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="api/visualizations.html#channel-contributions-waterfall">Channel Contributions Waterfall</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/visualizations.html#response-curves">Response Curves</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/visualizations.html#roas-comparison">ROAS Comparison</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/visualizations.html#model-diagnostics">Model Diagnostics</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/visualizations.html#multi-market-heatmap">Multi-Market Heatmap</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="api/visualizations.html#usage-examples">Usage Examples</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="api/visualizations.html#waterfall-chart">Waterfall Chart</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/visualizations.html#id1">Response Curves</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/visualizations.html#id2">ROAS Comparison</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/visualizations.html#id3">Model Diagnostics</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/visualizations.html#multi-market-analysis">Multi-Market Analysis</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="api/visualizations.html#customization">Customization</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api/visualizations.html#exporting">Exporting</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="api/utils.html">Utilities</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="api/utils.html#data-utils">Data Utils</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="api/utils.html#src.utils.data_utils.validate_required_columns"><code class="docutils literal notranslate"><span class="pre">validate_required_columns()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/utils.html#src.utils.data_utils.validate_column_types"><code class="docutils literal notranslate"><span class="pre">validate_column_types()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/utils.html#src.utils.data_utils.safe_divide"><code class="docutils literal notranslate"><span class="pre">safe_divide()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/utils.html#key-functions">Key Functions</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="api/utils.html#segment-utils">Segment Utils</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="api/utils.html#src.utils.segment_utils.parse_segment"><code class="docutils literal notranslate"><span class="pre">parse_segment()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/utils.html#src.utils.segment_utils.filter_by_segment"><code class="docutils literal notranslate"><span class="pre">filter_by_segment()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/utils.html#src.utils.segment_utils.get_segment_hierarchy"><code class="docutils literal notranslate"><span class="pre">get_segment_hierarchy()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/utils.html#id1">Key Functions</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="api/utils.html#plot-utils">Plot Utils</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="api/utils.html#src.utils.plot_utils.get_default_layout"><code class="docutils literal notranslate"><span class="pre">get_default_layout()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/utils.html#src.utils.plot_utils.apply_default_layout"><code class="docutils literal notranslate"><span class="pre">apply_default_layout()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/utils.html#src.utils.plot_utils.get_color_palette"><code class="docutils literal notranslate"><span class="pre">get_color_palette()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/utils.html#src.utils.plot_utils.format_currency"><code class="docutils literal notranslate"><span class="pre">format_currency()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/utils.html#src.utils.plot_utils.format_percentage"><code class="docutils literal notranslate"><span class="pre">format_percentage()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/utils.html#src.utils.plot_utils.add_annotation"><code class="docutils literal notranslate"><span class="pre">add_annotation()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/utils.html#id2">Key Functions</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="api/utils.html#id0"><code class="docutils literal notranslate"><span class="pre">format_currency()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="api/utils.html#usage-examples">Usage Examples</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="api/utils.html#data-validation">Data Validation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/utils.html#weekly-aggregation">Weekly Aggregation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/utils.html#fill-missing-weeks">Fill Missing Weeks</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/utils.html#outlier-detection">Outlier Detection</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/utils.html#segment-analysis">Segment Analysis</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/utils.html#currency-formatting">Currency Formatting</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/utils.html#color-palettes">Color Palettes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/utils.html#add-plot-annotations">Add Plot Annotations</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="api/utils.html#helper-constants">Helper Constants</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Development</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="contributing.html">Contributing to Ridge MMM</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="contributing.html#getting-started">Getting Started</a></li>
+<li class="toctree-l2"><a class="reference internal" href="contributing.html#development-workflow">Development Workflow</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="contributing.html#creating-a-branch">Creating a Branch</a></li>
+<li class="toctree-l3"><a class="reference internal" href="contributing.html#making-changes">Making Changes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="contributing.html#code-style">Code Style</a></li>
+<li class="toctree-l3"><a class="reference internal" href="contributing.html#testing">Testing</a></li>
+<li class="toctree-l3"><a class="reference internal" href="contributing.html#documentation">Documentation</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="contributing.html#submitting-changes">Submitting Changes</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="contributing.html#commit-messages">Commit Messages</a></li>
+<li class="toctree-l3"><a class="reference internal" href="contributing.html#pull-requests">Pull Requests</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="contributing.html#code-review">Code Review</a></li>
+<li class="toctree-l2"><a class="reference internal" href="contributing.html#areas-for-contribution">Areas for Contribution</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="contributing.html#high-priority">High Priority</a></li>
+<li class="toctree-l3"><a class="reference internal" href="contributing.html#medium-priority">Medium Priority</a></li>
+<li class="toctree-l3"><a class="reference internal" href="contributing.html#id1">Documentation</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="contributing.html#questions">Questions?</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="changelog.html">Changelog</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="changelog.html#unreleased">[Unreleased]</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="changelog.html#added">Added</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="changelog.html#xx">[0.1.0] - 2024-01-XX</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="changelog.html#id1">Added</a></li>
+<li class="toctree-l3"><a class="reference internal" href="changelog.html#features">Features</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="changelog.html#core-modeling">Core Modeling</a></li>
+<li class="toctree-l4"><a class="reference internal" href="changelog.html#transformations">Transformations</a></li>
+<li class="toctree-l4"><a class="reference internal" href="changelog.html#optimization">Optimization</a></li>
+<li class="toctree-l4"><a class="reference internal" href="changelog.html#multi-market">Multi-Market</a></li>
+<li class="toctree-l4"><a class="reference internal" href="changelog.html#user-interface">User Interface</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="changelog.html#documentation">Documentation</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="changelog.html#initial-development">[0.0.1] - Initial Development</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="changelog.html#id2">Added</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="changelog.html#version-history-legend">Version History Legend</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="architecture.html">Architecture Overview</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="architecture.html#high-level-architecture">High-Level Architecture</a></li>
+<li class="toctree-l2"><a class="reference internal" href="architecture.html#component-details">Component Details</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="architecture.html#data-processor-src-data-processor-py">1. Data Processor (<code class="docutils literal notranslate"><span class="pre">src/data_processor.py</span></code>)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="architecture.html#transformations-src-transformations-py">2. Transformations (<code class="docutils literal notranslate"><span class="pre">src/transformations.py</span></code>)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="architecture.html#ridge-mmm-src-ridge-mmm-py">3. Ridge MMM (<code class="docutils literal notranslate"><span class="pre">src/ridge_mmm.py</span></code>)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="architecture.html#hierarchical-mmm-src-hierarchical-mmm-py">4. Hierarchical MMM (<code class="docutils literal notranslate"><span class="pre">src/hierarchical_mmm.py</span></code>)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="architecture.html#budget-optimizer-src-optimizer-py">5. Budget Optimizer (<code class="docutils literal notranslate"><span class="pre">src/optimizer.py</span></code>)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="architecture.html#visualizations-src-visualizations-py">6. Visualizations (<code class="docutils literal notranslate"><span class="pre">src/visualizations.py</span></code>)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="architecture.html#utilities-src-utils">7. Utilities (<code class="docutils literal notranslate"><span class="pre">src/utils/</span></code>)</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="architecture.html#streamlit-interface">Streamlit Interface</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="architecture.html#page-structure">Page Structure</a></li>
+<li class="toctree-l3"><a class="reference internal" href="architecture.html#state-management">State Management</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="architecture.html#data-flow">Data Flow</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="architecture.html#complete-workflow">Complete Workflow</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="architecture.html#design-principles">Design Principles</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="architecture.html#separation-of-concerns">1. Separation of Concerns</a></li>
+<li class="toctree-l3"><a class="reference internal" href="architecture.html#modularity">2. Modularity</a></li>
+<li class="toctree-l3"><a class="reference internal" href="architecture.html#type-safety">3. Type Safety</a></li>
+<li class="toctree-l3"><a class="reference internal" href="architecture.html#testability">4. Testability</a></li>
+<li class="toctree-l3"><a class="reference internal" href="architecture.html#documentation">5. Documentation</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="architecture.html#extension-points">Extension Points</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="architecture.html#adding-new-transformations">Adding New Transformations</a></li>
+<li class="toctree-l3"><a class="reference internal" href="architecture.html#adding-new-optimization-algorithms">Adding New Optimization Algorithms</a></li>
+<li class="toctree-l3"><a class="reference internal" href="architecture.html#custom-visualizations">Custom Visualizations</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="architecture.html#performance-considerations">Performance Considerations</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="architecture.html#bottlenecks">Bottlenecks</a></li>
+<li class="toctree-l3"><a class="reference internal" href="architecture.html#optimizations">Optimizations</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="architecture.html#security">Security</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="architecture.html#data-privacy">Data Privacy</a></li>
+<li class="toctree-l3"><a class="reference internal" href="architecture.html#input-validation">Input Validation</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="architecture.html#future-architecture-enhancements">Future Architecture Enhancements</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="architecture.html#planned">Planned</a></li>
+<li class="toctree-l3"><a class="reference internal" href="architecture.html#under-consideration">Under Consideration</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Ridge MMM</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content style-external-links">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Quick Reference Card</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/quick_reference.md.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section class="tex2jax_ignore mathjax_ignore" id="quick-reference-card">
+<h1>Quick Reference Card<a class="headerlink" href="#quick-reference-card" title="Link to this heading"></a></h1>
+<section id="essential-formulas">
+<h2>Essential Formulas<a class="headerlink" href="#essential-formulas" title="Link to this heading"></a></h2>
+<section id="roas-calculation">
+<h3>ROAS Calculation<a class="headerlink" href="#roas-calculation" title="Link to this heading"></a></h3>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>ROAS = Total Revenue / Total Spend
+
+Example: $15M revenue / $5M spend = 3.0 ROAS
+(Every $1 spent generates $3 in revenue)
+</pre></div>
+</div>
+</section>
+<section id="adstock-transformation">
+<h3>Adstock Transformation<a class="headerlink" href="#adstock-transformation" title="Link to this heading"></a></h3>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>adstock[t] = spend[t] + decay × adstock[t-1]
+
+Example with decay=0.5:
+Week 1: Spend $100 → Adstock $100
+Week 2: Spend $0   → Adstock $50  (0.5 × $100)
+Week 3: Spend $0   → Adstock $25  (0.5 × $50)
+</pre></div>
+</div>
+</section>
+<section id="hill-saturation">
+<h3>Hill Saturation<a class="headerlink" href="#hill-saturation" title="Link to this heading"></a></h3>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>effect = K × (spend^S) / (spend^S + 1)
+
+Parameters:
+- K: Maximum possible effect (scale)
+- S: Rate of saturation (shape)
+</pre></div>
+</div>
+</section>
+</section>
+<section id="parameter-quick-guide">
+<h2>Parameter Quick Guide<a class="headerlink" href="#parameter-quick-guide" title="Link to this heading"></a></h2>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>Channel Type</p></th>
+<th class="head"><p>Adstock Decay</p></th>
+<th class="head"><p>Hill K</p></th>
+<th class="head"><p>Hill S</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>TV/Brand</p></td>
+<td><p>0.7</p></td>
+<td><p>1.5</p></td>
+<td><p>2.0</p></td>
+</tr>
+<tr class="row-odd"><td><p>Search</p></td>
+<td><p>0.2</p></td>
+<td><p>1.0</p></td>
+<td><p>1.0</p></td>
+</tr>
+<tr class="row-even"><td><p>Social</p></td>
+<td><p>0.5</p></td>
+<td><p>1.0</p></td>
+<td><p>1.0</p></td>
+</tr>
+<tr class="row-odd"><td><p>Display</p></td>
+<td><p>0.6</p></td>
+<td><p>1.0</p></td>
+<td><p>1.5</p></td>
+</tr>
+<tr class="row-even"><td><p>Video</p></td>
+<td><p>0.6</p></td>
+<td><p>1.2</p></td>
+<td><p>1.5</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="interpretation-guide">
+<h2>Interpretation Guide<a class="headerlink" href="#interpretation-guide" title="Link to this heading"></a></h2>
+<section id="roas-benchmarks">
+<h3>ROAS Benchmarks<a class="headerlink" href="#roas-benchmarks" title="Link to this heading"></a></h3>
+<ul class="simple">
+<li><p><strong>&lt; 1.0</strong>: Losing money</p></li>
+<li><p><strong>1.0-2.0</strong>: Break-even to moderate</p></li>
+<li><p><strong>2.0-4.0</strong>: Good performance</p></li>
+<li><p><strong>&gt; 4.0</strong>: Excellent (or room to scale)</p></li>
+</ul>
+</section>
+<section id="model-fit-r2">
+<h3>Model Fit (R²)<a class="headerlink" href="#model-fit-r2" title="Link to this heading"></a></h3>
+<ul class="simple">
+<li><p><strong>&gt; 0.8</strong>: Excellent</p></li>
+<li><p><strong>0.6-0.8</strong>: Good</p></li>
+<li><p><strong>0.4-0.6</strong>: Fair</p></li>
+<li><p><strong>&lt; 0.4</strong>: Poor (needs improvement)</p></li>
+</ul>
+</section>
+<section id="mape-prediction-error">
+<h3>MAPE (Prediction Error)<a class="headerlink" href="#mape-prediction-error" title="Link to this heading"></a></h3>
+<ul class="simple">
+<li><p><strong>&lt; 10%</strong>: Excellent accuracy</p></li>
+<li><p><strong>10-20%</strong>: Good accuracy</p></li>
+<li><p><strong>20-30%</strong>: Fair accuracy</p></li>
+<li><p><strong>&gt; 30%</strong>: Poor accuracy</p></li>
+</ul>
+</section>
+</section>
+<section id="common-workflows">
+<h2>Common Workflows<a class="headerlink" href="#common-workflows" title="Link to this heading"></a></h2>
+<section id="weekly-refresh">
+<h3>Weekly Refresh<a class="headerlink" href="#weekly-refresh" title="Link to this heading"></a></h3>
+<ol class="arabic simple">
+<li><p>Export latest week’s data</p></li>
+<li><p>Append to historical CSV</p></li>
+<li><p>Re-upload to app</p></li>
+<li><p>Check if model diagnostics changed significantly</p></li>
+<li><p>If major changes: Re-train model</p></li>
+</ol>
+</section>
+<section id="monthly-budget-planning">
+<h3>Monthly Budget Planning<a class="headerlink" href="#monthly-budget-planning" title="Link to this heading"></a></h3>
+<ol class="arabic simple">
+<li><p>Review last month’s actual vs predicted</p></li>
+<li><p>Update any changed constraints</p></li>
+<li><p>Run optimizer with next month’s total budget</p></li>
+<li><p>Export recommended allocation</p></li>
+<li><p>Implement 50% of recommended shift (gradual)</p></li>
+</ol>
+</section>
+<section id="quarterly-strategy-review">
+<h3>Quarterly Strategy Review<a class="headerlink" href="#quarterly-strategy-review" title="Link to this heading"></a></h3>
+<ol class="arabic simple">
+<li><p>Re-train model with all available data</p></li>
+<li><p>Compare channel performance trends (YoY)</p></li>
+<li><p>Run multiple scenarios (conservative, aggressive, status quo)</p></li>
+<li><p>Present to stakeholders with visualizations</p></li>
+<li><p>Align on budget strategy for next quarter</p></li>
+</ol>
+</section>
+</section>
+<section id="keyboard-shortcuts-streamlit">
+<h2>Keyboard Shortcuts (Streamlit)<a class="headerlink" href="#keyboard-shortcuts-streamlit" title="Link to this heading"></a></h2>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">Ctrl</span> <span class="pre">+</span> <span class="pre">R</span></code>: Refresh page</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Ctrl</span> <span class="pre">+</span> <span class="pre">Shift</span> <span class="pre">+</span> <span class="pre">R</span></code>: Clear cache and refresh</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">C</span></code>: Toggle light/dark theme (if enabled)</p></li>
+</ul>
+</section>
+<section id="file-locations">
+<h2>File Locations<a class="headerlink" href="#file-locations" title="Link to this heading"></a></h2>
+<ul class="simple">
+<li><p><strong>Sample Data</strong>: <code class="docutils literal notranslate"><span class="pre">data/sample/sample_data.csv</span></code></p></li>
+<li><p><strong>Your Uploads</strong>: Auto-saved in browser session</p></li>
+<li><p><strong>Model Exports</strong>: Download from Results page</p></li>
+<li><p><strong>Reports</strong>: Download from Report page</p></li>
+</ul>
+</section>
+<section id="error-messages">
+<h2>Error Messages<a class="headerlink" href="#error-messages" title="Link to this heading"></a></h2>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>Error</p></th>
+<th class="head"><p>Meaning</p></th>
+<th class="head"><p>Solution</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>“Model not fitted”</p></td>
+<td><p>Trying to predict before training</p></td>
+<td><p>Go to Model Config → Train Model</p></td>
+</tr>
+<tr class="row-odd"><td><p>“Column not found”</p></td>
+<td><p>Data missing required column</p></td>
+<td><p>Check column mapping in Data Upload</p></td>
+</tr>
+<tr class="row-even"><td><p>“Optimization failed”</p></td>
+<td><p>Can’t find feasible solution</p></td>
+<td><p>Relax constraints or increase budget</p></td>
+</tr>
+<tr class="row-odd"><td><p>“Insufficient data”</p></td>
+<td><p>Less than 52 weeks</p></td>
+<td><p>Collect more data</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="pro-tips">
+<h2>Pro Tips<a class="headerlink" href="#pro-tips" title="Link to this heading"></a></h2>
+<p>💡 <strong>Start Simple</strong>: Use default parameters (decay=0.5, K=1.0, S=1.0) first</p>
+<p>💡 <strong>Validate</strong>: Always check test set performance before trusting model</p>
+<p>💡 <strong>Gradual Changes</strong>: Shift budgets 10-20% at a time, not 50%+</p>
+<p>💡 <strong>Document</strong>: Save scenarios with descriptive names</p>
+<p>💡 <strong>Combine Methods</strong>: Use MMM for strategy, last-click for tactics</p>
+<p>💡 <strong>Refresh Regularly</strong>: Re-train model quarterly or when major changes occur</p>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="user_guide.html" class="btn btn-neutral float-left" title="Ridge MMM User Guide" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="tutorials.html" class="btn btn-neutral float-right" title="Tutorials" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2024, Ridge MMM Contributors.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

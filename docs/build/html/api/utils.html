@@ -1,0 +1,1185 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Utilities &mdash; Ridge MMM v0.1.0</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=03e43079" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=19f00094" />
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../_static/documentation_options.js?v=01f34227"></script>
+        <script src="../_static/doctools.js?v=9a2dae69"></script>
+        <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Contributing to Ridge MMM" href="../contributing.html" />
+    <link rel="prev" title="Visualizations" href="visualizations.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            Ridge MMM
+          </a>
+              <div class="version">
+                0.1.0
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">User Documentation</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../user_guide.html">Ridge MMM User Guide</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../user_guide.html#table-of-contents">Table of Contents</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../user_guide.html#introduction">Introduction</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../user_guide.html#what-is-marketing-mix-modeling-mmm">What is Marketing Mix Modeling (MMM)?</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../user_guide.html#when-to-use-this-tool">When to Use This Tool</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../user_guide.html#quick-start">Quick Start</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../user_guide.html#step-1-prepare-your-data">Step 1: Prepare Your Data</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../user_guide.html#step-2-upload-data">Step 2: Upload Data</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../user_guide.html#step-3-configure-model">Step 3: Configure Model</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../user_guide.html#step-4-analyze-results">Step 4: Analyze Results</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../user_guide.html#step-5-optimize-budget">Step 5: Optimize Budget</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../user_guide.html#data-preparation">Data Preparation</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../user_guide.html#data-format-requirements">Data Format Requirements</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../user_guide.html#column-naming">Column Naming</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../user_guide.html#multi-market-data-format">Multi-Market Data Format</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../user_guide.html#data-quality-checks">Data Quality Checks</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../user_guide.html#model-configuration">Model Configuration</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../user_guide.html#understanding-adstock-carryover-effect">Understanding Adstock (Carryover Effect)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../user_guide.html#understanding-hill-saturation">Understanding Hill Saturation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../user_guide.html#model-settings">Model Settings</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../user_guide.html#understanding-results">Understanding Results</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../user_guide.html#channel-contributions-tab">Channel Contributions Tab</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../user_guide.html#response-curves-tab">Response Curves Tab</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../user_guide.html#model-diagnostics-tab">Model Diagnostics Tab</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../user_guide.html#budget-optimization">Budget Optimization</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../user_guide.html#using-the-optimizer">Using the Optimizer</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../user_guide.html#scenario-builder">Scenario Builder</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../user_guide.html#interpreting-recommendations">Interpreting Recommendations</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../user_guide.html#multi-market-analysis">Multi-Market Analysis</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../user_guide.html#setting-up-multi-market-models">Setting Up Multi-Market Models</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../user_guide.html#comparing-markets">Comparing Markets</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../user_guide.html#cross-market-insights">Cross-Market Insights</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../user_guide.html#best-practices">Best Practices</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../user_guide.html#data-collection">Data Collection</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../user_guide.html#model-development">Model Development</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../user_guide.html#using-results">Using Results</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../user_guide.html#troubleshooting">Troubleshooting</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../user_guide.html#model-has-poor-fit-r2-0-5">“Model has poor fit (R² &lt; 0.5)”</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../user_guide.html#optimization-suggests-extreme-allocations">“Optimization suggests extreme allocations”</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../user_guide.html#results-dont-match-my-intuition">“Results don’t match my intuition”</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../user_guide.html#different-from-last-click-attribution">“Different from last-click attribution”</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../user_guide.html#glossary">Glossary</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../user_guide.html#support-resources">Support &amp; Resources</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../quick_reference.html">Quick Reference Card</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../quick_reference.html#essential-formulas">Essential Formulas</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../quick_reference.html#roas-calculation">ROAS Calculation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../quick_reference.html#adstock-transformation">Adstock Transformation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../quick_reference.html#hill-saturation">Hill Saturation</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../quick_reference.html#parameter-quick-guide">Parameter Quick Guide</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../quick_reference.html#interpretation-guide">Interpretation Guide</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../quick_reference.html#roas-benchmarks">ROAS Benchmarks</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../quick_reference.html#model-fit-r2">Model Fit (R²)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../quick_reference.html#mape-prediction-error">MAPE (Prediction Error)</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../quick_reference.html#common-workflows">Common Workflows</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../quick_reference.html#weekly-refresh">Weekly Refresh</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../quick_reference.html#monthly-budget-planning">Monthly Budget Planning</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../quick_reference.html#quarterly-strategy-review">Quarterly Strategy Review</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../quick_reference.html#keyboard-shortcuts-streamlit">Keyboard Shortcuts (Streamlit)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../quick_reference.html#file-locations">File Locations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../quick_reference.html#error-messages">Error Messages</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../quick_reference.html#pro-tips">Pro Tips</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials.html">Tutorials</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../tutorials.html#coming-soon">Coming Soon</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../faq.html">Frequently Asked Questions</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../faq.html#general-questions">General Questions</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../faq.html#what-is-marketing-mix-modeling-mmm">What is Marketing Mix Modeling (MMM)?</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../faq.html#how-is-this-different-from-attribution-models">How is this different from attribution models?</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../faq.html#how-much-data-do-i-need">How much data do I need?</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../faq.html#model-questions">Model Questions</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../faq.html#what-does-the-alpha-parameter-do">What does the alpha parameter do?</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../faq.html#how-do-i-choose-adstock-parameters">How do I choose adstock parameters?</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../faq.html#what-if-my-r2-is-low">What if my R² is low?</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../faq.html#optimization-questions">Optimization Questions</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../faq.html#why-does-the-optimizer-suggest-extreme-allocations">Why does the optimizer suggest extreme allocations?</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../faq.html#can-i-optimize-for-multiple-objectives">Can I optimize for multiple objectives?</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../faq.html#technical-questions">Technical Questions</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../faq.html#can-i-use-daily-data-instead-of-weekly">Can I use daily data instead of weekly?</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../faq.html#does-this-support-bayesian-mmm">Does this support Bayesian MMM?</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../faq.html#can-i-add-custom-transformations">Can I add custom transformations?</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../faq.html#still-have-questions">Still Have Questions?</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">API Reference</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="data_processor.html">Data Processor</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="data_processor.html#src.data_processor.DataProcessor"><code class="docutils literal notranslate"><span class="pre">DataProcessor</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="data_processor.html#src.data_processor.DataProcessor.__init__"><code class="docutils literal notranslate"><span class="pre">DataProcessor.__init__()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="data_processor.html#src.data_processor.DataProcessor.load_csv"><code class="docutils literal notranslate"><span class="pre">DataProcessor.load_csv()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="data_processor.html#src.data_processor.DataProcessor.validate_data"><code class="docutils literal notranslate"><span class="pre">DataProcessor.validate_data()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="data_processor.html#src.data_processor.DataProcessor.check_missing_values"><code class="docutils literal notranslate"><span class="pre">DataProcessor.check_missing_values()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="data_processor.html#src.data_processor.DataProcessor.detect_outliers"><code class="docutils literal notranslate"><span class="pre">DataProcessor.detect_outliers()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="data_processor.html#src.data_processor.DataProcessor.get_summary_stats"><code class="docutils literal notranslate"><span class="pre">DataProcessor.get_summary_stats()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="data_processor.html#src.data_processor.DataProcessor.convert_date_column"><code class="docutils literal notranslate"><span class="pre">DataProcessor.convert_date_column()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="data_processor.html#src.data_processor.DataProcessor.get_date_range"><code class="docutils literal notranslate"><span class="pre">DataProcessor.get_date_range()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="data_processor.html#src.data_processor.DataProcessor.detect_data_format"><code class="docutils literal notranslate"><span class="pre">DataProcessor.detect_data_format()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="data_processor.html#src.data_processor.DataProcessor.validate_multi_market_data"><code class="docutils literal notranslate"><span class="pre">DataProcessor.validate_multi_market_data()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="data_processor.html#src.data_processor.DataProcessor.aggregate_data"><code class="docutils literal notranslate"><span class="pre">DataProcessor.aggregate_data()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="data_processor.html#src.data_processor.DataProcessor.get_market_segments"><code class="docutils literal notranslate"><span class="pre">DataProcessor.get_market_segments()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="data_processor.html#src.data_processor.DataProcessor.get_market_hierarchy"><code class="docutils literal notranslate"><span class="pre">DataProcessor.get_market_hierarchy()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="data_processor.html#dataprocessor-class">DataProcessor Class</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="data_processor.html#id0"><code class="docutils literal notranslate"><span class="pre">DataProcessor</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="data_processor.html#id1"><code class="docutils literal notranslate"><span class="pre">DataProcessor.__init__()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="data_processor.html#id2"><code class="docutils literal notranslate"><span class="pre">DataProcessor.load_csv()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="data_processor.html#id3"><code class="docutils literal notranslate"><span class="pre">DataProcessor.validate_data()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="data_processor.html#id4"><code class="docutils literal notranslate"><span class="pre">DataProcessor.check_missing_values()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="data_processor.html#id5"><code class="docutils literal notranslate"><span class="pre">DataProcessor.detect_outliers()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="data_processor.html#id6"><code class="docutils literal notranslate"><span class="pre">DataProcessor.get_summary_stats()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="data_processor.html#id7"><code class="docutils literal notranslate"><span class="pre">DataProcessor.convert_date_column()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="data_processor.html#id8"><code class="docutils literal notranslate"><span class="pre">DataProcessor.get_date_range()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="data_processor.html#id9"><code class="docutils literal notranslate"><span class="pre">DataProcessor.detect_data_format()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="data_processor.html#id10"><code class="docutils literal notranslate"><span class="pre">DataProcessor.validate_multi_market_data()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="data_processor.html#id11"><code class="docutils literal notranslate"><span class="pre">DataProcessor.aggregate_data()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="data_processor.html#id12"><code class="docutils literal notranslate"><span class="pre">DataProcessor.get_market_segments()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="data_processor.html#id13"><code class="docutils literal notranslate"><span class="pre">DataProcessor.get_market_hierarchy()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="data_processor.html#usage-example">Usage Example</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="transformations.html">Transformations</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="transformations.html#src.transformations.AdstockTransformer"><code class="docutils literal notranslate"><span class="pre">AdstockTransformer</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="transformations.html#src.transformations.AdstockTransformer.decay_rate"><code class="docutils literal notranslate"><span class="pre">AdstockTransformer.decay_rate</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="transformations.html#src.transformations.AdstockTransformer.__init__"><code class="docutils literal notranslate"><span class="pre">AdstockTransformer.__init__()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="transformations.html#src.transformations.AdstockTransformer.transform"><code class="docutils literal notranslate"><span class="pre">AdstockTransformer.transform()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="transformations.html#src.transformations.AdstockTransformer.get_decay_curve"><code class="docutils literal notranslate"><span class="pre">AdstockTransformer.get_decay_curve()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="transformations.html#src.transformations.HillTransformer"><code class="docutils literal notranslate"><span class="pre">HillTransformer</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="transformations.html#src.transformations.HillTransformer.K"><code class="docutils literal notranslate"><span class="pre">HillTransformer.K</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="transformations.html#src.transformations.HillTransformer.S"><code class="docutils literal notranslate"><span class="pre">HillTransformer.S</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="transformations.html#src.transformations.HillTransformer.__init__"><code class="docutils literal notranslate"><span class="pre">HillTransformer.__init__()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="transformations.html#src.transformations.HillTransformer.transform"><code class="docutils literal notranslate"><span class="pre">HillTransformer.transform()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="transformations.html#src.transformations.HillTransformer.get_response_curve"><code class="docutils literal notranslate"><span class="pre">HillTransformer.get_response_curve()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="transformations.html#src.transformations.TransformationPipeline"><code class="docutils literal notranslate"><span class="pre">TransformationPipeline</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="transformations.html#src.transformations.TransformationPipeline.channel_configs"><code class="docutils literal notranslate"><span class="pre">TransformationPipeline.channel_configs</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="transformations.html#src.transformations.TransformationPipeline.__init__"><code class="docutils literal notranslate"><span class="pre">TransformationPipeline.__init__()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="transformations.html#src.transformations.TransformationPipeline.fit_transform"><code class="docutils literal notranslate"><span class="pre">TransformationPipeline.fit_transform()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="transformations.html#src.transformations.TransformationPipeline.transform"><code class="docutils literal notranslate"><span class="pre">TransformationPipeline.transform()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="transformations.html#src.transformations.TransformationPipeline.get_transformation_summary"><code class="docutils literal notranslate"><span class="pre">TransformationPipeline.get_transformation_summary()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="transformations.html#src.transformations.TransformationPipeline.transform_single_channel"><code class="docutils literal notranslate"><span class="pre">TransformationPipeline.transform_single_channel()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="transformations.html#adstock-transformer">Adstock Transformer</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="transformations.html#id0"><code class="docutils literal notranslate"><span class="pre">AdstockTransformer</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="transformations.html#id1"><code class="docutils literal notranslate"><span class="pre">AdstockTransformer.decay_rate</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="transformations.html#id2"><code class="docutils literal notranslate"><span class="pre">AdstockTransformer.__init__()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="transformations.html#id3"><code class="docutils literal notranslate"><span class="pre">AdstockTransformer.transform()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="transformations.html#id4"><code class="docutils literal notranslate"><span class="pre">AdstockTransformer.get_decay_curve()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="transformations.html#hill-transformer">Hill Transformer</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="transformations.html#id5"><code class="docutils literal notranslate"><span class="pre">HillTransformer</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="transformations.html#id6"><code class="docutils literal notranslate"><span class="pre">HillTransformer.K</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="transformations.html#id7"><code class="docutils literal notranslate"><span class="pre">HillTransformer.S</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="transformations.html#id8"><code class="docutils literal notranslate"><span class="pre">HillTransformer.__init__()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="transformations.html#id9"><code class="docutils literal notranslate"><span class="pre">HillTransformer.transform()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="transformations.html#id10"><code class="docutils literal notranslate"><span class="pre">HillTransformer.get_response_curve()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="transformations.html#transformation-pipeline">Transformation Pipeline</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="transformations.html#id11"><code class="docutils literal notranslate"><span class="pre">TransformationPipeline</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="transformations.html#id12"><code class="docutils literal notranslate"><span class="pre">TransformationPipeline.channel_configs</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="transformations.html#id13"><code class="docutils literal notranslate"><span class="pre">TransformationPipeline.__init__()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="transformations.html#id14"><code class="docutils literal notranslate"><span class="pre">TransformationPipeline.fit_transform()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="transformations.html#id15"><code class="docutils literal notranslate"><span class="pre">TransformationPipeline.transform()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="transformations.html#id16"><code class="docutils literal notranslate"><span class="pre">TransformationPipeline.get_transformation_summary()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="transformations.html#id17"><code class="docutils literal notranslate"><span class="pre">TransformationPipeline.transform_single_channel()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="transformations.html#usage-examples">Usage Examples</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="transformations.html#adstock-example">Adstock Example</a></li>
+<li class="toctree-l3"><a class="reference internal" href="transformations.html#hill-saturation-example">Hill Saturation Example</a></li>
+<li class="toctree-l3"><a class="reference internal" href="transformations.html#pipeline-example">Pipeline Example</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="ridge_mmm.html">Ridge MMM</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="ridge_mmm.html#ridgemmm-class">RidgeMMM Class</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ridge_mmm.html#model-architecture">Model Architecture</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ridge_mmm.html#usage-example">Usage Example</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="ridge_mmm.html#basic-usage">Basic Usage</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ridge_mmm.html#getting-contributions">Getting Contributions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ridge_mmm.html#calculating-roas">Calculating ROAS</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ridge_mmm.html#response-curves">Response Curves</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ridge_mmm.html#model-diagnostics">Model Diagnostics</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="ridge_mmm.html#mathematical-formulation">Mathematical Formulation</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="hierarchical_mmm.html">Hierarchical MMM</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="hierarchical_mmm.html#hierarchicalmmm-class">HierarchicalMMM Class</a></li>
+<li class="toctree-l2"><a class="reference internal" href="hierarchical_mmm.html#overview">Overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="hierarchical_mmm.html#use-cases">Use Cases</a></li>
+<li class="toctree-l2"><a class="reference internal" href="hierarchical_mmm.html#usage-example">Usage Example</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="hierarchical_mmm.html#basic-segmentation">Basic Segmentation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="hierarchical_mmm.html#segment-specific-roas">Segment-Specific ROAS</a></li>
+<li class="toctree-l3"><a class="reference internal" href="hierarchical_mmm.html#compare-segments">Compare Segments</a></li>
+<li class="toctree-l3"><a class="reference internal" href="hierarchical_mmm.html#segment-performance">Segment Performance</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="hierarchical_mmm.html#pooling-strategies">Pooling Strategies</a></li>
+<li class="toctree-l2"><a class="reference internal" href="hierarchical_mmm.html#best-practices">Best Practices</a></li>
+<li class="toctree-l2"><a class="reference internal" href="hierarchical_mmm.html#example-global-campaign-analysis">Example: Global Campaign Analysis</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="optimizer.html">Budget Optimizer</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="optimizer.html#budgetoptimizer-class">BudgetOptimizer Class</a></li>
+<li class="toctree-l2"><a class="reference internal" href="optimizer.html#optimizationerror">OptimizationError</a></li>
+<li class="toctree-l2"><a class="reference internal" href="optimizer.html#optimization-problem">Optimization Problem</a></li>
+<li class="toctree-l2"><a class="reference internal" href="optimizer.html#usage-example">Usage Example</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="optimizer.html#basic-optimization">Basic Optimization</a></li>
+<li class="toctree-l3"><a class="reference internal" href="optimizer.html#with-constraints">With Constraints</a></li>
+<li class="toctree-l3"><a class="reference internal" href="optimizer.html#scenario-comparison">Scenario Comparison</a></li>
+<li class="toctree-l3"><a class="reference internal" href="optimizer.html#marginal-roas">Marginal ROAS</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="optimizer.html#optimization-algorithms">Optimization Algorithms</a></li>
+<li class="toctree-l2"><a class="reference internal" href="optimizer.html#best-practices">Best Practices</a></li>
+<li class="toctree-l2"><a class="reference internal" href="optimizer.html#troubleshooting">Troubleshooting</a></li>
+<li class="toctree-l2"><a class="reference internal" href="optimizer.html#example-monthly-budget-planning">Example: Monthly Budget Planning</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="visualizations.html">Visualizations</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="visualizations.html#plotting-functions">Plotting Functions</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="visualizations.html#channel-contributions-waterfall">Channel Contributions Waterfall</a></li>
+<li class="toctree-l3"><a class="reference internal" href="visualizations.html#response-curves">Response Curves</a></li>
+<li class="toctree-l3"><a class="reference internal" href="visualizations.html#roas-comparison">ROAS Comparison</a></li>
+<li class="toctree-l3"><a class="reference internal" href="visualizations.html#model-diagnostics">Model Diagnostics</a></li>
+<li class="toctree-l3"><a class="reference internal" href="visualizations.html#multi-market-heatmap">Multi-Market Heatmap</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="visualizations.html#usage-examples">Usage Examples</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="visualizations.html#waterfall-chart">Waterfall Chart</a></li>
+<li class="toctree-l3"><a class="reference internal" href="visualizations.html#id1">Response Curves</a></li>
+<li class="toctree-l3"><a class="reference internal" href="visualizations.html#id2">ROAS Comparison</a></li>
+<li class="toctree-l3"><a class="reference internal" href="visualizations.html#id3">Model Diagnostics</a></li>
+<li class="toctree-l3"><a class="reference internal" href="visualizations.html#multi-market-analysis">Multi-Market Analysis</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="visualizations.html#customization">Customization</a></li>
+<li class="toctree-l2"><a class="reference internal" href="visualizations.html#exporting">Exporting</a></li>
+</ul>
+</li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Utilities</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#data-utils">Data Utils</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#src.utils.data_utils.validate_required_columns"><code class="docutils literal notranslate"><span class="pre">validate_required_columns()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#src.utils.data_utils.validate_column_types"><code class="docutils literal notranslate"><span class="pre">validate_column_types()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#src.utils.data_utils.safe_divide"><code class="docutils literal notranslate"><span class="pre">safe_divide()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#key-functions">Key Functions</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#segment-utils">Segment Utils</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#src.utils.segment_utils.parse_segment"><code class="docutils literal notranslate"><span class="pre">parse_segment()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#src.utils.segment_utils.filter_by_segment"><code class="docutils literal notranslate"><span class="pre">filter_by_segment()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#src.utils.segment_utils.get_segment_hierarchy"><code class="docutils literal notranslate"><span class="pre">get_segment_hierarchy()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id1">Key Functions</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#plot-utils">Plot Utils</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#src.utils.plot_utils.get_default_layout"><code class="docutils literal notranslate"><span class="pre">get_default_layout()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#src.utils.plot_utils.apply_default_layout"><code class="docutils literal notranslate"><span class="pre">apply_default_layout()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#src.utils.plot_utils.get_color_palette"><code class="docutils literal notranslate"><span class="pre">get_color_palette()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#src.utils.plot_utils.format_currency"><code class="docutils literal notranslate"><span class="pre">format_currency()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#src.utils.plot_utils.format_percentage"><code class="docutils literal notranslate"><span class="pre">format_percentage()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#src.utils.plot_utils.add_annotation"><code class="docutils literal notranslate"><span class="pre">add_annotation()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id2">Key Functions</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id0"><code class="docutils literal notranslate"><span class="pre">format_currency()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#usage-examples">Usage Examples</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#data-validation">Data Validation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#weekly-aggregation">Weekly Aggregation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#fill-missing-weeks">Fill Missing Weeks</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#outlier-detection">Outlier Detection</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#segment-analysis">Segment Analysis</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#currency-formatting">Currency Formatting</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#color-palettes">Color Palettes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#add-plot-annotations">Add Plot Annotations</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#helper-constants">Helper Constants</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Development</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../contributing.html">Contributing to Ridge MMM</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../contributing.html#getting-started">Getting Started</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../contributing.html#development-workflow">Development Workflow</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../contributing.html#creating-a-branch">Creating a Branch</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../contributing.html#making-changes">Making Changes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../contributing.html#code-style">Code Style</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../contributing.html#testing">Testing</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../contributing.html#documentation">Documentation</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../contributing.html#submitting-changes">Submitting Changes</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../contributing.html#commit-messages">Commit Messages</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../contributing.html#pull-requests">Pull Requests</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../contributing.html#code-review">Code Review</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../contributing.html#areas-for-contribution">Areas for Contribution</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../contributing.html#high-priority">High Priority</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../contributing.html#medium-priority">Medium Priority</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../contributing.html#id1">Documentation</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../contributing.html#questions">Questions?</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../changelog.html">Changelog</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../changelog.html#unreleased">[Unreleased]</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../changelog.html#added">Added</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../changelog.html#xx">[0.1.0] - 2024-01-XX</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../changelog.html#id1">Added</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../changelog.html#features">Features</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../changelog.html#core-modeling">Core Modeling</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../changelog.html#transformations">Transformations</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../changelog.html#optimization">Optimization</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../changelog.html#multi-market">Multi-Market</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../changelog.html#user-interface">User Interface</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../changelog.html#documentation">Documentation</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../changelog.html#initial-development">[0.0.1] - Initial Development</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../changelog.html#id2">Added</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../changelog.html#version-history-legend">Version History Legend</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../architecture.html">Architecture Overview</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../architecture.html#high-level-architecture">High-Level Architecture</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../architecture.html#component-details">Component Details</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../architecture.html#data-processor-src-data-processor-py">1. Data Processor (<code class="docutils literal notranslate"><span class="pre">src/data_processor.py</span></code>)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../architecture.html#transformations-src-transformations-py">2. Transformations (<code class="docutils literal notranslate"><span class="pre">src/transformations.py</span></code>)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../architecture.html#ridge-mmm-src-ridge-mmm-py">3. Ridge MMM (<code class="docutils literal notranslate"><span class="pre">src/ridge_mmm.py</span></code>)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../architecture.html#hierarchical-mmm-src-hierarchical-mmm-py">4. Hierarchical MMM (<code class="docutils literal notranslate"><span class="pre">src/hierarchical_mmm.py</span></code>)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../architecture.html#budget-optimizer-src-optimizer-py">5. Budget Optimizer (<code class="docutils literal notranslate"><span class="pre">src/optimizer.py</span></code>)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../architecture.html#visualizations-src-visualizations-py">6. Visualizations (<code class="docutils literal notranslate"><span class="pre">src/visualizations.py</span></code>)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../architecture.html#utilities-src-utils">7. Utilities (<code class="docutils literal notranslate"><span class="pre">src/utils/</span></code>)</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../architecture.html#streamlit-interface">Streamlit Interface</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../architecture.html#page-structure">Page Structure</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../architecture.html#state-management">State Management</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../architecture.html#data-flow">Data Flow</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../architecture.html#complete-workflow">Complete Workflow</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../architecture.html#design-principles">Design Principles</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../architecture.html#separation-of-concerns">1. Separation of Concerns</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../architecture.html#modularity">2. Modularity</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../architecture.html#type-safety">3. Type Safety</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../architecture.html#testability">4. Testability</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../architecture.html#documentation">5. Documentation</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../architecture.html#extension-points">Extension Points</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../architecture.html#adding-new-transformations">Adding New Transformations</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../architecture.html#adding-new-optimization-algorithms">Adding New Optimization Algorithms</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../architecture.html#custom-visualizations">Custom Visualizations</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../architecture.html#performance-considerations">Performance Considerations</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../architecture.html#bottlenecks">Bottlenecks</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../architecture.html#optimizations">Optimizations</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../architecture.html#security">Security</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../architecture.html#data-privacy">Data Privacy</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../architecture.html#input-validation">Input Validation</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../architecture.html#future-architecture-enhancements">Future Architecture Enhancements</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../architecture.html#planned">Planned</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../architecture.html#under-consideration">Under Consideration</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Ridge MMM</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content style-external-links">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Utilities</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/api/utils.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="utilities">
+<h1>Utilities<a class="headerlink" href="#utilities" title="Link to this heading"></a></h1>
+<p>Helper functions and utility modules.</p>
+<section id="data-utils">
+<h2>Data Utils<a class="headerlink" href="#data-utils" title="Link to this heading"></a></h2>
+<p>Data manipulation and validation utilities.</p>
+<p id="module-src.utils.data_utils">Data manipulation utilities.</p>
+<dl class="py function">
+<dt class="sig sig-object py" id="src.utils.data_utils.validate_required_columns">
+<span class="sig-prename descclassname"><span class="pre">src.utils.data_utils.</span></span><span class="sig-name descname"><span class="pre">validate_required_columns</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">df</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">required_cols</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">context</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'DataFrame'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/src/utils/data_utils.html#validate_required_columns"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.utils.data_utils.validate_required_columns" title="Link to this definition"></a></dt>
+<dd><p>Validate that DataFrame has required columns.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>df</strong> (<span class="sphinx_autodoc_typehints-type"><a class="reference external" href="https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.html#pandas.DataFrame" title="(in pandas v2.3.3)"><code class="xref py py-class docutils literal notranslate"><span class="pre">DataFrame</span></code></a></span>) – DataFrame to validate</p></li>
+<li><p><strong>required_cols</strong> (<span class="sphinx_autodoc_typehints-type"><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.List" title="(in Python v3.14)"><code class="xref py py-class docutils literal notranslate"><span class="pre">List</span></code></a>[<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.14)"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></a>]</span>) – List of required column names</p></li>
+<li><p><strong>context</strong> (<span class="sphinx_autodoc_typehints-type"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.14)"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></a></span>) – Context for error message</p></li>
+</ul>
+</dd>
+<dt class="field-even">Raises<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/library/exceptions.html#ValueError" title="(in Python v3.14)"><strong>ValueError</strong></a> – If any required columns are missing</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><span class="sphinx_autodoc_typehints-type"><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.14)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code></a></span></p>
+</dd>
+</dl>
+<div class="admonition-examples admonition">
+<p class="admonition-title">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span><span class="s1">&#39;a&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span> <span class="s1">&#39;b&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">]})</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">validate_required_columns</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;a&#39;</span><span class="p">,</span> <span class="s1">&#39;b&#39;</span><span class="p">])</span>  <span class="c1"># No error</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">validate_required_columns</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;a&#39;</span><span class="p">,</span> <span class="s1">&#39;c&#39;</span><span class="p">])</span>  <span class="c1"># Raises ValueError</span>
+</pre></div>
+</div>
+</div>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="src.utils.data_utils.validate_column_types">
+<span class="sig-prename descclassname"><span class="pre">src.utils.data_utils.</span></span><span class="sig-name descname"><span class="pre">validate_column_types</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">df</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">numeric_cols</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">date_cols</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/src/utils/data_utils.html#validate_column_types"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.utils.data_utils.validate_column_types" title="Link to this definition"></a></dt>
+<dd><p>Validate column data types.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>df</strong> (<span class="sphinx_autodoc_typehints-type"><a class="reference external" href="https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.html#pandas.DataFrame" title="(in pandas v2.3.3)"><code class="xref py py-class docutils literal notranslate"><span class="pre">DataFrame</span></code></a></span>) – DataFrame to validate</p></li>
+<li><p><strong>numeric_cols</strong> (<span class="sphinx_autodoc_typehints-type"><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Optional" title="(in Python v3.14)"><code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code></a>[<a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.List" title="(in Python v3.14)"><code class="xref py py-class docutils literal notranslate"><span class="pre">List</span></code></a>[<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.14)"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></a>]]</span>) – Columns that should be numeric</p></li>
+<li><p><strong>date_cols</strong> (<span class="sphinx_autodoc_typehints-type"><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Optional" title="(in Python v3.14)"><code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code></a>[<a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.List" title="(in Python v3.14)"><code class="xref py py-class docutils literal notranslate"><span class="pre">List</span></code></a>[<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.14)"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></a>]]</span>) – Columns that should be datetime</p></li>
+</ul>
+</dd>
+<dt class="field-even">Raises<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/library/exceptions.html#ValueError" title="(in Python v3.14)"><strong>ValueError</strong></a> – If columns have wrong types</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><span class="sphinx_autodoc_typehints-type"><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.14)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code></a></span></p>
+</dd>
+</dl>
+<div class="admonition-examples admonition">
+<p class="admonition-title">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span><span class="s1">&#39;a&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span> <span class="s1">&#39;b&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;2020-01-01&#39;</span><span class="p">,</span> <span class="s1">&#39;2020-01-02&#39;</span><span class="p">]})</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;b&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">to_datetime</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;b&#39;</span><span class="p">])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">validate_column_types</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">numeric_cols</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;a&#39;</span><span class="p">],</span> <span class="n">date_cols</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;b&#39;</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="src.utils.data_utils.safe_divide">
+<span class="sig-prename descclassname"><span class="pre">src.utils.data_utils.</span></span><span class="sig-name descname"><span class="pre">safe_divide</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">numerator</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">denominator</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">default</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.0</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/src/utils/data_utils.html#safe_divide"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.utils.data_utils.safe_divide" title="Link to this definition"></a></dt>
+<dd><p>Safely divide two numbers, returning default if denominator is zero.</p>
+<p>This is useful for calculating ratios like ROAS where spend might be zero.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>numerator</strong> (<span class="sphinx_autodoc_typehints-type"><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.14)"><code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code></a></span>) – Numerator value</p></li>
+<li><p><strong>denominator</strong> (<span class="sphinx_autodoc_typehints-type"><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.14)"><code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code></a></span>) – Denominator value</p></li>
+<li><p><strong>default</strong> (<span class="sphinx_autodoc_typehints-type"><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.14)"><code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code></a></span>) – Value to return if denominator is zero</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><span class="sphinx_autodoc_typehints-type"><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.14)"><code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code></a></span></p>
+</dd>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Result of division or default</p>
+</dd>
+</dl>
+<div class="admonition-examples admonition">
+<p class="admonition-title">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">safe_divide</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+<span class="go">5.0</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">safe_divide</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+<span class="go">0.0</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">safe_divide</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="nb">float</span><span class="p">(</span><span class="s1">&#39;nan&#39;</span><span class="p">))</span>
+<span class="go">nan</span>
+</pre></div>
+</div>
+</div>
+</dd></dl>
+
+<section id="key-functions">
+<h3>Key Functions<a class="headerlink" href="#key-functions" title="Link to this heading"></a></h3>
+</section>
+</section>
+<section id="segment-utils">
+<h2>Segment Utils<a class="headerlink" href="#segment-utils" title="Link to this heading"></a></h2>
+<p>Utilities for multi-market and hierarchical analysis.</p>
+<p id="module-src.utils.segment_utils">Segment filtering utilities for hierarchical models.</p>
+<dl class="py function">
+<dt class="sig sig-object py" id="src.utils.segment_utils.parse_segment">
+<span class="sig-prename descclassname"><span class="pre">src.utils.segment_utils.</span></span><span class="sig-name descname"><span class="pre">parse_segment</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">segment</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">available_countries</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">available_os</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/src/utils/segment_utils.html#parse_segment"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.utils.segment_utils.parse_segment" title="Link to this definition"></a></dt>
+<dd><p>Parse segment string into components.</p>
+<p>Segments can be:
+- ‘global’: All data
+- ‘KR’: Country-level
+- ‘iOS’: OS-level
+- ‘KR-iOS’: Country-OS level</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>segment</strong> (<span class="sphinx_autodoc_typehints-type"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.14)"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></a></span>) – Segment string (‘global’, ‘KR’, ‘iOS’, ‘KR-iOS’)</p></li>
+<li><p><strong>available_countries</strong> (<span class="sphinx_autodoc_typehints-type"><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.List" title="(in Python v3.14)"><code class="xref py py-class docutils literal notranslate"><span class="pre">List</span></code></a>[<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.14)"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></a>]</span>) – List of valid countries</p></li>
+<li><p><strong>available_os</strong> (<span class="sphinx_autodoc_typehints-type"><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.List" title="(in Python v3.14)"><code class="xref py py-class docutils literal notranslate"><span class="pre">List</span></code></a>[<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.14)"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></a>]</span>) – List of valid OS platforms</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><span class="sphinx_autodoc_typehints-type"><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Dict" title="(in Python v3.14)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Dict</span></code></a>[<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.14)"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></a>, <a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.14)"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></a>]</span></p>
+</dd>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Dict with segment level and filters</p>
+</dd>
+<dt class="field-even">Raises<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/library/exceptions.html#ValueError" title="(in Python v3.14)"><strong>ValueError</strong></a> – If segment format is invalid</p>
+</dd>
+</dl>
+<div class="admonition-examples admonition">
+<p class="admonition-title">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">parse_segment</span><span class="p">(</span><span class="s1">&#39;global&#39;</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;KR&#39;</span><span class="p">,</span> <span class="s1">&#39;US&#39;</span><span class="p">],</span> <span class="p">[</span><span class="s1">&#39;iOS&#39;</span><span class="p">,</span> <span class="s1">&#39;Android&#39;</span><span class="p">])</span>
+<span class="go">{&#39;level&#39;: &#39;global&#39;}</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">parse_segment</span><span class="p">(</span><span class="s1">&#39;KR&#39;</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;KR&#39;</span><span class="p">,</span> <span class="s1">&#39;US&#39;</span><span class="p">],</span> <span class="p">[</span><span class="s1">&#39;iOS&#39;</span><span class="p">,</span> <span class="s1">&#39;Android&#39;</span><span class="p">])</span>
+<span class="go">{&#39;level&#39;: &#39;country&#39;, &#39;country&#39;: &#39;KR&#39;}</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">parse_segment</span><span class="p">(</span><span class="s1">&#39;KR-iOS&#39;</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;KR&#39;</span><span class="p">,</span> <span class="s1">&#39;US&#39;</span><span class="p">],</span> <span class="p">[</span><span class="s1">&#39;iOS&#39;</span><span class="p">,</span> <span class="s1">&#39;Android&#39;</span><span class="p">])</span>
+<span class="go">{&#39;level&#39;: &#39;country_os&#39;, &#39;country&#39;: &#39;KR&#39;, &#39;os&#39;: &#39;iOS&#39;}</span>
+</pre></div>
+</div>
+</div>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="src.utils.segment_utils.filter_by_segment">
+<span class="sig-prename descclassname"><span class="pre">src.utils.segment_utils.</span></span><span class="sig-name descname"><span class="pre">filter_by_segment</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">df</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">segment_dict</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/src/utils/segment_utils.html#filter_by_segment"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.utils.segment_utils.filter_by_segment" title="Link to this definition"></a></dt>
+<dd><p>Filter DataFrame by segment specification.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>df</strong> (<span class="sphinx_autodoc_typehints-type"><a class="reference external" href="https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.html#pandas.DataFrame" title="(in pandas v2.3.3)"><code class="xref py py-class docutils literal notranslate"><span class="pre">DataFrame</span></code></a></span>) – DataFrame to filter</p></li>
+<li><p><strong>segment_dict</strong> (<span class="sphinx_autodoc_typehints-type"><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Dict" title="(in Python v3.14)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Dict</span></code></a>[<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.14)"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></a>, <a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.14)"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></a>]</span>) – Dict from parse_segment()</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><span class="sphinx_autodoc_typehints-type"><a class="reference external" href="https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.html#pandas.DataFrame" title="(in pandas v2.3.3)"><code class="xref py py-class docutils literal notranslate"><span class="pre">DataFrame</span></code></a></span></p>
+</dd>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Filtered DataFrame</p>
+</dd>
+<dt class="field-even">Raises<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/library/exceptions.html#ValueError" title="(in Python v3.14)"><strong>ValueError</strong></a> – If required columns missing or no data matches</p>
+</dd>
+</dl>
+<div class="admonition-examples admonition">
+<p class="admonition-title">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span>
+<span class="gp">... </span>    <span class="s1">&#39;country&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;KR&#39;</span><span class="p">,</span> <span class="s1">&#39;KR&#39;</span><span class="p">,</span> <span class="s1">&#39;US&#39;</span><span class="p">],</span>
+<span class="gp">... </span>    <span class="s1">&#39;os&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;iOS&#39;</span><span class="p">,</span> <span class="s1">&#39;Android&#39;</span><span class="p">,</span> <span class="s1">&#39;iOS&#39;</span><span class="p">],</span>
+<span class="gp">... </span>    <span class="s1">&#39;revenue&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">100</span><span class="p">,</span> <span class="mi">200</span><span class="p">,</span> <span class="mi">300</span><span class="p">]</span>
+<span class="gp">... </span><span class="p">})</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">segment</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;level&#39;</span><span class="p">:</span> <span class="s1">&#39;country&#39;</span><span class="p">,</span> <span class="s1">&#39;country&#39;</span><span class="p">:</span> <span class="s1">&#39;KR&#39;</span><span class="p">}</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">filtered</span> <span class="o">=</span> <span class="n">filter_by_segment</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">segment</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">len</span><span class="p">(</span><span class="n">filtered</span><span class="p">)</span>
+<span class="go">2</span>
+</pre></div>
+</div>
+</div>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="src.utils.segment_utils.get_segment_hierarchy">
+<span class="sig-prename descclassname"><span class="pre">src.utils.segment_utils.</span></span><span class="sig-name descname"><span class="pre">get_segment_hierarchy</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">available_countries</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">available_os</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/src/utils/segment_utils.html#get_segment_hierarchy"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.utils.segment_utils.get_segment_hierarchy" title="Link to this definition"></a></dt>
+<dd><p>Generate hierarchical segment structure.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>available_countries</strong> (<span class="sphinx_autodoc_typehints-type"><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.List" title="(in Python v3.14)"><code class="xref py py-class docutils literal notranslate"><span class="pre">List</span></code></a>[<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.14)"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></a>]</span>) – List of countries</p></li>
+<li><p><strong>available_os</strong> (<span class="sphinx_autodoc_typehints-type"><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.List" title="(in Python v3.14)"><code class="xref py py-class docutils literal notranslate"><span class="pre">List</span></code></a>[<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.14)"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></a>]</span>) – List of OS platforms</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><span class="sphinx_autodoc_typehints-type"><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Dict" title="(in Python v3.14)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Dict</span></code></a>[<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.14)"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></a>, <a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.List" title="(in Python v3.14)"><code class="xref py py-class docutils literal notranslate"><span class="pre">List</span></code></a>[<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.14)"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></a>]]</span></p>
+</dd>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Dict mapping levels to segment names</p>
+</dd>
+</dl>
+<div class="admonition-examples admonition">
+<p class="admonition-title">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">hierarchy</span> <span class="o">=</span> <span class="n">get_segment_hierarchy</span><span class="p">([</span><span class="s1">&#39;KR&#39;</span><span class="p">,</span> <span class="s1">&#39;US&#39;</span><span class="p">],</span> <span class="p">[</span><span class="s1">&#39;iOS&#39;</span><span class="p">,</span> <span class="s1">&#39;Android&#39;</span><span class="p">])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">hierarchy</span><span class="p">[</span><span class="s1">&#39;global&#39;</span><span class="p">]</span>
+<span class="go">[&#39;global&#39;]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">hierarchy</span><span class="p">[</span><span class="s1">&#39;country&#39;</span><span class="p">]</span>
+<span class="go">[&#39;KR&#39;, &#39;US&#39;]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="s1">&#39;KR-iOS&#39;</span> <span class="ow">in</span> <span class="n">hierarchy</span><span class="p">[</span><span class="s1">&#39;country_os&#39;</span><span class="p">]</span>
+<span class="go">True</span>
+</pre></div>
+</div>
+</div>
+</dd></dl>
+
+<section id="id1">
+<h3>Key Functions<a class="headerlink" href="#id1" title="Link to this heading"></a></h3>
+</section>
+</section>
+<section id="plot-utils">
+<h2>Plot Utils<a class="headerlink" href="#plot-utils" title="Link to this heading"></a></h2>
+<p>Helper functions for plotting and visualization.</p>
+<p id="module-src.utils.plot_utils">Plotly chart styling utilities.</p>
+<dl class="py function">
+<dt class="sig sig-object py" id="src.utils.plot_utils.get_default_layout">
+<span class="sig-prename descclassname"><span class="pre">src.utils.plot_utils.</span></span><span class="sig-name descname"><span class="pre">get_default_layout</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">title</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">xaxis_title</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">yaxis_title</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">height</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">500</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/src/utils/plot_utils.html#get_default_layout"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.utils.plot_utils.get_default_layout" title="Link to this definition"></a></dt>
+<dd><p>Get default Plotly layout with consistent styling.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>title</strong> (<span class="sphinx_autodoc_typehints-type"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.14)"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></a></span>) – Chart title</p></li>
+<li><p><strong>xaxis_title</strong> (<span class="sphinx_autodoc_typehints-type"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.14)"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></a></span>) – X-axis label</p></li>
+<li><p><strong>yaxis_title</strong> (<span class="sphinx_autodoc_typehints-type"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.14)"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></a></span>) – Y-axis label</p></li>
+<li><p><strong>height</strong> (<span class="sphinx_autodoc_typehints-type"><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.14)"><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code></a></span>) – Chart height in pixels</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><span class="sphinx_autodoc_typehints-type"><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Dict" title="(in Python v3.14)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Dict</span></code></a>[<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.14)"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></a>, <a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Any" title="(in Python v3.14)"><code class="xref py py-data docutils literal notranslate"><span class="pre">Any</span></code></a>]</span></p>
+</dd>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Layout dict for Plotly</p>
+</dd>
+</dl>
+<div class="admonition-examples admonition">
+<p class="admonition-title">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">layout</span> <span class="o">=</span> <span class="n">get_default_layout</span><span class="p">(</span><span class="s2">&quot;My Chart&quot;</span><span class="p">,</span> <span class="n">xaxis_title</span><span class="o">=</span><span class="s2">&quot;Time&quot;</span><span class="p">,</span> <span class="n">yaxis_title</span><span class="o">=</span><span class="s2">&quot;Revenue&quot;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="s1">&#39;title&#39;</span> <span class="ow">in</span> <span class="n">layout</span>
+<span class="go">True</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">layout</span><span class="p">[</span><span class="s1">&#39;height&#39;</span><span class="p">]</span>
+<span class="go">500</span>
+</pre></div>
+</div>
+</div>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="src.utils.plot_utils.apply_default_layout">
+<span class="sig-prename descclassname"><span class="pre">src.utils.plot_utils.</span></span><span class="sig-name descname"><span class="pre">apply_default_layout</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">fig</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">title</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">xaxis_title</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">yaxis_title</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">height</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">500</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/src/utils/plot_utils.html#apply_default_layout"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.utils.plot_utils.apply_default_layout" title="Link to this definition"></a></dt>
+<dd><p>Apply default layout to existing figure.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>fig</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">Figure</span></code></span>) – Plotly figure</p></li>
+<li><p><strong>title</strong> (<span class="sphinx_autodoc_typehints-type"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.14)"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></a></span>) – Chart title</p></li>
+<li><p><strong>xaxis_title</strong> (<span class="sphinx_autodoc_typehints-type"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.14)"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></a></span>) – X-axis label</p></li>
+<li><p><strong>yaxis_title</strong> (<span class="sphinx_autodoc_typehints-type"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.14)"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></a></span>) – Y-axis label</p></li>
+<li><p><strong>height</strong> (<span class="sphinx_autodoc_typehints-type"><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.14)"><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code></a></span>) – Chart height in pixels</p></li>
+<li><p><strong>**kwargs</strong> – Additional layout parameters to override defaults</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">Figure</span></code></span></p>
+</dd>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Updated figure</p>
+</dd>
+</dl>
+<div class="admonition-examples admonition">
+<p class="admonition-title">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">fig</span> <span class="o">=</span> <span class="n">go</span><span class="o">.</span><span class="n">Figure</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">fig</span> <span class="o">=</span> <span class="n">apply_default_layout</span><span class="p">(</span><span class="n">fig</span><span class="p">,</span> <span class="s2">&quot;My Chart&quot;</span><span class="p">,</span> <span class="n">yaxis_title</span><span class="o">=</span><span class="s2">&quot;Revenue&quot;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">fig</span><span class="o">.</span><span class="n">layout</span><span class="o">.</span><span class="n">title</span><span class="o">.</span><span class="n">text</span>
+<span class="go">&#39;My Chart&#39;</span>
+</pre></div>
+</div>
+</div>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="src.utils.plot_utils.get_color_palette">
+<span class="sig-prename descclassname"><span class="pre">src.utils.plot_utils.</span></span><span class="sig-name descname"><span class="pre">get_color_palette</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/src/utils/plot_utils.html#get_color_palette"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.utils.plot_utils.get_color_palette" title="Link to this definition"></a></dt>
+<dd><p>Get standard color palette for consistency.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><span class="sphinx_autodoc_typehints-type"><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Dict" title="(in Python v3.14)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Dict</span></code></a>[<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.14)"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></a>, <a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Any" title="(in Python v3.14)"><code class="xref py py-data docutils literal notranslate"><span class="pre">Any</span></code></a>]</span></p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Dict with color definitions</p>
+</dd>
+</dl>
+<div class="admonition-examples admonition">
+<p class="admonition-title">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">palette</span> <span class="o">=</span> <span class="n">get_color_palette</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">palette</span><span class="p">[</span><span class="s1">&#39;primary&#39;</span><span class="p">]</span>
+<span class="go">&#39;#1f77b4&#39;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">len</span><span class="p">(</span><span class="n">palette</span><span class="p">[</span><span class="s1">&#39;channels&#39;</span><span class="p">])</span>
+<span class="go">10</span>
+</pre></div>
+</div>
+</div>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="src.utils.plot_utils.format_currency">
+<span class="sig-prename descclassname"><span class="pre">src.utils.plot_utils.</span></span><span class="sig-name descname"><span class="pre">format_currency</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">decimals</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/src/utils/plot_utils.html#format_currency"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.utils.plot_utils.format_currency" title="Link to this definition"></a></dt>
+<dd><p>Format value as currency string.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>value</strong> (<span class="sphinx_autodoc_typehints-type"><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.14)"><code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code></a></span>) – Numeric value</p></li>
+<li><p><strong>decimals</strong> (<span class="sphinx_autodoc_typehints-type"><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.14)"><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code></a></span>) – Number of decimal places</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><span class="sphinx_autodoc_typehints-type"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.14)"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></a></span></p>
+</dd>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Formatted string</p>
+</dd>
+</dl>
+<div class="admonition-examples admonition">
+<p class="admonition-title">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">format_currency</span><span class="p">(</span><span class="mf">1234567.89</span><span class="p">)</span>
+<span class="go">&#39;$1,234,568&#39;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">format_currency</span><span class="p">(</span><span class="mf">1234.5678</span><span class="p">,</span> <span class="n">decimals</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+<span class="go">&#39;$1,234.57&#39;</span>
+</pre></div>
+</div>
+</div>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="src.utils.plot_utils.format_percentage">
+<span class="sig-prename descclassname"><span class="pre">src.utils.plot_utils.</span></span><span class="sig-name descname"><span class="pre">format_percentage</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">decimals</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/src/utils/plot_utils.html#format_percentage"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.utils.plot_utils.format_percentage" title="Link to this definition"></a></dt>
+<dd><p>Format value as percentage string.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>value</strong> (<span class="sphinx_autodoc_typehints-type"><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.14)"><code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code></a></span>) – Numeric value (0.15 for 15%)</p></li>
+<li><p><strong>decimals</strong> (<span class="sphinx_autodoc_typehints-type"><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.14)"><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code></a></span>) – Number of decimal places</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><span class="sphinx_autodoc_typehints-type"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.14)"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></a></span></p>
+</dd>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Formatted string</p>
+</dd>
+</dl>
+<div class="admonition-examples admonition">
+<p class="admonition-title">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">format_percentage</span><span class="p">(</span><span class="mf">0.1534</span><span class="p">)</span>
+<span class="go">&#39;15.3%&#39;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">format_percentage</span><span class="p">(</span><span class="mf">0.1534</span><span class="p">,</span> <span class="n">decimals</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+<span class="go">&#39;15.34%&#39;</span>
+</pre></div>
+</div>
+</div>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="src.utils.plot_utils.add_annotation">
+<span class="sig-prename descclassname"><span class="pre">src.utils.plot_utils.</span></span><span class="sig-name descname"><span class="pre">add_annotation</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">fig</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">text</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">xref</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'x'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">yref</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'y'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">showarrow</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/src/utils/plot_utils.html#add_annotation"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.utils.plot_utils.add_annotation" title="Link to this definition"></a></dt>
+<dd><p>Add annotation to figure with default styling.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>fig</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">Figure</span></code></span>) – Plotly figure</p></li>
+<li><p><strong>text</strong> (<span class="sphinx_autodoc_typehints-type"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.14)"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></a></span>) – Annotation text</p></li>
+<li><p><strong>x</strong> (<span class="sphinx_autodoc_typehints-type"><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.14)"><code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code></a></span>) – X position</p></li>
+<li><p><strong>y</strong> (<span class="sphinx_autodoc_typehints-type"><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.14)"><code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code></a></span>) – Y position</p></li>
+<li><p><strong>xref</strong> (<span class="sphinx_autodoc_typehints-type"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.14)"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></a></span>) – X reference (‘x’, ‘paper’)</p></li>
+<li><p><strong>yref</strong> (<span class="sphinx_autodoc_typehints-type"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.14)"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></a></span>) – Y reference (‘y’, ‘paper’)</p></li>
+<li><p><strong>showarrow</strong> (<span class="sphinx_autodoc_typehints-type"><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.14)"><code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code></a></span>) – Whether to show arrow</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">Figure</span></code></span></p>
+</dd>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Updated figure</p>
+</dd>
+</dl>
+<div class="admonition-examples admonition">
+<p class="admonition-title">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">fig</span> <span class="o">=</span> <span class="n">go</span><span class="o">.</span><span class="n">Figure</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">fig</span> <span class="o">=</span> <span class="n">add_annotation</span><span class="p">(</span><span class="n">fig</span><span class="p">,</span> <span class="s2">&quot;Peak&quot;</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="mi">100</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">len</span><span class="p">(</span><span class="n">fig</span><span class="o">.</span><span class="n">layout</span><span class="o">.</span><span class="n">annotations</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span>
+<span class="go">True</span>
+</pre></div>
+</div>
+</div>
+</dd></dl>
+
+<section id="id2">
+<h3>Key Functions<a class="headerlink" href="#id2" title="Link to this heading"></a></h3>
+<dl class="py function">
+<dt class="sig sig-object py" id="id0">
+<span class="sig-prename descclassname"><span class="pre">src.utils.plot_utils.</span></span><span class="sig-name descname"><span class="pre">format_currency</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">decimals</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/src/utils/plot_utils.html#format_currency"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#id0" title="Link to this definition"></a></dt>
+<dd><p>Format value as currency string.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>value</strong> (<span class="sphinx_autodoc_typehints-type"><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.14)"><code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code></a></span>) – Numeric value</p></li>
+<li><p><strong>decimals</strong> (<span class="sphinx_autodoc_typehints-type"><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.14)"><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code></a></span>) – Number of decimal places</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><span class="sphinx_autodoc_typehints-type"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.14)"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></a></span></p>
+</dd>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Formatted string</p>
+</dd>
+</dl>
+<div class="admonition-examples admonition">
+<p class="admonition-title">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">format_currency</span><span class="p">(</span><span class="mf">1234567.89</span><span class="p">)</span>
+<span class="go">&#39;$1,234,568&#39;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">format_currency</span><span class="p">(</span><span class="mf">1234.5678</span><span class="p">,</span> <span class="n">decimals</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+<span class="go">&#39;$1,234.57&#39;</span>
+</pre></div>
+</div>
+</div>
+</dd></dl>
+
+</section>
+</section>
+<section id="usage-examples">
+<h2>Usage Examples<a class="headerlink" href="#usage-examples" title="Link to this heading"></a></h2>
+<section id="data-validation">
+<h3>Data Validation<a class="headerlink" href="#data-validation" title="Link to this heading"></a></h3>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">src.utils.data_utils</span><span class="w"> </span><span class="kn">import</span> <span class="n">validate_data_format</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
+
+<span class="c1"># Load data</span>
+<span class="n">data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;marketing_data.csv&#39;</span><span class="p">)</span>
+
+<span class="c1"># Validate</span>
+<span class="n">is_valid</span><span class="p">,</span> <span class="n">errors</span> <span class="o">=</span> <span class="n">validate_data_format</span><span class="p">(</span>
+    <span class="n">data</span><span class="p">,</span>
+    <span class="n">required_columns</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;date&#39;</span><span class="p">,</span> <span class="s1">&#39;revenue&#39;</span><span class="p">],</span>
+    <span class="n">date_column</span><span class="o">=</span><span class="s1">&#39;date&#39;</span>
+<span class="p">)</span>
+
+<span class="k">if</span> <span class="ow">not</span> <span class="n">is_valid</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Data validation errors:&quot;</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">error</span> <span class="ow">in</span> <span class="n">errors</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;  - </span><span class="si">{</span><span class="n">error</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section id="weekly-aggregation">
+<h3>Weekly Aggregation<a class="headerlink" href="#weekly-aggregation" title="Link to this heading"></a></h3>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">src.utils.data_utils</span><span class="w"> </span><span class="kn">import</span> <span class="n">aggregate_weekly</span>
+
+<span class="c1"># Daily data</span>
+<span class="n">daily_data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span>
+    <span class="s1">&#39;date&#39;</span><span class="p">:</span> <span class="n">pd</span><span class="o">.</span><span class="n">date_range</span><span class="p">(</span><span class="s1">&#39;2023-01-01&#39;</span><span class="p">,</span> <span class="n">periods</span><span class="o">=</span><span class="mi">365</span><span class="p">,</span> <span class="n">freq</span><span class="o">=</span><span class="s1">&#39;D&#39;</span><span class="p">),</span>
+    <span class="s1">&#39;revenue&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">10000</span> <span class="o">+</span> <span class="n">i</span> <span class="o">*</span> <span class="mi">100</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">365</span><span class="p">)],</span>
+    <span class="s1">&#39;spend&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">5000</span> <span class="o">+</span> <span class="n">i</span> <span class="o">*</span> <span class="mi">50</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">365</span><span class="p">)]</span>
+<span class="p">})</span>
+
+<span class="c1"># Aggregate to weekly</span>
+<span class="n">weekly_data</span> <span class="o">=</span> <span class="n">aggregate_weekly</span><span class="p">(</span>
+    <span class="n">daily_data</span><span class="p">,</span>
+    <span class="n">date_column</span><span class="o">=</span><span class="s1">&#39;date&#39;</span><span class="p">,</span>
+    <span class="n">aggregation</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;revenue&#39;</span><span class="p">:</span> <span class="s1">&#39;sum&#39;</span><span class="p">,</span> <span class="s1">&#39;spend&#39;</span><span class="p">:</span> <span class="s1">&#39;sum&#39;</span><span class="p">}</span>
+<span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Daily: </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">daily_data</span><span class="p">)</span><span class="si">}</span><span class="s2"> rows → Weekly: </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">weekly_data</span><span class="p">)</span><span class="si">}</span><span class="s2"> rows&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section id="fill-missing-weeks">
+<h3>Fill Missing Weeks<a class="headerlink" href="#fill-missing-weeks" title="Link to this heading"></a></h3>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">src.utils.data_utils</span><span class="w"> </span><span class="kn">import</span> <span class="n">fill_missing_weeks</span>
+
+<span class="c1"># Data with gaps</span>
+<span class="n">data_with_gaps</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span>
+    <span class="s1">&#39;date&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;2023-01-01&#39;</span><span class="p">,</span> <span class="s1">&#39;2023-01-08&#39;</span><span class="p">,</span> <span class="s1">&#39;2023-01-22&#39;</span><span class="p">],</span>  <span class="c1"># Missing week 15</span>
+    <span class="s1">&#39;revenue&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">10000</span><span class="p">,</span> <span class="mi">12000</span><span class="p">,</span> <span class="mi">15000</span><span class="p">]</span>
+<span class="p">})</span>
+
+<span class="c1"># Fill gaps</span>
+<span class="n">complete_data</span> <span class="o">=</span> <span class="n">fill_missing_weeks</span><span class="p">(</span>
+    <span class="n">data_with_gaps</span><span class="p">,</span>
+    <span class="n">date_column</span><span class="o">=</span><span class="s1">&#39;date&#39;</span><span class="p">,</span>
+    <span class="n">fill_method</span><span class="o">=</span><span class="s1">&#39;interpolate&#39;</span>
+<span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Before: </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">data_with_gaps</span><span class="p">)</span><span class="si">}</span><span class="s2"> weeks → After: </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">complete_data</span><span class="p">)</span><span class="si">}</span><span class="s2"> weeks&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section id="outlier-detection">
+<h3>Outlier Detection<a class="headerlink" href="#outlier-detection" title="Link to this heading"></a></h3>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">src.utils.data_utils</span><span class="w"> </span><span class="kn">import</span> <span class="n">detect_outliers</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+
+<span class="c1"># Revenue data with outlier</span>
+<span class="n">revenue</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">10000</span><span class="p">,</span> <span class="mi">11000</span><span class="p">,</span> <span class="mi">10500</span><span class="p">,</span> <span class="mi">50000</span><span class="p">,</span> <span class="mi">10200</span><span class="p">])</span>  <span class="c1"># 50000 is outlier</span>
+
+<span class="c1"># Detect outliers</span>
+<span class="n">outliers</span> <span class="o">=</span> <span class="n">detect_outliers</span><span class="p">(</span>
+    <span class="n">revenue</span><span class="p">,</span>
+    <span class="n">method</span><span class="o">=</span><span class="s1">&#39;iqr&#39;</span><span class="p">,</span>
+    <span class="n">threshold</span><span class="o">=</span><span class="mf">1.5</span>
+<span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Outlier indices: </span><span class="si">{</span><span class="n">np</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">outliers</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="c1"># Output: [3]</span>
+</pre></div>
+</div>
+</section>
+<section id="segment-analysis">
+<h3>Segment Analysis<a class="headerlink" href="#segment-analysis" title="Link to this heading"></a></h3>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">src.utils.segment_utils</span><span class="w"> </span><span class="kn">import</span> <span class="n">create_segment_groups</span><span class="p">,</span> <span class="n">compare_segments</span>
+
+<span class="c1"># Multi-market data</span>
+<span class="n">data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span>
+    <span class="s1">&#39;country&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;US&#39;</span><span class="p">,</span> <span class="s1">&#39;US&#39;</span><span class="p">,</span> <span class="s1">&#39;KR&#39;</span><span class="p">,</span> <span class="s1">&#39;KR&#39;</span><span class="p">,</span> <span class="s1">&#39;JP&#39;</span><span class="p">,</span> <span class="s1">&#39;JP&#39;</span><span class="p">],</span>
+    <span class="s1">&#39;os&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;iOS&#39;</span><span class="p">,</span> <span class="s1">&#39;Android&#39;</span><span class="p">,</span> <span class="s1">&#39;iOS&#39;</span><span class="p">,</span> <span class="s1">&#39;Android&#39;</span><span class="p">,</span> <span class="s1">&#39;iOS&#39;</span><span class="p">,</span> <span class="s1">&#39;Android&#39;</span><span class="p">],</span>
+    <span class="s1">&#39;revenue&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">5000000</span><span class="p">,</span> <span class="mi">4000000</span><span class="p">,</span> <span class="mi">3000000</span><span class="p">,</span> <span class="mi">2500000</span><span class="p">,</span> <span class="mi">3500000</span><span class="p">,</span> <span class="mi">3000000</span><span class="p">],</span>
+    <span class="s1">&#39;spend&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">2000000</span><span class="p">,</span> <span class="mi">1800000</span><span class="p">,</span> <span class="mi">1200000</span><span class="p">,</span> <span class="mi">1000000</span><span class="p">,</span> <span class="mi">1500000</span><span class="p">,</span> <span class="mi">1300000</span><span class="p">]</span>
+<span class="p">})</span>
+
+<span class="c1"># Create segment groups</span>
+<span class="n">segments</span> <span class="o">=</span> <span class="n">create_segment_groups</span><span class="p">(</span>
+    <span class="n">data</span><span class="p">,</span>
+    <span class="n">segment_cols</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;country&#39;</span><span class="p">,</span> <span class="s1">&#39;os&#39;</span><span class="p">]</span>
+<span class="p">)</span>
+
+<span class="c1"># Compare segments</span>
+<span class="n">comparison</span> <span class="o">=</span> <span class="n">compare_segments</span><span class="p">(</span>
+    <span class="n">data</span><span class="p">,</span>
+    <span class="n">segments</span><span class="o">=</span><span class="n">segments</span><span class="p">,</span>
+    <span class="n">metrics</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;revenue&#39;</span><span class="p">,</span> <span class="s1">&#39;spend&#39;</span><span class="p">],</span>
+    <span class="n">aggregation</span><span class="o">=</span><span class="s1">&#39;sum&#39;</span>
+<span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">comparison</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section id="currency-formatting">
+<h3>Currency Formatting<a class="headerlink" href="#currency-formatting" title="Link to this heading"></a></h3>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">src.utils.plot_utils</span><span class="w"> </span><span class="kn">import</span> <span class="n">format_currency</span>
+
+<span class="c1"># Format values</span>
+<span class="n">values</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1000000</span><span class="p">,</span> <span class="mi">2500000</span><span class="p">,</span> <span class="mi">15000000</span><span class="p">]</span>
+
+<span class="n">formatted</span> <span class="o">=</span> <span class="p">[</span><span class="n">format_currency</span><span class="p">(</span><span class="n">v</span><span class="p">)</span> <span class="k">for</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">values</span><span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">formatted</span><span class="p">)</span>
+<span class="c1"># Output: [&#39;$1.0M&#39;, &#39;$2.5M&#39;, &#39;$15.0M&#39;]</span>
+
+<span class="c1"># With custom precision</span>
+<span class="n">formatted</span> <span class="o">=</span> <span class="p">[</span><span class="n">format_currency</span><span class="p">(</span><span class="n">v</span><span class="p">,</span> <span class="n">precision</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span> <span class="k">for</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">values</span><span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">formatted</span><span class="p">)</span>
+<span class="c1"># Output: [&#39;$1.00M&#39;, &#39;$2.50M&#39;, &#39;$15.00M&#39;]</span>
+</pre></div>
+</div>
+</section>
+<section id="color-palettes">
+<h3>Color Palettes<a class="headerlink" href="#color-palettes" title="Link to this heading"></a></h3>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">src.utils.plot_utils</span><span class="w"> </span><span class="kn">import</span> <span class="n">create_color_palette</span>
+
+<span class="c1"># Generate colors for channels</span>
+<span class="n">channels</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;google&#39;</span><span class="p">,</span> <span class="s1">&#39;meta&#39;</span><span class="p">,</span> <span class="s1">&#39;apple&#39;</span><span class="p">,</span> <span class="s1">&#39;tiktok&#39;</span><span class="p">]</span>
+<span class="n">colors</span> <span class="o">=</span> <span class="n">create_color_palette</span><span class="p">(</span>
+    <span class="n">n_colors</span><span class="o">=</span><span class="nb">len</span><span class="p">(</span><span class="n">channels</span><span class="p">),</span>
+    <span class="n">palette</span><span class="o">=</span><span class="s1">&#39;viridis&#39;</span>
+<span class="p">)</span>
+
+<span class="n">color_map</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span><span class="nb">zip</span><span class="p">(</span><span class="n">channels</span><span class="p">,</span> <span class="n">colors</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">color_map</span><span class="p">)</span>
+<span class="c1"># Output: {&#39;google&#39;: &#39;#440154&#39;, &#39;meta&#39;: &#39;#31688e&#39;, ...}</span>
+</pre></div>
+</div>
+</section>
+<section id="add-plot-annotations">
+<h3>Add Plot Annotations<a class="headerlink" href="#add-plot-annotations" title="Link to this heading"></a></h3>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">src.utils.plot_utils</span><span class="w"> </span><span class="kn">import</span> <span class="n">add_annotations</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">plotly.graph_objects</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">go</span>
+
+<span class="c1"># Create figure</span>
+<span class="n">fig</span> <span class="o">=</span> <span class="n">go</span><span class="o">.</span><span class="n">Figure</span><span class="p">()</span>
+<span class="n">fig</span><span class="o">.</span><span class="n">add_trace</span><span class="p">(</span><span class="n">go</span><span class="o">.</span><span class="n">Scatter</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span> <span class="n">y</span><span class="o">=</span><span class="p">[</span><span class="mi">10</span><span class="p">,</span> <span class="mi">15</span><span class="p">,</span> <span class="mi">13</span><span class="p">]))</span>
+
+<span class="c1"># Add annotations</span>
+<span class="n">annotations</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="p">{</span><span class="s1">&#39;x&#39;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="s1">&#39;y&#39;</span><span class="p">:</span> <span class="mi">10</span><span class="p">,</span> <span class="s1">&#39;text&#39;</span><span class="p">:</span> <span class="s1">&#39;Start&#39;</span><span class="p">},</span>
+    <span class="p">{</span><span class="s1">&#39;x&#39;</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span> <span class="s1">&#39;y&#39;</span><span class="p">:</span> <span class="mi">15</span><span class="p">,</span> <span class="s1">&#39;text&#39;</span><span class="p">:</span> <span class="s1">&#39;Peak&#39;</span><span class="p">},</span>
+    <span class="p">{</span><span class="s1">&#39;x&#39;</span><span class="p">:</span> <span class="mi">3</span><span class="p">,</span> <span class="s1">&#39;y&#39;</span><span class="p">:</span> <span class="mi">13</span><span class="p">,</span> <span class="s1">&#39;text&#39;</span><span class="p">:</span> <span class="s1">&#39;End&#39;</span><span class="p">}</span>
+<span class="p">]</span>
+
+<span class="n">fig</span> <span class="o">=</span> <span class="n">add_annotations</span><span class="p">(</span><span class="n">fig</span><span class="p">,</span> <span class="n">annotations</span><span class="p">)</span>
+<span class="n">fig</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</section>
+</section>
+<section id="helper-constants">
+<h2>Helper Constants<a class="headerlink" href="#helper-constants" title="Link to this heading"></a></h2>
+<p>Common constants and configurations.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">src.utils</span><span class="w"> </span><span class="kn">import</span> <span class="n">constants</span>
+
+<span class="c1"># Default channel configs</span>
+<span class="n">DEFAULT_ADSTOCK</span> <span class="o">=</span> <span class="n">constants</span><span class="o">.</span><span class="n">DEFAULT_ADSTOCK</span>  <span class="c1"># 0.5</span>
+<span class="n">DEFAULT_HILL_K</span> <span class="o">=</span> <span class="n">constants</span><span class="o">.</span><span class="n">DEFAULT_HILL_K</span>    <span class="c1"># 1.0</span>
+<span class="n">DEFAULT_HILL_S</span> <span class="o">=</span> <span class="n">constants</span><span class="o">.</span><span class="n">DEFAULT_HILL_S</span>    <span class="c1"># 1.0</span>
+
+<span class="c1"># Default constraints</span>
+<span class="n">MIN_SPEND_RATIO</span> <span class="o">=</span> <span class="n">constants</span><span class="o">.</span><span class="n">MIN_SPEND_RATIO</span>  <span class="c1"># 0.5</span>
+<span class="n">MAX_SPEND_RATIO</span> <span class="o">=</span> <span class="n">constants</span><span class="o">.</span><span class="n">MAX_SPEND_RATIO</span>  <span class="c1"># 1.5</span>
+
+<span class="c1"># Model defaults</span>
+<span class="n">DEFAULT_ALPHA</span> <span class="o">=</span> <span class="n">constants</span><span class="o">.</span><span class="n">DEFAULT_ALPHA</span>      <span class="c1"># 1.0</span>
+<span class="n">DEFAULT_TRAIN_SIZE</span> <span class="o">=</span> <span class="n">constants</span><span class="o">.</span><span class="n">DEFAULT_TRAIN_SIZE</span>  <span class="c1"># 0.8</span>
+</pre></div>
+</div>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="visualizations.html" class="btn btn-neutral float-left" title="Visualizations" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="../contributing.html" class="btn btn-neutral float-right" title="Contributing to Ridge MMM" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2024, Ridge MMM Contributors.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

@@ -1,0 +1,1283 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="./">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Ridge MMM User Guide &mdash; Ridge MMM v0.1.0</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=03e43079" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=19f00094" />
+
+  
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="_static/jquery.js?v=5d32c60e"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="_static/documentation_options.js?v=01f34227"></script>
+        <script src="_static/doctools.js?v=9a2dae69"></script>
+        <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+        <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+        <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Quick Reference Card" href="quick_reference.html" />
+    <link rel="prev" title="Ridge MMM Documentation" href="index.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            Ridge MMM
+          </a>
+              <div class="version">
+                0.1.0
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">User Documentation</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Ridge MMM User Guide</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#table-of-contents">Table of Contents</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#introduction">Introduction</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#what-is-marketing-mix-modeling-mmm">What is Marketing Mix Modeling (MMM)?</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#when-to-use-this-tool">When to Use This Tool</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#quick-start">Quick Start</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#step-1-prepare-your-data">Step 1: Prepare Your Data</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#step-2-upload-data">Step 2: Upload Data</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#step-3-configure-model">Step 3: Configure Model</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#step-4-analyze-results">Step 4: Analyze Results</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#step-5-optimize-budget">Step 5: Optimize Budget</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#data-preparation">Data Preparation</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#data-format-requirements">Data Format Requirements</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#column-naming">Column Naming</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#multi-market-data-format">Multi-Market Data Format</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#data-quality-checks">Data Quality Checks</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#model-configuration">Model Configuration</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#understanding-adstock-carryover-effect">Understanding Adstock (Carryover Effect)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#understanding-hill-saturation">Understanding Hill Saturation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#model-settings">Model Settings</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#understanding-results">Understanding Results</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#channel-contributions-tab">Channel Contributions Tab</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#response-curves-tab">Response Curves Tab</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#model-diagnostics-tab">Model Diagnostics Tab</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#budget-optimization">Budget Optimization</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#using-the-optimizer">Using the Optimizer</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#scenario-builder">Scenario Builder</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#interpreting-recommendations">Interpreting Recommendations</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#multi-market-analysis">Multi-Market Analysis</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#setting-up-multi-market-models">Setting Up Multi-Market Models</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#comparing-markets">Comparing Markets</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#cross-market-insights">Cross-Market Insights</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#best-practices">Best Practices</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#data-collection">Data Collection</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#model-development">Model Development</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#using-results">Using Results</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#troubleshooting">Troubleshooting</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#model-has-poor-fit-r2-0-5">“Model has poor fit (R² &lt; 0.5)”</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#optimization-suggests-extreme-allocations">“Optimization suggests extreme allocations”</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#results-dont-match-my-intuition">“Results don’t match my intuition”</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#different-from-last-click-attribution">“Different from last-click attribution”</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#glossary">Glossary</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#support-resources">Support &amp; Resources</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="quick_reference.html">Quick Reference Card</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="quick_reference.html#essential-formulas">Essential Formulas</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="quick_reference.html#roas-calculation">ROAS Calculation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="quick_reference.html#adstock-transformation">Adstock Transformation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="quick_reference.html#hill-saturation">Hill Saturation</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="quick_reference.html#parameter-quick-guide">Parameter Quick Guide</a></li>
+<li class="toctree-l2"><a class="reference internal" href="quick_reference.html#interpretation-guide">Interpretation Guide</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="quick_reference.html#roas-benchmarks">ROAS Benchmarks</a></li>
+<li class="toctree-l3"><a class="reference internal" href="quick_reference.html#model-fit-r2">Model Fit (R²)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="quick_reference.html#mape-prediction-error">MAPE (Prediction Error)</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="quick_reference.html#common-workflows">Common Workflows</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="quick_reference.html#weekly-refresh">Weekly Refresh</a></li>
+<li class="toctree-l3"><a class="reference internal" href="quick_reference.html#monthly-budget-planning">Monthly Budget Planning</a></li>
+<li class="toctree-l3"><a class="reference internal" href="quick_reference.html#quarterly-strategy-review">Quarterly Strategy Review</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="quick_reference.html#keyboard-shortcuts-streamlit">Keyboard Shortcuts (Streamlit)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="quick_reference.html#file-locations">File Locations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="quick_reference.html#error-messages">Error Messages</a></li>
+<li class="toctree-l2"><a class="reference internal" href="quick_reference.html#pro-tips">Pro Tips</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="tutorials.html">Tutorials</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="tutorials.html#coming-soon">Coming Soon</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="faq.html">Frequently Asked Questions</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="faq.html#general-questions">General Questions</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="faq.html#what-is-marketing-mix-modeling-mmm">What is Marketing Mix Modeling (MMM)?</a></li>
+<li class="toctree-l3"><a class="reference internal" href="faq.html#how-is-this-different-from-attribution-models">How is this different from attribution models?</a></li>
+<li class="toctree-l3"><a class="reference internal" href="faq.html#how-much-data-do-i-need">How much data do I need?</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="faq.html#model-questions">Model Questions</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="faq.html#what-does-the-alpha-parameter-do">What does the alpha parameter do?</a></li>
+<li class="toctree-l3"><a class="reference internal" href="faq.html#how-do-i-choose-adstock-parameters">How do I choose adstock parameters?</a></li>
+<li class="toctree-l3"><a class="reference internal" href="faq.html#what-if-my-r2-is-low">What if my R² is low?</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="faq.html#optimization-questions">Optimization Questions</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="faq.html#why-does-the-optimizer-suggest-extreme-allocations">Why does the optimizer suggest extreme allocations?</a></li>
+<li class="toctree-l3"><a class="reference internal" href="faq.html#can-i-optimize-for-multiple-objectives">Can I optimize for multiple objectives?</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="faq.html#technical-questions">Technical Questions</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="faq.html#can-i-use-daily-data-instead-of-weekly">Can I use daily data instead of weekly?</a></li>
+<li class="toctree-l3"><a class="reference internal" href="faq.html#does-this-support-bayesian-mmm">Does this support Bayesian MMM?</a></li>
+<li class="toctree-l3"><a class="reference internal" href="faq.html#can-i-add-custom-transformations">Can I add custom transformations?</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="faq.html#still-have-questions">Still Have Questions?</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">API Reference</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="api/data_processor.html">Data Processor</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="api/data_processor.html#src.data_processor.DataProcessor"><code class="docutils literal notranslate"><span class="pre">DataProcessor</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="api/data_processor.html#src.data_processor.DataProcessor.__init__"><code class="docutils literal notranslate"><span class="pre">DataProcessor.__init__()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/data_processor.html#src.data_processor.DataProcessor.load_csv"><code class="docutils literal notranslate"><span class="pre">DataProcessor.load_csv()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/data_processor.html#src.data_processor.DataProcessor.validate_data"><code class="docutils literal notranslate"><span class="pre">DataProcessor.validate_data()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/data_processor.html#src.data_processor.DataProcessor.check_missing_values"><code class="docutils literal notranslate"><span class="pre">DataProcessor.check_missing_values()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/data_processor.html#src.data_processor.DataProcessor.detect_outliers"><code class="docutils literal notranslate"><span class="pre">DataProcessor.detect_outliers()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/data_processor.html#src.data_processor.DataProcessor.get_summary_stats"><code class="docutils literal notranslate"><span class="pre">DataProcessor.get_summary_stats()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/data_processor.html#src.data_processor.DataProcessor.convert_date_column"><code class="docutils literal notranslate"><span class="pre">DataProcessor.convert_date_column()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/data_processor.html#src.data_processor.DataProcessor.get_date_range"><code class="docutils literal notranslate"><span class="pre">DataProcessor.get_date_range()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/data_processor.html#src.data_processor.DataProcessor.detect_data_format"><code class="docutils literal notranslate"><span class="pre">DataProcessor.detect_data_format()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/data_processor.html#src.data_processor.DataProcessor.validate_multi_market_data"><code class="docutils literal notranslate"><span class="pre">DataProcessor.validate_multi_market_data()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/data_processor.html#src.data_processor.DataProcessor.aggregate_data"><code class="docutils literal notranslate"><span class="pre">DataProcessor.aggregate_data()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/data_processor.html#src.data_processor.DataProcessor.get_market_segments"><code class="docutils literal notranslate"><span class="pre">DataProcessor.get_market_segments()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/data_processor.html#src.data_processor.DataProcessor.get_market_hierarchy"><code class="docutils literal notranslate"><span class="pre">DataProcessor.get_market_hierarchy()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="api/data_processor.html#dataprocessor-class">DataProcessor Class</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="api/data_processor.html#id0"><code class="docutils literal notranslate"><span class="pre">DataProcessor</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="api/data_processor.html#id1"><code class="docutils literal notranslate"><span class="pre">DataProcessor.__init__()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/data_processor.html#id2"><code class="docutils literal notranslate"><span class="pre">DataProcessor.load_csv()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/data_processor.html#id3"><code class="docutils literal notranslate"><span class="pre">DataProcessor.validate_data()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/data_processor.html#id4"><code class="docutils literal notranslate"><span class="pre">DataProcessor.check_missing_values()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/data_processor.html#id5"><code class="docutils literal notranslate"><span class="pre">DataProcessor.detect_outliers()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/data_processor.html#id6"><code class="docutils literal notranslate"><span class="pre">DataProcessor.get_summary_stats()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/data_processor.html#id7"><code class="docutils literal notranslate"><span class="pre">DataProcessor.convert_date_column()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/data_processor.html#id8"><code class="docutils literal notranslate"><span class="pre">DataProcessor.get_date_range()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/data_processor.html#id9"><code class="docutils literal notranslate"><span class="pre">DataProcessor.detect_data_format()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/data_processor.html#id10"><code class="docutils literal notranslate"><span class="pre">DataProcessor.validate_multi_market_data()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/data_processor.html#id11"><code class="docutils literal notranslate"><span class="pre">DataProcessor.aggregate_data()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/data_processor.html#id12"><code class="docutils literal notranslate"><span class="pre">DataProcessor.get_market_segments()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/data_processor.html#id13"><code class="docutils literal notranslate"><span class="pre">DataProcessor.get_market_hierarchy()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="api/data_processor.html#usage-example">Usage Example</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="api/transformations.html">Transformations</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="api/transformations.html#src.transformations.AdstockTransformer"><code class="docutils literal notranslate"><span class="pre">AdstockTransformer</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="api/transformations.html#src.transformations.AdstockTransformer.decay_rate"><code class="docutils literal notranslate"><span class="pre">AdstockTransformer.decay_rate</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/transformations.html#src.transformations.AdstockTransformer.__init__"><code class="docutils literal notranslate"><span class="pre">AdstockTransformer.__init__()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/transformations.html#src.transformations.AdstockTransformer.transform"><code class="docutils literal notranslate"><span class="pre">AdstockTransformer.transform()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/transformations.html#src.transformations.AdstockTransformer.get_decay_curve"><code class="docutils literal notranslate"><span class="pre">AdstockTransformer.get_decay_curve()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="api/transformations.html#src.transformations.HillTransformer"><code class="docutils literal notranslate"><span class="pre">HillTransformer</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="api/transformations.html#src.transformations.HillTransformer.K"><code class="docutils literal notranslate"><span class="pre">HillTransformer.K</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/transformations.html#src.transformations.HillTransformer.S"><code class="docutils literal notranslate"><span class="pre">HillTransformer.S</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/transformations.html#src.transformations.HillTransformer.__init__"><code class="docutils literal notranslate"><span class="pre">HillTransformer.__init__()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/transformations.html#src.transformations.HillTransformer.transform"><code class="docutils literal notranslate"><span class="pre">HillTransformer.transform()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/transformations.html#src.transformations.HillTransformer.get_response_curve"><code class="docutils literal notranslate"><span class="pre">HillTransformer.get_response_curve()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="api/transformations.html#src.transformations.TransformationPipeline"><code class="docutils literal notranslate"><span class="pre">TransformationPipeline</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="api/transformations.html#src.transformations.TransformationPipeline.channel_configs"><code class="docutils literal notranslate"><span class="pre">TransformationPipeline.channel_configs</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/transformations.html#src.transformations.TransformationPipeline.__init__"><code class="docutils literal notranslate"><span class="pre">TransformationPipeline.__init__()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/transformations.html#src.transformations.TransformationPipeline.fit_transform"><code class="docutils literal notranslate"><span class="pre">TransformationPipeline.fit_transform()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/transformations.html#src.transformations.TransformationPipeline.transform"><code class="docutils literal notranslate"><span class="pre">TransformationPipeline.transform()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/transformations.html#src.transformations.TransformationPipeline.get_transformation_summary"><code class="docutils literal notranslate"><span class="pre">TransformationPipeline.get_transformation_summary()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/transformations.html#src.transformations.TransformationPipeline.transform_single_channel"><code class="docutils literal notranslate"><span class="pre">TransformationPipeline.transform_single_channel()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="api/transformations.html#adstock-transformer">Adstock Transformer</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="api/transformations.html#id0"><code class="docutils literal notranslate"><span class="pre">AdstockTransformer</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="api/transformations.html#id1"><code class="docutils literal notranslate"><span class="pre">AdstockTransformer.decay_rate</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/transformations.html#id2"><code class="docutils literal notranslate"><span class="pre">AdstockTransformer.__init__()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/transformations.html#id3"><code class="docutils literal notranslate"><span class="pre">AdstockTransformer.transform()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/transformations.html#id4"><code class="docutils literal notranslate"><span class="pre">AdstockTransformer.get_decay_curve()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="api/transformations.html#hill-transformer">Hill Transformer</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="api/transformations.html#id5"><code class="docutils literal notranslate"><span class="pre">HillTransformer</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="api/transformations.html#id6"><code class="docutils literal notranslate"><span class="pre">HillTransformer.K</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/transformations.html#id7"><code class="docutils literal notranslate"><span class="pre">HillTransformer.S</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/transformations.html#id8"><code class="docutils literal notranslate"><span class="pre">HillTransformer.__init__()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/transformations.html#id9"><code class="docutils literal notranslate"><span class="pre">HillTransformer.transform()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/transformations.html#id10"><code class="docutils literal notranslate"><span class="pre">HillTransformer.get_response_curve()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="api/transformations.html#transformation-pipeline">Transformation Pipeline</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="api/transformations.html#id11"><code class="docutils literal notranslate"><span class="pre">TransformationPipeline</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="api/transformations.html#id12"><code class="docutils literal notranslate"><span class="pre">TransformationPipeline.channel_configs</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/transformations.html#id13"><code class="docutils literal notranslate"><span class="pre">TransformationPipeline.__init__()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/transformations.html#id14"><code class="docutils literal notranslate"><span class="pre">TransformationPipeline.fit_transform()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/transformations.html#id15"><code class="docutils literal notranslate"><span class="pre">TransformationPipeline.transform()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/transformations.html#id16"><code class="docutils literal notranslate"><span class="pre">TransformationPipeline.get_transformation_summary()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/transformations.html#id17"><code class="docutils literal notranslate"><span class="pre">TransformationPipeline.transform_single_channel()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="api/transformations.html#usage-examples">Usage Examples</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="api/transformations.html#adstock-example">Adstock Example</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/transformations.html#hill-saturation-example">Hill Saturation Example</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/transformations.html#pipeline-example">Pipeline Example</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="api/ridge_mmm.html">Ridge MMM</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="api/ridge_mmm.html#ridgemmm-class">RidgeMMM Class</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api/ridge_mmm.html#model-architecture">Model Architecture</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api/ridge_mmm.html#usage-example">Usage Example</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="api/ridge_mmm.html#basic-usage">Basic Usage</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/ridge_mmm.html#getting-contributions">Getting Contributions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/ridge_mmm.html#calculating-roas">Calculating ROAS</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/ridge_mmm.html#response-curves">Response Curves</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/ridge_mmm.html#model-diagnostics">Model Diagnostics</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="api/ridge_mmm.html#mathematical-formulation">Mathematical Formulation</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="api/hierarchical_mmm.html">Hierarchical MMM</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="api/hierarchical_mmm.html#hierarchicalmmm-class">HierarchicalMMM Class</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api/hierarchical_mmm.html#overview">Overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api/hierarchical_mmm.html#use-cases">Use Cases</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api/hierarchical_mmm.html#usage-example">Usage Example</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="api/hierarchical_mmm.html#basic-segmentation">Basic Segmentation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/hierarchical_mmm.html#segment-specific-roas">Segment-Specific ROAS</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/hierarchical_mmm.html#compare-segments">Compare Segments</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/hierarchical_mmm.html#segment-performance">Segment Performance</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="api/hierarchical_mmm.html#pooling-strategies">Pooling Strategies</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api/hierarchical_mmm.html#best-practices">Best Practices</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api/hierarchical_mmm.html#example-global-campaign-analysis">Example: Global Campaign Analysis</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="api/optimizer.html">Budget Optimizer</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="api/optimizer.html#budgetoptimizer-class">BudgetOptimizer Class</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api/optimizer.html#optimizationerror">OptimizationError</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api/optimizer.html#optimization-problem">Optimization Problem</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api/optimizer.html#usage-example">Usage Example</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="api/optimizer.html#basic-optimization">Basic Optimization</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/optimizer.html#with-constraints">With Constraints</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/optimizer.html#scenario-comparison">Scenario Comparison</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/optimizer.html#marginal-roas">Marginal ROAS</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="api/optimizer.html#optimization-algorithms">Optimization Algorithms</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api/optimizer.html#best-practices">Best Practices</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api/optimizer.html#troubleshooting">Troubleshooting</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api/optimizer.html#example-monthly-budget-planning">Example: Monthly Budget Planning</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="api/visualizations.html">Visualizations</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="api/visualizations.html#plotting-functions">Plotting Functions</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="api/visualizations.html#channel-contributions-waterfall">Channel Contributions Waterfall</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/visualizations.html#response-curves">Response Curves</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/visualizations.html#roas-comparison">ROAS Comparison</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/visualizations.html#model-diagnostics">Model Diagnostics</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/visualizations.html#multi-market-heatmap">Multi-Market Heatmap</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="api/visualizations.html#usage-examples">Usage Examples</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="api/visualizations.html#waterfall-chart">Waterfall Chart</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/visualizations.html#id1">Response Curves</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/visualizations.html#id2">ROAS Comparison</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/visualizations.html#id3">Model Diagnostics</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/visualizations.html#multi-market-analysis">Multi-Market Analysis</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="api/visualizations.html#customization">Customization</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api/visualizations.html#exporting">Exporting</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="api/utils.html">Utilities</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="api/utils.html#data-utils">Data Utils</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="api/utils.html#src.utils.data_utils.validate_required_columns"><code class="docutils literal notranslate"><span class="pre">validate_required_columns()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/utils.html#src.utils.data_utils.validate_column_types"><code class="docutils literal notranslate"><span class="pre">validate_column_types()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/utils.html#src.utils.data_utils.safe_divide"><code class="docutils literal notranslate"><span class="pre">safe_divide()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/utils.html#key-functions">Key Functions</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="api/utils.html#segment-utils">Segment Utils</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="api/utils.html#src.utils.segment_utils.parse_segment"><code class="docutils literal notranslate"><span class="pre">parse_segment()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/utils.html#src.utils.segment_utils.filter_by_segment"><code class="docutils literal notranslate"><span class="pre">filter_by_segment()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/utils.html#src.utils.segment_utils.get_segment_hierarchy"><code class="docutils literal notranslate"><span class="pre">get_segment_hierarchy()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/utils.html#id1">Key Functions</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="api/utils.html#plot-utils">Plot Utils</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="api/utils.html#src.utils.plot_utils.get_default_layout"><code class="docutils literal notranslate"><span class="pre">get_default_layout()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/utils.html#src.utils.plot_utils.apply_default_layout"><code class="docutils literal notranslate"><span class="pre">apply_default_layout()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/utils.html#src.utils.plot_utils.get_color_palette"><code class="docutils literal notranslate"><span class="pre">get_color_palette()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/utils.html#src.utils.plot_utils.format_currency"><code class="docutils literal notranslate"><span class="pre">format_currency()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/utils.html#src.utils.plot_utils.format_percentage"><code class="docutils literal notranslate"><span class="pre">format_percentage()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/utils.html#src.utils.plot_utils.add_annotation"><code class="docutils literal notranslate"><span class="pre">add_annotation()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/utils.html#id2">Key Functions</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="api/utils.html#id0"><code class="docutils literal notranslate"><span class="pre">format_currency()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="api/utils.html#usage-examples">Usage Examples</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="api/utils.html#data-validation">Data Validation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/utils.html#weekly-aggregation">Weekly Aggregation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/utils.html#fill-missing-weeks">Fill Missing Weeks</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/utils.html#outlier-detection">Outlier Detection</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/utils.html#segment-analysis">Segment Analysis</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/utils.html#currency-formatting">Currency Formatting</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/utils.html#color-palettes">Color Palettes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/utils.html#add-plot-annotations">Add Plot Annotations</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="api/utils.html#helper-constants">Helper Constants</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Development</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="contributing.html">Contributing to Ridge MMM</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="contributing.html#getting-started">Getting Started</a></li>
+<li class="toctree-l2"><a class="reference internal" href="contributing.html#development-workflow">Development Workflow</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="contributing.html#creating-a-branch">Creating a Branch</a></li>
+<li class="toctree-l3"><a class="reference internal" href="contributing.html#making-changes">Making Changes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="contributing.html#code-style">Code Style</a></li>
+<li class="toctree-l3"><a class="reference internal" href="contributing.html#testing">Testing</a></li>
+<li class="toctree-l3"><a class="reference internal" href="contributing.html#documentation">Documentation</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="contributing.html#submitting-changes">Submitting Changes</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="contributing.html#commit-messages">Commit Messages</a></li>
+<li class="toctree-l3"><a class="reference internal" href="contributing.html#pull-requests">Pull Requests</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="contributing.html#code-review">Code Review</a></li>
+<li class="toctree-l2"><a class="reference internal" href="contributing.html#areas-for-contribution">Areas for Contribution</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="contributing.html#high-priority">High Priority</a></li>
+<li class="toctree-l3"><a class="reference internal" href="contributing.html#medium-priority">Medium Priority</a></li>
+<li class="toctree-l3"><a class="reference internal" href="contributing.html#id1">Documentation</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="contributing.html#questions">Questions?</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="changelog.html">Changelog</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="changelog.html#unreleased">[Unreleased]</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="changelog.html#added">Added</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="changelog.html#xx">[0.1.0] - 2024-01-XX</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="changelog.html#id1">Added</a></li>
+<li class="toctree-l3"><a class="reference internal" href="changelog.html#features">Features</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="changelog.html#core-modeling">Core Modeling</a></li>
+<li class="toctree-l4"><a class="reference internal" href="changelog.html#transformations">Transformations</a></li>
+<li class="toctree-l4"><a class="reference internal" href="changelog.html#optimization">Optimization</a></li>
+<li class="toctree-l4"><a class="reference internal" href="changelog.html#multi-market">Multi-Market</a></li>
+<li class="toctree-l4"><a class="reference internal" href="changelog.html#user-interface">User Interface</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="changelog.html#documentation">Documentation</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="changelog.html#initial-development">[0.0.1] - Initial Development</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="changelog.html#id2">Added</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="changelog.html#version-history-legend">Version History Legend</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="architecture.html">Architecture Overview</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="architecture.html#high-level-architecture">High-Level Architecture</a></li>
+<li class="toctree-l2"><a class="reference internal" href="architecture.html#component-details">Component Details</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="architecture.html#data-processor-src-data-processor-py">1. Data Processor (<code class="docutils literal notranslate"><span class="pre">src/data_processor.py</span></code>)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="architecture.html#transformations-src-transformations-py">2. Transformations (<code class="docutils literal notranslate"><span class="pre">src/transformations.py</span></code>)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="architecture.html#ridge-mmm-src-ridge-mmm-py">3. Ridge MMM (<code class="docutils literal notranslate"><span class="pre">src/ridge_mmm.py</span></code>)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="architecture.html#hierarchical-mmm-src-hierarchical-mmm-py">4. Hierarchical MMM (<code class="docutils literal notranslate"><span class="pre">src/hierarchical_mmm.py</span></code>)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="architecture.html#budget-optimizer-src-optimizer-py">5. Budget Optimizer (<code class="docutils literal notranslate"><span class="pre">src/optimizer.py</span></code>)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="architecture.html#visualizations-src-visualizations-py">6. Visualizations (<code class="docutils literal notranslate"><span class="pre">src/visualizations.py</span></code>)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="architecture.html#utilities-src-utils">7. Utilities (<code class="docutils literal notranslate"><span class="pre">src/utils/</span></code>)</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="architecture.html#streamlit-interface">Streamlit Interface</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="architecture.html#page-structure">Page Structure</a></li>
+<li class="toctree-l3"><a class="reference internal" href="architecture.html#state-management">State Management</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="architecture.html#data-flow">Data Flow</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="architecture.html#complete-workflow">Complete Workflow</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="architecture.html#design-principles">Design Principles</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="architecture.html#separation-of-concerns">1. Separation of Concerns</a></li>
+<li class="toctree-l3"><a class="reference internal" href="architecture.html#modularity">2. Modularity</a></li>
+<li class="toctree-l3"><a class="reference internal" href="architecture.html#type-safety">3. Type Safety</a></li>
+<li class="toctree-l3"><a class="reference internal" href="architecture.html#testability">4. Testability</a></li>
+<li class="toctree-l3"><a class="reference internal" href="architecture.html#documentation">5. Documentation</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="architecture.html#extension-points">Extension Points</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="architecture.html#adding-new-transformations">Adding New Transformations</a></li>
+<li class="toctree-l3"><a class="reference internal" href="architecture.html#adding-new-optimization-algorithms">Adding New Optimization Algorithms</a></li>
+<li class="toctree-l3"><a class="reference internal" href="architecture.html#custom-visualizations">Custom Visualizations</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="architecture.html#performance-considerations">Performance Considerations</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="architecture.html#bottlenecks">Bottlenecks</a></li>
+<li class="toctree-l3"><a class="reference internal" href="architecture.html#optimizations">Optimizations</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="architecture.html#security">Security</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="architecture.html#data-privacy">Data Privacy</a></li>
+<li class="toctree-l3"><a class="reference internal" href="architecture.html#input-validation">Input Validation</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="architecture.html#future-architecture-enhancements">Future Architecture Enhancements</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="architecture.html#planned">Planned</a></li>
+<li class="toctree-l3"><a class="reference internal" href="architecture.html#under-consideration">Under Consideration</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Ridge MMM</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content style-external-links">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Ridge MMM User Guide</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/user_guide.md.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section class="tex2jax_ignore mathjax_ignore" id="ridge-mmm-user-guide">
+<h1>Ridge MMM User Guide<a class="headerlink" href="#ridge-mmm-user-guide" title="Link to this heading"></a></h1>
+<section id="table-of-contents">
+<h2>Table of Contents<a class="headerlink" href="#table-of-contents" title="Link to this heading"></a></h2>
+<ol class="arabic simple">
+<li><p><a class="reference external" href="https://docs.python.org/3/reference/introduction.html#introduction" title="Python 3.14"><span class="xref myst">Introduction</span></a></p></li>
+<li><p><a class="reference internal" href="#quick-start"><span class="xref myst">Quick Start</span></a></p></li>
+<li><p><a class="reference internal" href="#data-preparation"><span class="xref myst">Data Preparation</span></a></p></li>
+<li><p><a class="reference internal" href="#model-configuration"><span class="xref myst">Model Configuration</span></a></p></li>
+<li><p><a class="reference internal" href="#understanding-results"><span class="xref myst">Understanding Results</span></a></p></li>
+<li><p><a class="reference internal" href="#budget-optimization"><span class="xref myst">Budget Optimization</span></a></p></li>
+<li><p><a class="reference internal" href="#multi-market-analysis"><span class="xref myst">Multi-Market Analysis</span></a></p></li>
+<li><p><a class="reference internal" href="#best-practices"><span class="xref myst">Best Practices</span></a></p></li>
+<li><p><a class="reference internal" href="#troubleshooting"><span class="xref myst">Troubleshooting</span></a></p></li>
+</ol>
+</section>
+<hr class="docutils" />
+<section id="introduction">
+<h2>Introduction<a class="headerlink" href="#introduction" title="Link to this heading"></a></h2>
+<section id="what-is-marketing-mix-modeling-mmm">
+<h3>What is Marketing Mix Modeling (MMM)?<a class="headerlink" href="#what-is-marketing-mix-modeling-mmm" title="Link to this heading"></a></h3>
+<p>Marketing Mix Modeling is a statistical technique that helps you understand:</p>
+<ul class="simple">
+<li><p><strong>How much does each marketing channel contribute to revenue?</strong></p></li>
+<li><p><strong>What’s the optimal budget allocation across channels?</strong></p></li>
+<li><p><strong>How do channels saturate (diminishing returns)?</strong></p></li>
+<li><p><strong>What’s the carryover effect (adstock) of advertising?</strong></p></li>
+</ul>
+</section>
+<section id="when-to-use-this-tool">
+<h3>When to Use This Tool<a class="headerlink" href="#when-to-use-this-tool" title="Link to this heading"></a></h3>
+<p>✅ <strong>Use Ridge MMM when:</strong></p>
+<ul class="simple">
+<li><p>You have 1-3 years of weekly marketing data</p></li>
+<li><p>You spend on 2-10 marketing channels</p></li>
+<li><p>You need quick, actionable budget recommendations</p></li>
+<li><p>You want to compare “what-if” scenarios</p></li>
+</ul>
+<p>❌ <strong>Don’t use Ridge MMM when:</strong></p>
+<ul class="simple">
+<li><p>You have less than 6 months of data (not enough for reliable estimates)</p></li>
+<li><p>You need real-time optimization (this is strategic planning tool)</p></li>
+<li><p>You have 20+ channels (consider hierarchical Bayesian MMM instead)</p></li>
+</ul>
+</section>
+</section>
+<hr class="docutils" />
+<section id="quick-start">
+<h2>Quick Start<a class="headerlink" href="#quick-start" title="Link to this heading"></a></h2>
+<section id="step-1-prepare-your-data">
+<h3>Step 1: Prepare Your Data<a class="headerlink" href="#step-1-prepare-your-data" title="Link to this heading"></a></h3>
+<p>Create a CSV file with this structure:</p>
+<div class="highlight-csv notranslate"><div class="highlight"><pre><span></span>date,revenue,google_uac,meta,apple_search,tiktok
+2023-01-01,15000000,2000000,1500000,1000000,500000
+2023-01-08,18000000,2500000,1800000,1200000,600000
+...
+</pre></div>
+</div>
+<p><strong>Requirements:</strong></p>
+<ul class="simple">
+<li><p>At least 52 weeks of data (104 weeks recommended)</p></li>
+<li><p>Weekly aggregation (Monday-Sunday)</p></li>
+<li><p>One row per week</p></li>
+<li><p>Revenue and spend in same currency</p></li>
+</ul>
+</section>
+<section id="step-2-upload-data">
+<h3>Step 2: Upload Data<a class="headerlink" href="#step-2-upload-data" title="Link to this heading"></a></h3>
+<ol class="arabic simple">
+<li><p>Go to <strong>📊 Data Upload</strong> page</p></li>
+<li><p>Click “Browse files” and select your CSV</p></li>
+<li><p>Map columns:</p>
+<ul class="simple">
+<li><p>Date column: <code class="docutils literal notranslate"><span class="pre">date</span></code></p></li>
+<li><p>Revenue column: <code class="docutils literal notranslate"><span class="pre">revenue</span></code></p></li>
+<li><p>Media channels: Select all spend columns</p></li>
+</ul>
+</li>
+<li><p>Review data quality report</p></li>
+<li><p>Click “Save Configuration”</p></li>
+</ol>
+</section>
+<section id="step-3-configure-model">
+<h3>Step 3: Configure Model<a class="headerlink" href="#step-3-configure-model" title="Link to this heading"></a></h3>
+<ol class="arabic simple">
+<li><p>Go to <strong>⚙️ Model Config</strong> page</p></li>
+<li><p>Set transformation parameters for each channel:</p></li>
+</ol>
+<p><strong>Adstock (Carryover Effect):</strong></p>
+<ul class="simple">
+<li><p>TV/Brand: 0.6-0.8 (long-lasting effect)</p></li>
+<li><p>Digital Performance: 0.2-0.4 (short-term effect)</p></li>
+<li><p>Social Media: 0.3-0.6 (medium-term)</p></li>
+</ul>
+<p><strong>Hill Saturation:</strong></p>
+<ul class="simple">
+<li><p>K (Scale): Usually 1.0 (start here)</p></li>
+<li><p>S (Shape): Usually 1.0 (start here)</p></li>
+</ul>
+<ol class="arabic simple" start="3">
+<li><p>Click “Train Model”</p></li>
+</ol>
+</section>
+<section id="step-4-analyze-results">
+<h3>Step 4: Analyze Results<a class="headerlink" href="#step-4-analyze-results" title="Link to this heading"></a></h3>
+<ol class="arabic simple">
+<li><p>Go to <strong>📈 Results</strong> page</p></li>
+<li><p>Review:</p>
+<ul class="simple">
+<li><p>Channel contributions (waterfall chart)</p></li>
+<li><p>ROAS by channel</p></li>
+<li><p>Response curves (saturation points)</p></li>
+<li><p>Model diagnostics (R², MAPE)</p></li>
+</ul>
+</li>
+</ol>
+</section>
+<section id="step-5-optimize-budget">
+<h3>Step 5: Optimize Budget<a class="headerlink" href="#step-5-optimize-budget" title="Link to this heading"></a></h3>
+<ol class="arabic simple">
+<li><p>Go to <strong>💰 Budget Optimizer</strong> page</p></li>
+<li><p>Enter total budget</p></li>
+<li><p>Set channel constraints (optional)</p></li>
+<li><p>Click “Optimize Budget”</p></li>
+<li><p>Compare optimized vs current allocation</p></li>
+</ol>
+</section>
+</section>
+<hr class="docutils" />
+<section id="data-preparation">
+<h2>Data Preparation<a class="headerlink" href="#data-preparation" title="Link to this heading"></a></h2>
+<section id="data-format-requirements">
+<h3>Data Format Requirements<a class="headerlink" href="#data-format-requirements" title="Link to this heading"></a></h3>
+<p><strong>Minimum Requirements:</strong></p>
+<ul class="simple">
+<li><p><strong>52 weeks</strong> of data (1 year)</p></li>
+<li><p><strong>Weekly aggregation</strong> (not daily - too noisy)</p></li>
+<li><p><strong>Consistent currency</strong> (all values in same unit)</p></li>
+</ul>
+<p><strong>Optimal:</strong></p>
+<ul class="simple">
+<li><p><strong>104-156 weeks</strong> (2-3 years)</p></li>
+<li><p><strong>No missing weeks</strong> (fill gaps with 0 or interpolate)</p></li>
+<li><p><strong>Include exogenous variables</strong> (seasonality, promotions, holidays)</p></li>
+</ul>
+</section>
+<section id="column-naming">
+<h3>Column Naming<a class="headerlink" href="#column-naming" title="Link to this heading"></a></h3>
+<p><strong>Required Columns:</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">date</span>          <span class="o">-</span> <span class="n">Format</span><span class="p">:</span> <span class="n">YYYY</span><span class="o">-</span><span class="n">MM</span><span class="o">-</span><span class="n">DD</span>
+<span class="n">revenue</span>       <span class="o">-</span> <span class="n">Total</span> <span class="n">revenue</span> <span class="p">(</span><span class="ow">or</span> <span class="n">installs</span><span class="p">,</span> <span class="n">conversions</span><span class="p">)</span>
+<span class="p">[</span><span class="n">channel1</span><span class="p">]</span>    <span class="o">-</span> <span class="n">Spend</span> <span class="n">on</span> <span class="n">channel</span> <span class="mi">1</span> <span class="p">(</span><span class="n">e</span><span class="o">.</span><span class="n">g</span><span class="o">.</span><span class="p">,</span> <span class="n">google_uac</span><span class="p">)</span>
+<span class="p">[</span><span class="n">channel2</span><span class="p">]</span>    <span class="o">-</span> <span class="n">Spend</span> <span class="n">on</span> <span class="n">channel</span> <span class="mi">2</span> <span class="p">(</span><span class="n">e</span><span class="o">.</span><span class="n">g</span><span class="o">.</span><span class="p">,</span> <span class="n">meta</span><span class="p">)</span>
+<span class="o">...</span>
+</pre></div>
+</div>
+<p><strong>Optional Columns:</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">promotion</span>     <span class="o">-</span> <span class="n">Binary</span> <span class="p">(</span><span class="mi">0</span><span class="o">/</span><span class="mi">1</span><span class="p">)</span> <span class="k">for</span> <span class="n">promotion</span> <span class="n">weeks</span>
+<span class="n">seasonality</span>   <span class="o">-</span> <span class="n">Numeric</span> <span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="mi">4</span> <span class="k">for</span> <span class="n">quarters</span><span class="p">)</span>
+<span class="n">holiday</span>       <span class="o">-</span> <span class="n">Binary</span> <span class="k">for</span> <span class="n">holiday</span> <span class="n">weeks</span>
+<span class="n">installs</span>      <span class="o">-</span> <span class="n">For</span> <span class="n">mobile</span> <span class="n">games</span> <span class="p">(</span><span class="n">optional</span> <span class="n">KPI</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section id="multi-market-data-format">
+<h3>Multi-Market Data Format<a class="headerlink" href="#multi-market-data-format" title="Link to this heading"></a></h3>
+<p>For global campaigns, use this format:</p>
+<div class="highlight-csv notranslate"><div class="highlight"><pre><span></span>date,country,os,revenue,installs,google_uac,meta
+2023-01-01,US,iOS,5000000,1000,800000,600000
+2023-01-01,US,Android,4000000,1500,700000,500000
+2023-01-01,KR,iOS,3000000,800,500000,400000
+...
+</pre></div>
+</div>
+<p><strong>Additional Columns:</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">country</span></code> - 2-letter country code (US, KR, JP, etc.)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">os</span></code> - Platform (iOS, Android)</p></li>
+</ul>
+</section>
+<section id="data-quality-checks">
+<h3>Data Quality Checks<a class="headerlink" href="#data-quality-checks" title="Link to this heading"></a></h3>
+<p>Before uploading, verify:</p>
+<p>✅ <strong>No duplicate dates</strong> (each week appears once)
+✅ <strong>No extreme outliers</strong> (unless real - like Black Friday)
+✅ <strong>Consistent scaling</strong> (don’t mix millions and thousands)
+✅ <strong>No negative values</strong> (spend and revenue should be ≥ 0)</p>
+</section>
+</section>
+<hr class="docutils" />
+<section id="model-configuration">
+<h2>Model Configuration<a class="headerlink" href="#model-configuration" title="Link to this heading"></a></h2>
+<section id="understanding-adstock-carryover-effect">
+<h3>Understanding Adstock (Carryover Effect)<a class="headerlink" href="#understanding-adstock-carryover-effect" title="Link to this heading"></a></h3>
+<p><strong>What is Adstock?</strong>
+The delayed and prolonged effect of advertising. If you spend $1M on TV this week, the impact continues for several weeks.</p>
+<p><strong>Decay Rate Parameter (0-1):</strong></p>
+<ul class="simple">
+<li><p><strong>0.0</strong>: No carryover (effect only in current week)</p></li>
+<li><p><strong>0.5</strong>: 50% of this week’s effect carries to next week</p></li>
+<li><p><strong>0.8</strong>: 80% carries over (very long-lasting)</p></li>
+</ul>
+<p><strong>How to Choose:</strong></p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>Channel Type</p></th>
+<th class="head"><p>Recommended Decay</p></th>
+<th class="head"><p>Reasoning</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>TV/Brand</p></td>
+<td><p>0.6-0.8</p></td>
+<td><p>Long brand-building effect</p></td>
+</tr>
+<tr class="row-odd"><td><p>Search (Google)</p></td>
+<td><p>0.1-0.3</p></td>
+<td><p>Immediate performance</p></td>
+</tr>
+<tr class="row-even"><td><p>Social (Meta)</p></td>
+<td><p>0.3-0.6</p></td>
+<td><p>Medium-term engagement</p></td>
+</tr>
+<tr class="row-odd"><td><p>Display</p></td>
+<td><p>0.4-0.7</p></td>
+<td><p>Retargeting effects</p></td>
+</tr>
+<tr class="row-even"><td><p>Influencer</p></td>
+<td><p>0.5-0.8</p></td>
+<td><p>Content stays visible</p></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Visual Example:</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>Week 1: Spend $100 → Effect $100
+Week 2: Spend $0   → Effect $50 (50% decay from Week 1)
+Week 3: Spend $0   → Effect $25 (50% decay from Week 2)
+</pre></div>
+</div>
+</section>
+<section id="understanding-hill-saturation">
+<h3>Understanding Hill Saturation<a class="headerlink" href="#understanding-hill-saturation" title="Link to this heading"></a></h3>
+<p><strong>What is Saturation?</strong>
+Diminishing returns as you increase spend. The first <span class="math notranslate nohighlight">\(1M is more effective than the 10th \)</span>1M.</p>
+<p><strong>Parameters:</strong></p>
+<ul class="simple">
+<li><p><strong>K (Scale)</strong>: Maximum effect achievable</p>
+<ul>
+<li><p>Typically 1.0-2.0</p></li>
+<li><p>Higher K = more potential impact</p></li>
+</ul>
+</li>
+<li><p><strong>S (Shape)</strong>: How quickly saturation happens</p>
+<ul>
+<li><p>S = 1.0: Smooth curve (default)</p></li>
+<li><p>S &lt; 1.0: Gentle saturation (long runway)</p></li>
+<li><p>S &gt; 1.0: Steep saturation (quick diminishing returns)</p></li>
+</ul>
+</li>
+</ul>
+<p><strong>How to Choose:</strong></p>
+<p>Start with <strong>K=1.0, S=1.0</strong> for all channels, then adjust based on:</p>
+<ul class="simple">
+<li><p>Known saturation points from past experiments</p></li>
+<li><p>Industry benchmarks</p></li>
+<li><p>Business intuition</p></li>
+</ul>
+</section>
+<section id="model-settings">
+<h3>Model Settings<a class="headerlink" href="#model-settings" title="Link to this heading"></a></h3>
+<p><strong>Ridge Alpha (Regularization):</strong></p>
+<ul class="simple">
+<li><p><strong>Low (0.1-0.5)</strong>: Less regularization, may overfit</p></li>
+<li><p><strong>Medium (1.0)</strong>: Balanced (recommended default)</p></li>
+<li><p><strong>High (5.0-10.0)</strong>: Strong regularization, more stable</p></li>
+</ul>
+<p><strong>Train/Test Split:</strong></p>
+<ul class="simple">
+<li><p><strong>80/20</strong>: Standard (80% train, 20% test)</p></li>
+<li><p>Use test set to validate model accuracy</p></li>
+</ul>
+</section>
+</section>
+<hr class="docutils" />
+<section id="understanding-results">
+<h2>Understanding Results<a class="headerlink" href="#understanding-results" title="Link to this heading"></a></h2>
+<section id="channel-contributions-tab">
+<h3>Channel Contributions Tab<a class="headerlink" href="#channel-contributions-tab" title="Link to this heading"></a></h3>
+<p><strong>Waterfall Chart:</strong>
+Shows how each channel builds up to total revenue.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>Base (organic): ████████ 20%
+Google UAC:     ██████████████ 30%
+Meta:           ████████████ 25%
+Apple Search:   ████████ 15%
+Others:         ██████ 10%
+───────────────────────────────
+Total Revenue:  ████████████████████ 100%
+</pre></div>
+</div>
+<p><strong>Key Metrics:</strong></p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>Metric</p></th>
+<th class="head"><p>Meaning</p></th>
+<th class="head"><p>Good Value</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><strong>ROAS</strong></p></td>
+<td><p>Revenue per $1 spent</p></td>
+<td><p>&gt; 2.0 for performance channels</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>Contribution %</strong></p></td>
+<td><p>Share of total revenue</p></td>
+<td><p>Aligns with strategy</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>Spend</strong></p></td>
+<td><p>Total invested</p></td>
+<td><p>N/A</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="response-curves-tab">
+<h3>Response Curves Tab<a class="headerlink" href="#response-curves-tab" title="Link to this heading"></a></h3>
+<p><strong>What to Look For:</strong></p>
+<p>✅ <strong>Healthy Curve:</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>Revenue ▲
+        │     ╭──── (Saturated)
+        │   ╭─╯
+        │ ╭─╯
+        │╭╯
+        └──────────► Spend
+</pre></div>
+</div>
+<p>❌ <strong>Problem: Already Saturated</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>Revenue ▲
+        │ ────────── (Flat)
+        │╭──────────
+        │╯
+        └──────────► Spend
+         ↑
+      Current spend
+</pre></div>
+</div>
+<p><strong>Action:</strong> Reduce spend on this channel</p>
+<p>❌ <strong>Problem: No Saturation Visible</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>Revenue ▲
+        │          ╱
+        │        ╱
+        │      ╱
+        │    ╱
+        └──────────► Spend
+</pre></div>
+</div>
+<p><strong>Action:</strong> May indicate insufficient data or poor model fit</p>
+</section>
+<section id="model-diagnostics-tab">
+<h3>Model Diagnostics Tab<a class="headerlink" href="#model-diagnostics-tab" title="Link to this heading"></a></h3>
+<p><strong>R² (R-squared): 0.0-1.0</strong></p>
+<ul class="simple">
+<li><p><strong>&gt; 0.7</strong>: Excellent fit</p></li>
+<li><p><strong>0.5-0.7</strong>: Good fit</p></li>
+<li><p><strong>&lt; 0.5</strong>: Poor fit (investigate data quality)</p></li>
+</ul>
+<p><strong>MAPE (Mean Absolute Percentage Error):</strong></p>
+<ul class="simple">
+<li><p><strong>&lt; 10%</strong>: Excellent accuracy</p></li>
+<li><p><strong>10-20%</strong>: Good accuracy</p></li>
+<li><p><strong>&gt; 20%</strong>: Poor accuracy</p></li>
+</ul>
+<p><strong>What if model fit is poor?</strong></p>
+<ol class="arabic simple">
+<li><p>Check data quality (outliers, missing values)</p></li>
+<li><p>Add exogenous variables (seasonality, promotions)</p></li>
+<li><p>Try different adstock/hill parameters</p></li>
+<li><p>Collect more data (need 2+ years ideally)</p></li>
+</ol>
+</section>
+</section>
+<hr class="docutils" />
+<section id="budget-optimization">
+<h2>Budget Optimization<a class="headerlink" href="#budget-optimization" title="Link to this heading"></a></h2>
+<section id="using-the-optimizer">
+<h3>Using the Optimizer<a class="headerlink" href="#using-the-optimizer" title="Link to this heading"></a></h3>
+<p><strong>Step 1: Set Total Budget</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>Enter desired total budget: $5,000,000
+</pre></div>
+</div>
+<p><strong>Step 2: Set Constraints (Optional)</strong></p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>Channel</p></th>
+<th class="head"><p>Min Spend</p></th>
+<th class="head"><p>Max Spend</p></th>
+<th class="head"><p>Reasoning</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Google</p></td>
+<td><p>$1M</p></td>
+<td><p>$3M</p></td>
+<td><p>Contract commitment</p></td>
+</tr>
+<tr class="row-odd"><td><p>Meta</p></td>
+<td><p>$500K</p></td>
+<td><p>$2M</p></td>
+<td><p>Test budget cap</p></td>
+</tr>
+<tr class="row-even"><td><p>Apple</p></td>
+<td><p>$0</p></td>
+<td><p>$2M</p></td>
+<td><p>Flexible</p></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Step 3: Run Optimization</strong></p>
+<p>Click “Optimize Budget” to see:</p>
+<p><strong>Current Allocation:</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>Google:  $2.0M  (ROAS 3.0)
+Meta:    $1.5M  (ROAS 2.5)
+Apple:   $1.5M  (ROAS 2.2)
+────────────────────────────
+Total:   $5.0M  (Revenue: $14M)
+</pre></div>
+</div>
+<p><strong>Optimized Allocation:</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>Google:  $2.5M  (ROAS 2.8) ← +$500K
+Meta:    $1.8M  (ROAS 2.6) ← +$300K
+Apple:   $0.7M  (ROAS 3.0) ← -$800K
+────────────────────────────
+Total:   $5.0M  (Revenue: $15.2M)
+                          ↑
+                     +8.6% improvement!
+</pre></div>
+</div>
+</section>
+<section id="scenario-builder">
+<h3>Scenario Builder<a class="headerlink" href="#scenario-builder" title="Link to this heading"></a></h3>
+<p><strong>Use Case: “What if we cut budget by 20%?”</strong></p>
+<ol class="arabic simple">
+<li><p>Adjust sliders:</p>
+<ul class="simple">
+<li><p>Google: <span class="math notranslate nohighlight">\(2.0M → \)</span>1.6M</p></li>
+<li><p>Meta: <span class="math notranslate nohighlight">\(1.5M → \)</span>1.2M</p></li>
+<li><p>Apple: <span class="math notranslate nohighlight">\(1.5M → \)</span>1.2M</p></li>
+</ul>
+</li>
+<li><p>See predicted impact:</p>
+<ul class="simple">
+<li><p>Total: <span class="math notranslate nohighlight">\(5.0M → \)</span>4.0M</p></li>
+<li><p>Revenue: <span class="math notranslate nohighlight">\(14.0M → \)</span>12.5M</p></li>
+<li><p>ROAS: 2.8 → 3.1 (efficiency improves!)</p></li>
+</ul>
+</li>
+<li><p>Save as “Conservative Q1”</p></li>
+<li><p>Compare multiple scenarios:</p>
+<ul class="simple">
+<li><p>Current</p></li>
+<li><p>Conservative Q1</p></li>
+<li><p>Aggressive Growth</p></li>
+<li><p>Google Focus</p></li>
+</ul>
+</li>
+</ol>
+</section>
+<section id="interpreting-recommendations">
+<h3>Interpreting Recommendations<a class="headerlink" href="#interpreting-recommendations" title="Link to this heading"></a></h3>
+<p><strong>If Optimizer Suggests Big Changes (&gt;30%):</strong></p>
+<ul class="simple">
+<li><p>⚠️ <strong>Don’t implement all at once</strong></p></li>
+<li><p>✅ Move 10-20% in recommended direction</p></li>
+<li><p>✅ Test for 2-4 weeks</p></li>
+<li><p>✅ Re-run model with new data</p></li>
+<li><p>✅ Iterate gradually</p></li>
+</ul>
+<p><strong>Why Gradual Implementation?</strong></p>
+<ul class="simple">
+<li><p>Model based on historical patterns</p></li>
+<li><p>Market conditions change</p></li>
+<li><p>Avoid disrupting campaigns mid-flight</p></li>
+<li><p>Learn and adjust</p></li>
+</ul>
+</section>
+</section>
+<hr class="docutils" />
+<section id="multi-market-analysis">
+<h2>Multi-Market Analysis<a class="headerlink" href="#multi-market-analysis" title="Link to this heading"></a></h2>
+<section id="setting-up-multi-market-models">
+<h3>Setting Up Multi-Market Models<a class="headerlink" href="#setting-up-multi-market-models" title="Link to this heading"></a></h3>
+<p><strong>When to Use:</strong></p>
+<ul class="simple">
+<li><p>Running campaigns in 2+ countries</p></li>
+<li><p>iOS vs Android have different economics</p></li>
+<li><p>Need country-specific insights</p></li>
+</ul>
+<p><strong>Analysis Levels:</strong></p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>Level</p></th>
+<th class="head"><p>Use Case</p></th>
+<th class="head"><p>Example</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><strong>Global</strong></p></td>
+<td><p>Single unified model</p></td>
+<td><p>Small budgets, similar markets</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>By Country</strong></p></td>
+<td><p>Country-specific insights</p></td>
+<td><p>US, KR, JP have different ROAS</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>By OS</strong></p></td>
+<td><p>Platform differences</p></td>
+<td><p>iOS higher LTV than Android</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>Country × OS</strong></p></td>
+<td><p>Granular control</p></td>
+<td><p>US-iOS different from US-Android</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="comparing-markets">
+<h3>Comparing Markets<a class="headerlink" href="#comparing-markets" title="Link to this heading"></a></h3>
+<p><strong>Heatmap View:</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>         <span class="n">Google</span>  <span class="n">Meta</span>  <span class="n">Apple</span>
+<span class="n">US</span>       <span class="mf">3.5</span>    <span class="mf">3.2</span>   <span class="mf">2.8</span>
+<span class="n">KR</span>       <span class="mf">2.8</span>    <span class="mf">2.5</span>   <span class="mf">2.0</span>
+<span class="n">JP</span>       <span class="mf">3.2</span>    <span class="mf">2.8</span>   <span class="mf">2.5</span>
+</pre></div>
+</div>
+<p><strong>Insights:</strong></p>
+<ul class="simple">
+<li><p>Google performs best in US</p></li>
+<li><p>All channels weaker in KR (competitive market?)</p></li>
+<li><p>Consistent performance in JP</p></li>
+</ul>
+</section>
+<section id="cross-market-insights">
+<h3>Cross-Market Insights<a class="headerlink" href="#cross-market-insights" title="Link to this heading"></a></h3>
+<p><strong>Question: “Should I expand to new country?”</strong></p>
+<p>Compare similar countries:</p>
+<ul class="simple">
+<li><p>If KR ROAS = 2.5 and TW similar market → expect TW ROAS ~2.3-2.7</p></li>
+<li><p>Budget accordingly for test phase</p></li>
+</ul>
+</section>
+</section>
+<hr class="docutils" />
+<section id="best-practices">
+<h2>Best Practices<a class="headerlink" href="#best-practices" title="Link to this heading"></a></h2>
+<section id="data-collection">
+<h3>Data Collection<a class="headerlink" href="#data-collection" title="Link to this heading"></a></h3>
+<p>✅ <strong>Do:</strong></p>
+<ul class="simple">
+<li><p>Track all marketing spend consistently</p></li>
+<li><p>Use UTM parameters for attribution</p></li>
+<li><p>Export data weekly (same day each week)</p></li>
+<li><p>Document campaigns/events (merge with data)</p></li>
+<li><p>Keep 2-3 years of history</p></li>
+</ul>
+<p>❌ <strong>Don’t:</strong></p>
+<ul class="simple">
+<li><p>Mix different attribution windows</p></li>
+<li><p>Change tracking methodology mid-way</p></li>
+<li><p>Ignore organic/base revenue</p></li>
+<li><p>Delete “bad” weeks (keep all data)</p></li>
+</ul>
+</section>
+<section id="model-development">
+<h3>Model Development<a class="headerlink" href="#model-development" title="Link to this heading"></a></h3>
+<p>✅ <strong>Do:</strong></p>
+<ul class="simple">
+<li><p>Start with simple model (default parameters)</p></li>
+<li><p>Validate with holdout test set</p></li>
+<li><p>Compare predictions to actual results</p></li>
+<li><p>Document assumptions and decisions</p></li>
+<li><p>Re-train quarterly as data grows</p></li>
+</ul>
+<p>❌ <strong>Don’t:</strong></p>
+<ul class="simple">
+<li><p>Over-tune parameters to fit perfectly (overfitting)</p></li>
+<li><p>Use model for channels with &lt;10 weeks of spend</p></li>
+<li><p>Ignore model diagnostics (R², MAPE)</p></li>
+<li><p>Trust model blindly without business sense</p></li>
+</ul>
+</section>
+<section id="using-results">
+<h3>Using Results<a class="headerlink" href="#using-results" title="Link to this heading"></a></h3>
+<p>✅ <strong>Do:</strong></p>
+<ul class="simple">
+<li><p>Test recommendations gradually (10-20% shifts)</p></li>
+<li><p>Combine MMM with incrementality tests</p></li>
+<li><p>Share results with stakeholders (visualizations)</p></li>
+<li><p>Monitor actual performance vs predictions</p></li>
+<li><p>Iterate and improve</p></li>
+</ul>
+<p>❌ <strong>Don’t:</strong></p>
+<ul class="simple">
+<li><p>Make 50%+ budget shifts based on model alone</p></li>
+<li><p>Stop running experiments (A/B tests complement MMM)</p></li>
+<li><p>Expect perfect predictions (models are guides)</p></li>
+<li><p>Forget to update model as market changes</p></li>
+</ul>
+</section>
+</section>
+<hr class="docutils" />
+<section id="troubleshooting">
+<h2>Troubleshooting<a class="headerlink" href="#troubleshooting" title="Link to this heading"></a></h2>
+<section id="model-has-poor-fit-r2-0-5">
+<h3>“Model has poor fit (R² &lt; 0.5)”<a class="headerlink" href="#model-has-poor-fit-r2-0-5" title="Link to this heading"></a></h3>
+<p><strong>Possible Causes:</strong></p>
+<ol class="arabic simple">
+<li><p>Not enough data (need 52+ weeks)</p></li>
+<li><p>Too many channels for available data</p></li>
+<li><p>Major market changes during period</p></li>
+<li><p>Missing key variables (seasonality, events)</p></li>
+</ol>
+<p><strong>Solutions:</strong></p>
+<ol class="arabic simple">
+<li><p>Collect more data</p></li>
+<li><p>Combine similar channels</p></li>
+<li><p>Split time period (before/after change)</p></li>
+<li><p>Add exogenous variables</p></li>
+</ol>
+</section>
+<section id="optimization-suggests-extreme-allocations">
+<h3>“Optimization suggests extreme allocations”<a class="headerlink" href="#optimization-suggests-extreme-allocations" title="Link to this heading"></a></h3>
+<p><strong>Example: “Put 90% in Google, 10% in others”</strong></p>
+<p><strong>Why This Happens:</strong></p>
+<ul class="simple">
+<li><p>Model sees Google had highest historical ROAS</p></li>
+<li><p>Doesn’t account for saturation beyond historical spend</p></li>
+<li><p>Assumes linear scaling (incorrect)</p></li>
+</ul>
+<p><strong>Solutions:</strong></p>
+<ol class="arabic simple">
+<li><p>Set conservative constraints (min/max per channel)</p></li>
+<li><p>Implement gradually (test 20% shift first)</p></li>
+<li><p>Check if hill parameters are too weak (increase S)</p></li>
+<li><p>Use business judgment to override</p></li>
+</ol>
+</section>
+<section id="results-dont-match-my-intuition">
+<h3>“Results don’t match my intuition”<a class="headerlink" href="#results-dont-match-my-intuition" title="Link to this heading"></a></h3>
+<p><strong>Example: “TV shows low ROAS but I know it’s brand-building”</strong></p>
+<p><strong>Possible Reasons:</strong></p>
+<ol class="arabic simple">
+<li><p>Brand effects measured differently (long-term LTV not in data)</p></li>
+<li><p>Halo effects not captured (TV boosts search)</p></li>
+<li><p>Data quality issues (tracking problems)</p></li>
+<li><p>Adstock too low (TV effects are long-term)</p></li>
+</ol>
+<p><strong>Solutions:</strong></p>
+<ol class="arabic simple">
+<li><p>Increase TV adstock (0.7-0.8)</p></li>
+<li><p>Add brand metrics if available (awareness, consideration)</p></li>
+<li><p>Validate TV tracking accuracy</p></li>
+<li><p>Consider incrementality tests for TV specifically</p></li>
+</ol>
+</section>
+<section id="different-from-last-click-attribution">
+<h3>“Different from last-click attribution”<a class="headerlink" href="#different-from-last-click-attribution" title="Link to this heading"></a></h3>
+<p><strong>This is normal!</strong> MMM and last-click measure different things:</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>Metric</p></th>
+<th class="head"><p>Last-Click</p></th>
+<th class="head"><p>MMM</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><strong>What</strong></p></td>
+<td><p>Which touchpoint led to conversion</p></td>
+<td><p>Total incremental impact</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>View</strong></p></td>
+<td><p>Bottom-funnel</p></td>
+<td><p>Full-funnel</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>Bias</strong></p></td>
+<td><p>Favors search, brand</p></td>
+<td><p>More balanced</p></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Both are useful:</strong></p>
+<ul class="simple">
+<li><p>Last-click: Tactical optimization</p></li>
+<li><p>Last-click: Tactical optimization</p></li>
+<li><p>MMM: Strategic budget allocation</p></li>
+</ul>
+</section>
+</section>
+<hr class="docutils" />
+<section id="glossary">
+<h2>Glossary<a class="headerlink" href="#glossary" title="Link to this heading"></a></h2>
+<p><strong>Adstock</strong>: Carryover effect of advertising across time periods</p>
+<p><strong>ROAS (Return on Ad Spend)</strong>: Revenue generated per dollar spent on advertising</p>
+<p><strong>Saturation</strong>: Point where additional spend produces diminishing returns</p>
+<p><strong>Ridge Regression</strong>: Statistical method with regularization to prevent overfitting</p>
+<p><strong>Incrementality</strong>: Additional revenue caused by marketing (vs what would have happened anyway)</p>
+<p><strong>Base/Organic</strong>: Revenue that would occur without any paid marketing</p>
+<p><strong>Exogenous Variables</strong>: External factors affecting revenue (seasonality, holidays, events)</p>
+<p><strong>R²</strong>: Proportion of variance in revenue explained by the model (0-1 scale)</p>
+<p><strong>MAPE</strong>: Mean Absolute Percentage Error (average prediction error as %)</p>
+</section>
+<hr class="docutils" />
+<section id="support-resources">
+<h2>Support &amp; Resources<a class="headerlink" href="#support-resources" title="Link to this heading"></a></h2>
+<p><strong>Need Help?</strong></p>
+<ul class="simple">
+<li><p>Check this guide’s troubleshooting section</p></li>
+<li><p>Review example datasets in <code class="docutils literal notranslate"><span class="pre">data/sample/</span></code></p></li>
+<li><p>Contact: [your email]</p></li>
+</ul>
+<p><strong>Further Reading:</strong></p>
+<ul class="simple">
+<li><p>“Marketing Mix Modeling: A Primer” (Meta)</p></li>
+<li><p>“Bayesian Methods for Media Mix Modeling” (Google)</p></li>
+<li><p>Industry benchmarks by channel type</p></li>
+</ul>
+<p><strong>Updates:</strong>
+This tool is actively maintained. Check for updates quarterly.</p>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="index.html" class="btn btn-neutral float-left" title="Ridge MMM Documentation" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="quick_reference.html" class="btn btn-neutral float-right" title="Quick Reference Card" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2024, Ridge MMM Contributors.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
